@@ -54,23 +54,22 @@ class User extends Component {
           <div className="content-main">
 
             <div className="container">
-                <button class="btn navbar-button" type="submit">Decks</button>
-                <button class="btn navbar-button" type="submit">Activity</button>
-                <button class="btn navbar-button" type="submit">Following</button>
-                <button class="btn navbar-button" type="submit">Followers</button>
-                <div className="row justify-content-center">
-                  {posts.map(function (post, i) { //map function with server data
-                    return (
-                      <figure className="m-profile-whole-card-cover rounded" key={i}>
-                        <img className="card-img-top m-profile-card-cover rounded" src={post.url} alt="Card image cap" />
-                        <figcaption class="m-profile-card-text">{post.title}</figcaption>
-                      </figure>
-                    )
-                  })}
-                </div>
+              <button class="btn navbar-button" type="submit">Decks</button>
+              <button class="btn navbar-button" type="submit">Activity</button>
+              <button class="btn navbar-button" type="submit">Following</button>
+              <button class="btn navbar-button" type="submit">Followers</button>
+              <div className="row justify-content-center">
+                {posts.map(function (post, i) { //map function with server data
+                  return (
+                    <figure className="m-profile-whole-card-cover rounded" key={i}>
+                      <img className="card-img-top m-profile-card-cover rounded" src={post.url} alt="Card image cap" />
+                      <figcaption class="m-profile-card-text">{post.title}</figcaption>
+                    </figure>
+                  )
+                })}
               </div>
-              </div>
-
+            </div>
+          </div>
         </div>
       </div>
     );
