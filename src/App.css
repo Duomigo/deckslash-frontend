@@ -3,12 +3,32 @@
   src: url("Larsseit.otf");
 }
 
+@font-face {
+  font-family: regular;
+  src: url('fonts/Calibre-Regular.otf');
+}
+
+@font-face {
+  font-family: medium;
+  src: url('fonts/Calibre-Medium.otf');
+}
+
+@font-face {
+  font-family: italic;
+  src: url('fonts/Calibre-MediumItalic.otf');
+}
+
+@font-face {
+  font-family: semibold;
+  src: url('fonts/Calibre-Semibold.otf');
+}
+
 #main {
   font-family: lars;
 }
 
 .content-main {
-  margin: 30px;
+  margin: 10px;
 }
 
 .navbar-style {
@@ -58,15 +78,6 @@
   background-color: #eceff1;
 }
 
-.col-md-1 {
-  margin: auto;
-}
-
-.col-md-8 {
-  margin: auto;
-  background-color: yellow;
-}
-
 .m-card-text {
   font-family: lars;
   font-size: 18px;
@@ -75,12 +86,10 @@
 }
 
 .m-whole-card-cover {
-  border-radius: 5%;
   border-width: 0;
 }
 
 .m-card-cover {
-  border-radius: 5%;
   border-width: 0;
 }
 

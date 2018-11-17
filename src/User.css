@@ -1,0 +1,67 @@
+.m-user-page-structure {
+  justify-content: center;
+}
+
+.m-inside-contents {
+  align-items: flex-start;
+}
+
+.m-profile-content-header {
+  justify-content: center;
+  font-family: medium;
+  font-size: 24px;
+  color: #040d14;
+  margin: 10px;
+  background-color: grey;
+}
+
+.m-profile-avatar {
+  margin-top: 20px;
+  height: 252px;
+  width: auto;
+}
+
+.m-profile-user-frame {
+  background-color: #898d90;
+}
+
+.m-profile-name {
+  font-family: medium;
+  font-size: 24px;
+  color: #040d14;
+  word-wrap: break-word;
+  margin-top: 5px;
+  display: block;
+}
+
+.m-profile-username {
+  font-family: medium;
+  font-size: 18px;
+  color: #040d14;
+  margin-top: -10px;
+  display: block;
+}
+
+.m-profile-card-text {
+  font-family: medium;
+  font-size: 20px;
+  color: #040d14;
+  padding-top: 3%;
+}
+
+.m-profile-whole-card-cover {
+  border-width: 0;
+  margin: 10px;
+  height: 360px;
+  width: 224px;
+}
+
+.m-profile-card-cover {
+  border-width: 0;
+}
+
+.m-profile-card-cover:hover {
+  border-radius: 5%;
+  border-width: 0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
