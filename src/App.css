@@ -60,10 +60,25 @@
   background-color: transparent;
   font-family: lars;
   font-size: 18px;
+  border-radius: 999px;
 }
 
 .navbar-button:hover {
   background-color: #eceff1;
+  text-decoration: underline;
+}
+
+.selected-navbar-button {
+  color: #040d14;
+  background-color: #eceff1;
+  font-family: lars;
+  font-size: 18px;
+  border-radius: 999px;
+}
+
+.selected-navbar-button:hover {
+  background-color: #eceff1;
+  text-decoration: underline;
 }
 
 .navbar-search {
@@ -102,7 +117,7 @@
 .contentHeader {
   color: #040d14;
   text-align: left;
-  font-family: lars;
+  font-family: medium;
   padding-bottom: 10px;
 }
 

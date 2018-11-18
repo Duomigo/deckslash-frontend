@@ -9,20 +9,25 @@
 .m-profile-content-header {
   justify-content: center;
   font-family: medium;
-  font-size: 24px;
+  font-size: 45px;
   color: #040d14;
-  margin: 10px;
-  background-color: grey;
+  margin-top: 10px;
+  margin-bottom: -5px;
 }
 
 .m-profile-avatar {
   margin-top: 20px;
-  height: 252px;
-  width: auto;
+  height: 150px;
+  width: 150px;
+}
+
+.m-profile-filter {
+  text-align: center;
 }
 
 .m-profile-user-frame {
-  background-color: #898d90;
+  height: 100%;
+  width: 100%;
 }
 
 .m-profile-name {
@@ -40,6 +45,12 @@
   color: #040d14;
   margin-top: -10px;
   display: block;
+}
+
+.m-profile-desc {
+  font-family: regular;
+  font-size: 20px;
+  color: #040d14;
 }
 
 .m-profile-card-text {
