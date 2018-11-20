@@ -19,6 +19,7 @@
   margin-top: 20px;
   height: 150px;
   width: 150px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
 .m-profile-filter {
@@ -65,6 +66,11 @@
   margin: 10px;
   height: 360px;
   width: 224px;
+  transition: all .2s ease-in-out;
+}
+
+.m-profile-whole-card-cover:hover {
+  transform: scale(0.98);
 }
 
 .m-profile-card-cover {
