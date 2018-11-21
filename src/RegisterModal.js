@@ -6,7 +6,7 @@ import './User.css';
 import './LoginModal.css'
 import closeButton from './close-icon.png'
 
-class LoginModal extends Component {
+class RegisterModal extends Component {
   constructor() {
     super();
     this.state = {
@@ -39,23 +39,25 @@ class LoginModal extends Component {
           <div className="m-lm-content">
             <input className="m-lm-close-button" type="image" src={closeButton} alt="closebutton" onClick={this.handleCloseModal} />
 
-            <button className="form-control mr-sm-2 m-lm-button" style={{backgroundColor: '#3b5998', color: '#eceff1'}}>Log in with Facebook</button>
-            <button className="form-control mr-sm-2 m-lm-button">Log in with Google</button>
+            <button className="form-control mr-sm-2 m-lm-button" style={{backgroundColor: '#3b5998', color: '#eceff1'}}>Continue with Facebook</button>
+            <button className="form-control mr-sm-2 m-lm-button">Continue with Google</button>
 
             <hr/>
-
-            <input className="form-control mr-sm-2 m-lm-input" type="search" placeholder="Username" aria-label="username" />
-            <input className="form-control mr-sm-2 m-lm-input" type="search" placeholder="Password" aria-label="password" />
 
             <a href="https://google.com">
               <button className="btn form-control mr-sm-2 m-lm-button" style={{backgroundColor: 'rgb(255,45,85)', color: '#eceff1'}}>
-                Log in
+                Continue with Email
               </button>
             </a>
 
-            <t className="m-lm-text">Forgot password?</t>
             <hr/>
-            <t className="m-lm-text">Don't have an account? Sign up</t>
+
+            <t className="m-lm-text">
+              Already have an account?
+              <a href="https://google.com">
+                Log in
+              </a>
+            </t>
           </div>
         </Modal>
       </div>
@@ -63,4 +65,4 @@ class LoginModal extends Component {
   }
 }
 
-export default LoginModal;
+export default RegisterModal;

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './User.css';
-import Navbar from './Navbar.js';
+import DefaultNavbar from './DefaultNavbar.js';
+import LoginModal from './LoginModal.js'
 
 class User extends Component {
   constructor(props) {
@@ -57,7 +58,7 @@ class User extends Component {
 
     return (
       <div className="App">
-        <Navbar />
+        <DefaultNavbar />
         <div className="container content-main">
           <div className="row text-align-center">
             <div className="col-md-3 col-sm-12 col-xs-12">

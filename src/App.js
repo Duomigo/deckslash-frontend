@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Navbar from './Navbar.js'
+import DefaultNavbar from './DefaultNavbar.js'
 
 class App extends Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class App extends Component {
 
       <div className="container-fluid">
         <div className="App">
-          <Navbar />
+          <DefaultNavbar />
 
           <div className="content-main">
 
