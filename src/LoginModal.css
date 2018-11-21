@@ -81,3 +81,26 @@
   margin-top: -30px;
   margin-bottom: 10px;
 }
+
+.occho {
+  width: 50%;
+  display: inline-block;
+  bottom: 0px;
+  position: relative;
+  cursor: pointer;
+  border-width: 30px;
+  border-bottom-color: red;
+}
+
+.occho:active {
+  background-color: yellow;
+}
+
+.jenn {
+  margin-top: 10px;
+  font-size: 30px;
+  font-family: medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
