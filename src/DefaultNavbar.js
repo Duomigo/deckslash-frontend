@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.svg';
 import './App.css';
 import LoginModal from "./LoginModal.js";
-import RegisterModal from "./RegisterModal.js"
 
 class DefaultNavbar extends Component {
   render() {

@@ -59,3 +59,25 @@
   align-items: center;
   justify-content: center;
 }
+
+.m-lm-signup-text {
+  color: rgb(255, 45, 85);
+  padding-left: 5px;
+  background-color: none;
+  border-width: none;
+}
+
+.m-lm-signup-text:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.m-lm-authen-header {
+  font-family: medium;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -30px;
+  margin-bottom: 10px;
+}
