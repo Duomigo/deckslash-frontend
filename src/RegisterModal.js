@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal'
-import RegisterModal from './RegisterModal.js'
+import LoginModal from './RegisterModal.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './User.css';
 import './LoginModal.css'
 import closeButton from './close-icon.png'
 
-class LoginModal extends Component {
+class RegisterModal extends Component {
   constructor() {
     super();
     this.state = {
       showModal: false,
-      logInTab: true
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this)
@@ -27,14 +26,10 @@ class LoginModal extends Component {
     this.setState({ showModal: false });
   }
 
-  handleLoginModal() {
-    this.setState({ logInTab: !this.state.logInTab});
-  }
-
   render() {
     return (
       <div>
-        <button className="btn navbar-button" onClick={this.handleOpenModal}>Log In</button>
+        <button className="btn navbar-button" onClick={this.handleOpenModal}>Sign Up</button>
         <Modal
           isOpen = {this.state.showModal}
           contentLabel="onRequestClose Example"
@@ -44,22 +39,23 @@ class LoginModal extends Component {
         >
           <div className="m-lm-content">
             <input className="m-lm-close-button" type="image" src={closeButton} alt="closebutton" onClick={this.handleCloseModal} />
-            <button className="form-control mr-sm-2 m-lm-button" style={{backgroundColor: '#3b5998', color: '#eceff1'}}>Log in with Facebook</button>
-            <button className="form-control mr-sm-2 m-lm-button">Log in with Google</button>
+            Register
+            <button className="form-control mr-sm-2 m-lm-button" style={{backgroundColor: '#3b5998', color: '#eceff1'}}>Sign up with Facebook</button>
+            <button className="form-control mr-sm-2 m-lm-button">Sign up with Google</button>
             <hr/>
             <input className="form-control mr-sm-2 m-lm-input" type="search" placeholder="Username" aria-label="username" />
             <input className="form-control mr-sm-2 m-lm-input" type="search" placeholder="Password" aria-label="password" />
             <a href="https://google.com">
-              <button className="btn form-control mr-sm-2 m-lm-button" style={{backgroundColor: 'rgb(255,45,85)', color: '#eceff1'}}>
+              <button className="btn form-control mr-sm-2 m-lm-button" style={{backgroundColor: 'rgb(100,100,100)', color: '#eceff1'}}>
                 Log in
               </button>
             </a>
             <t className="m-lm-text">Forgot password?</t>
             <hr/>
             <t className="m-lm-text">
-              Don't have an account?
-              <t className="m-lm-signup-text" src={closeButton} alt="closebutton">
-                <RegisterModal onClick={this.handleCloseModal}/>
+              Already have an account?
+              <t className="m-lm-signup-text" src={closeButton} alt="closebutton" onClick={this.handleCloseModal}>
+                <LoginModal />
               </t>
             </t>
           </div>
@@ -69,4 +65,4 @@ class LoginModal extends Component {
   }
 }
 
-export default LoginModal;
+export default RegisterModal;
