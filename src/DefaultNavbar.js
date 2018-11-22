@@ -5,6 +5,7 @@ import './App.css';
 import LoginModal from "./LoginModal.js";
 
 class DefaultNavbar extends Component {
+
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-style">
