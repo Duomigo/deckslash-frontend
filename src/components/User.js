@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import './User.css';
+import '../styles/Home.css';
+import '../styles/User.css';
 import DefaultNavbar from './DefaultNavbar.js';
 import AuthenLogin from './AuthenLogin.js'
 
