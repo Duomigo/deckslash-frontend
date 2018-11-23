@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './User.css';
 import DefaultNavbar from './DefaultNavbar.js';
-import LoginModal from './LoginModal.js'
+import AuthenLogin from './AuthenLogin.js'
 
 class User extends Component {
   constructor(props) {

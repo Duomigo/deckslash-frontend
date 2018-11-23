@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.svg';
 import './App.css';
-import LoginModal from "./LoginModal.js";
+import AuthenLogin from "./AuthenLogin.js";
 
 class DefaultNavbar extends Component {
 
@@ -24,7 +24,7 @@ class DefaultNavbar extends Component {
             <input className="form-control mr-sm-2 navbar-search" type="search" placeholder="Explore Deckslash" aria-label="Search" />
             <button className="btn navbar-button" type="submit">Search</button>
           </form>
-          <LoginModal />
+          <button className="btn navbar-button" type="submit">Log In</button>
           <button className="btn get-started-button" type="submit">Get Started</button>
         </div>
       </nav>

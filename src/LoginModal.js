@@ -11,39 +11,53 @@ class LoginModal extends Component {
   constructor() {
     super();
     this.state = {
-      showModal: false,
+      showLoginModal: false,
+      showregisterModal: false,
       logInTab: true
     };
 
-    this.handleOpenModal = this.handleOpenModal.bind(this)
-    this.handleCloseModal = this.handleCloseModal.bind(this)
+    this.handleOpenLoginModal = this.handleOpenLoginModal.bind(this)
+    this.handleCloseLoginModal = this.handleCloseLoginModal.bind(this)
+
+    this.handleOpenRegisterModal = this.handleOpenRegisterModal.bind(this)
+    this.handleCloseRegisterModal = this.handleCloseRegisterModal.bind(this)
+
+    this.handleAuthenticationModal = this.handleAuthenticationModal.bind(this)
   }
 
-  handleOpenModal() {
-    this.setState({ showModal: true });
+  handleOpenLoginModal() {
+    this.setState({ showLoginModal: true });
   }
 
-  handleCloseModal() {
-    this.setState({ showModal: false });
+  handleCloseLoginModal() {
+    this.setState({ showLoginModal: false });
   }
 
-  handleLoginModal() {
+  handleOpenRegisterModal() {
+    this.setState({ showRegisterModal: true });
+  }
+
+  handleCloseRegisterModal() {
+    this.setState({ showRegisterModal: false });
+  }
+
+  handleAuthenticationModal() {
     this.setState({ logInTab: !this.state.logInTab});
   }
 
-  render() {
-    return (
-      <div>
-        <button className="btn navbar-button" onClick={this.handleOpenModal}>Log In</button>
+  renderModal() {
+    if (this.state.logInTab) {
+      console.log('hahah');
+      return (
         <Modal
-          isOpen = {this.state.showModal}
+          isOpen = {this.state.showLoginModal}
           contentLabel="onRequestClose Example"
-          onRequestClose={this.handleCloseModal}
+          onRequestClose={this.handleCloseLoginModal}
           className="m-lm rounded"
           overlayClassName="m-lm-overlay"
         >
           <div className="m-lm-content">
-            <input className="m-lm-close-button" type="image" src={closeButton} alt="closebutton" onClick={this.handleCloseModal} />
+            <input className="m-lm-close-button" type="image" src={closeButton} alt="closebutton" onClick={this.handleCloseLoginModal} />
             <button className="form-control mr-sm-2 m-lm-button" style={{backgroundColor: '#3b5998', color: '#eceff1'}}>Log in with Facebook</button>
             <button className="form-control mr-sm-2 m-lm-button">Log in with Google</button>
             <hr/>
@@ -58,12 +72,62 @@ class LoginModal extends Component {
             <hr/>
             <t className="m-lm-text">
               Don't have an account?
-              <t className="m-lm-signup-text" src={closeButton} alt="closebutton">
-                <RegisterModal onClick={this.handleCloseModal}/>
+              <t 
+                className="m-lm-signup-text" 
+                src={closeButton} alt="closebutton" 
+                onClick={this.handleAuthenticationModal}
+              >
+                Sign up
               </t>
             </t>
           </div>
         </Modal>
+      );
+    } else {
+      console.log('hoho');
+      return (
+        <Modal
+          isOpen = {this.state.showRegisterModal}
+          contentLabel="onRequestClose Example"
+          onRequestClose={this.handleOpenRegisterModal}
+          className="m-lm rounded"
+          overlayClassName="m-lm-overlay"
+        >
+          <div className="m-lm-content">
+            <input className="m-lm-close-button" type="image" src={closeButton} alt="closebutton" onClick={this.handleCloseRegisterModal} />
+            Register
+            <button className="form-control mr-sm-2 m-lm-button" style={{backgroundColor: '#3b5998', color: '#eceff1'}}>Sign up with Facebook</button>
+            <button className="form-control mr-sm-2 m-lm-button">Sign up with Google</button>
+            <hr/>
+            <input className="form-control mr-sm-2 m-lm-input" type="search" placeholder="Username" aria-label="username" />
+            <input className="form-control mr-sm-2 m-lm-input" type="search" placeholder="Password" aria-label="password" />
+            <a href="https://google.com">
+              <button className="btn form-control mr-sm-2 m-lm-button" style={{backgroundColor: 'rgb(100,100,100)', color: '#eceff1'}}>
+                Log in
+              </button>
+            </a>
+            <t className="m-lm-text">Forgot password?</t>
+            <hr/>
+            <t className="m-lm-text">
+              Already have an account?
+              <t className="m-lm-signup-text" src={closeButton} alt="closebutton" onClick={this.handleCloseRegisterModal}>
+                Log in
+              </t>
+            </t>
+          </div>
+        </Modal>
+      );
+    }
+  }
+
+
+  render() {
+    return (
+      <div>
+        <button className="btn navbar-button">Log In</button>
+        {this.renderModal()}
+
+        
       </div>
     );
   }
