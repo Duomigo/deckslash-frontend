@@ -4,12 +4,12 @@ import logo from '../images/logo.svg';
 import '../styles/Home.css';
 import AuthenLogin from "./AuthenLogin.js";
 
-class DefaultNavbar extends Component {
+class GuestNavbar extends Component {
 
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-style">
-        <a className="navbar-brand" href="https://google.com">
+        <a className="navbar-brand" href="/">
           <img src={logo} width="45" height="45" style={{marginLeft: 15}} alt="Deckslash-logo" />
         </a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,11 +27,13 @@ class DefaultNavbar extends Component {
           <a className="btn navbar-button" href="/login">
             Log In
           </a>
-          <button className="btn get-started-button" type="submit">Get Started</button>
+          <a className="btn get-started-button" href="/signup">
+            Sign Up
+          </a>
         </div>
       </nav>
     )
   }
 }
 
-export default DefaultNavbar;
+export default GuestNavbar;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Home.css';
 import '../styles/User.css';
-import DefaultNavbar from './DefaultNavbar.js';
+import GuestNavbar from './GuestNavbar.js';
 import AuthenLogin from './AuthenLogin.js'
 
 class User extends Component {
@@ -58,7 +58,7 @@ class User extends Component {
 
     return (
       <div className="App">
-        <DefaultNavbar />
+        <GuestNavbar />
         <div className="container content-main">
           <div className="row text-align-center">
             <div className="col-md-3 col-sm-12 col-xs-12">

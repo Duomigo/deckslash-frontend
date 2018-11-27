@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Home from './components/Home';
-import User from './components/User';
-import AuthenLogin from './components/AuthenLogin';
-import AuthenRegister from './components/AuthenRegister';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 

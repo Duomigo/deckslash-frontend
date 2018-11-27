@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Home.css';
-import DefaultNavbar from './DefaultNavbar.js'
+import '../styles/User.css'
+import GuestNavbar from './GuestNavbar.js';
+import MenuScrollBar from './MenuScrollBar';
+import UserNavbar from './UserNavbar.js';
 
 class Home extends Component {
   constructor(props) {
@@ -39,48 +42,31 @@ class Home extends Component {
 
     return (
 
-      <div className="container-fluid">
-        <div className="App">
-          <DefaultNavbar />
+      <div className="App">
+        <GuestNavbar />
 
-          <div className="content-main">
+        <MenuScrollBar />
+        
+        <div className="container">
+          <div className="row">
 
-            <div className="row">
-              <div className="col-8">
-                <h1 className="contentHeader">Explore</h1>
-                <div className="row">
-                  {posts.map(function (post, i) { //map function with server data
-                    return (
-                      <div className="col-8 col-md-4 col-lg-3 col-xl-3" key={i}>
-                        <div className="card mb-4 m-whole-card-cover rounded">
-                          <img className="card-img-top m-card-cover rounded" src={post.url} alt="Card image cap" />
-                          <div class="m-card-text">{post.title}</div>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-
-              <div className="col-4 m-browse">
-                <h1 className="contentHeader">Browse</h1>
-                <div className="row">
-                  <div className="col-4 col-md-6 col-lg-6 col-xl-6">
-                    <div className="card mb-4 m-whole-card-cover rounded">
-                      <img className="card-img-top m-card-cover rounded" src="https://i.pinimg.com/736x/e0/06/f3/e006f3de43c580458aebf3e7f20d526f--tedy-bruschi-arizona-wildcats.jpg" alt="Card image cap" />
-                      <div class="m-card-text">How We Cheat</div>
-                    </div>
-                  </div>
-
-                  <div className="col-4 col-md-6 col-lg-6 col-xl-6">
-                    <div className="card mb-4 m-whole-card-cover rounded">
-                      <img className="card-img-top m-card-cover rounded" src="http://eddiessportstreasures.com/wp-content/uploads/2018/06/18_Topps-Stadium-Club-Baseball_Cards-7-1.jpg" alt="Card image cap" />
-                      <div className="m-card-text">Justin Kan: Start something that matters.</div>
-                    </div>
-                  </div>
-                </div>
+            <div className="m-profile-content-header">
+              Latest Decks
+            </div>
+            
+            <div className="container content-main">
+              <div className="row justify-content-center">
+                {posts.map(function (post, i) { //map function with server data
+                  return (
+                    <figure className="m-profile-whole-card-cover rounded" key={i}>
+                      <img className="card-img-top m-profile-card-cover rounded" src={post.url} alt="Card image cap" />
+                      <figcaption class="m-profile-card-text">{post.title}</figcaption>
+                    </figure>
+                  )
+                })}
               </div>
             </div>
+
           </div>
         </div>
       </div>

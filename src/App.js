@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home.js"
 import AuthenLogin from './components/AuthenLogin.js';
 import AuthenRegister from './components/AuthenRegister.js'
+import User from './components/User.js'
 
 class App extends Component {
   render() {
@@ -13,7 +14,8 @@ class App extends Component {
         <div>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={AuthenLogin} />
-          <Route exact path="/signup" component={AuthenRegister} />
+          <Route path="/signup" component={AuthenRegister} />
+          <Route path="/test" component={User} />
         </div>
       </Router>
     );

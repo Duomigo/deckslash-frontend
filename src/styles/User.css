@@ -7,12 +7,14 @@
 }
 
 .m-profile-content-header {
-  justify-content: center;
+  text-align: justify;
+  margin: 0 auto;
   font-family: medium;
   font-size: 45px;
   color: #040d14;
   margin-top: 10px;
   margin-bottom: -5px;
+  background-color: aqua;
 }
 
 .m-profile-avatar {
@@ -24,6 +26,13 @@
 
 .m-profile-filter {
   text-align: center;
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
 }
 
 .m-profile-user-frame {
@@ -63,9 +72,8 @@
 
 .m-profile-whole-card-cover {
   border-width: 0;
-  margin: 10px;
-  height: 360px;
-  width: 224px;
+  width: 220px;
+  max-width: 100%;
   transition: all .2s ease-in-out;
 }
 
@@ -75,10 +83,35 @@
 
 .m-profile-card-cover {
   border-width: 0;
+  width: 200px;
+  justify-content: center;
 }
 
 .m-profile-card-cover:hover {
   border-radius: 5%;
   border-width: 0;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.m-menu-scroll-bar {
+  background-color: white;
+  border-bottom: 1px solid lightgrey;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.m-menu-scroll-bar a {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 14px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  font-family: medium;
+  font-size: 20px;
+}
+
+.m-menu-scroll-bar a:hover {
+  color: #777;
 }
