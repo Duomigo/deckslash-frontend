@@ -8,25 +8,35 @@ import AuthenLogin from './AuthenLogin.js';
 
 class AuthenRegister extends Component {
 
-    registerNewUser() {
+    constructor(props) {
+        super(props);
+
+    this.registerNewUser = this.registerNewUser.bind(this);
+    this.testfunx = this.testfunx.bind(this);
+    }
+
+    registerNewUser(event) {
         console.log('testicle')
-        axios.post(`http://127.0.0.1:5000/register`, {
-            "​name": "Mason Dixon",
-            "​username": "mason1",
-            "​password": "dixon",
-            "​confirm_password": "dixon"
+        axios.post('http://127.0.0.1:5000/register', {
+            name: "Eugene McDermott",
+            username: "eugene1",
+            password: "macdermott",
+            confirm_password: "mcdermott"
         })
         .then(function(response) {
           console.log(response);
-          console.log("Thanh Cong")
+          console.log("Successful registered new user.")
         })
         .catch(function (error) {
           console.log(error);
+          console.log("Failed to register.");
         });
+        event.preventDefault();
       }
 
-    testfunx() {
-        axios.get(`http://127.0.0.1:5000/testuser`, { 
+    testfunx(event) {
+        console.log("do Co mo")
+        axios.get(`http://127.0.0.1:5000/testcard`, { 
             headers: {
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
@@ -34,10 +44,12 @@ class AuthenRegister extends Component {
             }).then(response => {
                 // If request is good...
                 console.log(response.data);
+                console.log(response.json())
             })
             .catch((error) => {
                 console.log('error 3 ' + error);
             });
+        event.preventDefault();
     }
 
     render() {
@@ -47,11 +59,13 @@ class AuthenRegister extends Component {
                 <button className="form-control mr-sm-2 m-lm-button" style={{backgroundColor: '#3b5998', color: '#eceff1'}}>Continue with Facebook</button>
                 <button className="form-control mr-sm-2 m-lm-button">Continue with Google</button>
                 <hr/>
-                <input className="form-control mr-sm-2 m-lm-input" type="search" placeholder="Username" aria-label="username" />
-                <input className="form-control mr-sm-2 m-lm-input" type="search" placeholder="Password" aria-label="password" />
+                <input className="form-control mr-sm-2 m-lm-input" placeholder="Name" aria-label="name" />
+                <input className="form-control mr-sm-2 m-lm-input" placeholder="Username" aria-label="username" />
+                <input className="form-control mr-sm-2 m-lm-input" placeholder="Password" aria-label="password" />
+                <input className="form-control mr-sm-2 m-lm-input" placeholder="Confirm Password" aria-label="password" />
 
                 {/* Button */}
-                <form onSubmit={this.testfunx}>
+                <form onSubmit={this.registerNewUser}>
                     <button type="submit" className="btn form-control mr-sm-2 m-lm-button" style={{backgroundColor: 'rgb(255,45,85)', color: '#eceff1'}}>
                         Sign up
                     </button>

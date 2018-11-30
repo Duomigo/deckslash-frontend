@@ -1,64 +1,39 @@
-import React from 'react';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
-
+import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '../images/logo.svg';
+import logo from '../images/dplogo.svg';
 import '../styles/Home.css';
-import AuthenLogin from "./AuthenLogin.js";
+import SignOutButton from './SignOut';
 
-export default class Example extends React.Component {
-  constructor(props) {
-    super(props);
+import * as routes from '../constants/routes';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+  } from 'react-router-dom';
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
+class UserNavbar extends Component {
+
   render() {
     return (
-      <div>
-        <Navbar color="light" light expand="md">
-            <NavbarBrand href="/">reactstrap</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-                <Nav className="ml-auto" navbar>
-                    <NavItem>
-                        <form className="form-inline my-2 my-lg-0">
-                            <input className="form-control mr-sm-2 navbar-search" type="search" placeholder="Explore Deckslash" aria-label="Search" />
-                            <button className="btn navbar-button" type="submit">Search</button>
-                        </form>
-                    </NavItem>
-                    <NavItem>
-                        <a className="btn navbar-button" href="/login">
-                            Log In
-                        </a>
-                    </NavItem>
-                    <NavItem>
-                        <a className="btn get-started-button" href="/signup">
-                            Sign Up
-                        </a>
-                    </NavItem>
-                </Nav>
-            </Collapse>
-        </Navbar>
-      </div>
-    );
+      <nav className="navbar navbar-expand-lg navbar-style">
+        <a className="navbar-brand" href="/">
+          <img src={logo} width="125" height="25" style={{marginLeft: 15}} alt="Deckslash-logo" />
+        </a>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+
+          </ul>
+            <Link className="navbar-button" to={routes.SIGN_IN}>Browse</Link>
+            <Link className="navbar-button" to={routes.ACCOUNT}>Profile</Link>
+            <SignOutButton />
+        </div>
+      </nav>
+    )
   }
 }
+
+export default UserNavbar;

@@ -7,13 +7,15 @@ import AuthenLogin from './components/AuthenLogin.js';
 import AuthenRegister from './components/AuthenRegister.js'
 import User from './components/User.js'
 
+import * as routes from './constants/routes.js';
+
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
           <Route exact path="/" component={Home} />
-          <Route path="/login" component={AuthenLogin} />
+          <Route path="/signin" component={AuthenLogin} />
           <Route path="/signup" component={AuthenRegister} />
           <Route path="/test" component={User} />
         </div>
