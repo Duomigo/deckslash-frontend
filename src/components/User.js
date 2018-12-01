@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Home.css';
 import '../styles/User.css';
-import GuestNavbar from './GuestNavbar.js';
+import GuestNavbar from './Navigation/GuestNavbar.js';
 import AuthenLogin from './AuthenLogin.js'
 
 class User extends Component {

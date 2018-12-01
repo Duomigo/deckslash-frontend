@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Home.css';
 import '../styles/User.css'
-import GuestNavbar from './GuestNavbar.js';
+import GuestNavbar from './Navigation/GuestNavbar.js';
 import MenuScrollBar from './MenuScrollBar';
-import UserNavbar from './UserNavbar.js';
+import UserNavbar from './Navigation/UserNavbar.js';
 
 class Home extends Component {
   constructor(props) {
@@ -36,6 +36,8 @@ class Home extends Component {
           ]
     }
   }
+
+  componentDidMount
   
   render() {
     const { posts } = this.state;
@@ -43,7 +45,7 @@ class Home extends Component {
     return (
 
       <div className="App">
-        <GuestNavbar />
+        {/* <GuestNavbar /> */}
 
         <MenuScrollBar />
         
@@ -59,7 +61,7 @@ class Home extends Component {
                 {posts.map(function (post, i) { //map function with server data
                   return (
                     <figure className="m-profile-whole-card-cover rounded" key={i}>
-                      <img className="card-img-top m-profile-card-cover rounded" src={post.url} alt="Card image cap" />
+                      <img className="card-img-top m-profile-card-cover rounded" src={post.url} alt="" />
                       <figcaption class="m-profile-card-text">{post.title}</figcaption>
                     </figure>
                   )

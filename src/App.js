@@ -6,6 +6,7 @@ import Home from "./components/Home.js"
 import AuthenLogin from './components/AuthenLogin.js';
 import AuthenRegister from './components/AuthenRegister.js'
 import User from './components/User.js'
+import Navigation from './components/Navigation/Navigation';
 
 import * as routes from './constants/routes.js';
 
@@ -14,6 +15,8 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <Navigation />
+
           <Route exact path="/" component={Home} />
           <Route path="/signin" component={AuthenLogin} />
           <Route path="/signup" component={AuthenRegister} />
