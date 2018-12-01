@@ -36,5 +36,4 @@ class AuthenLogin extends Component {
     );
   }
 }
-
 export default AuthenLogin;

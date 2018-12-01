@@ -54,9 +54,9 @@
   border-width: 10px;
   border-color: black;
   margin: 0 auto;
-  top: 50%;
-  height: 400px;
-  width: 300px;
+  margin-top: 10px;
+  height: 500px;
+  width: 350px;
   padding: 20px;
 }
 
@@ -64,9 +64,12 @@
 .m-lm-input {
   background-color: #eceff1;
   border: none;
-  font-family: lars;
-  font-size: 18px;
+  font-family: regular;
+  font-size: 20px;
   margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 5px;
   outline: none;
 }
 
@@ -75,12 +78,21 @@
 }
 
 .m-lm-button {
-  background-color: #eceff1;
+  background-color: #fe5257;
+  color: #eceff1;
   border: none;
-  font-family: lars;
-  font-size: 18px;
+  font-family: regular;
+  font-size: 20px;
   margin-bottom: 10px;
+  width: 100%;
+  padding: 5px;
+  padding-top: 8px;
   outline: none;
+}
+
+.m-lm-button:hover {
+  background-color: #ff656a;
+  cursor: pointer;
 }
 
 .m-lm-close-button {
@@ -89,6 +101,22 @@
   color: black;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.m-lm-header-text {
+  font-family: medium;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.m-lm-sub-text {
+  font-family: regular;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .m-lm-text {
@@ -100,17 +128,6 @@
   justify-content: center;
 }
 
-.m-lm-signup-text {
-  color: rgb(255, 45, 85);
-  padding-left: 5px;
-  background-color: none;
-  border-width: none;
-}
-
-.m-lm-signup-text:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
 
 .m-lm-authen-header {
   font-family: medium;
@@ -120,27 +137,4 @@
   justify-content: center;
   margin-top: -30px;
   margin-bottom: 10px;
-}
-
-.occho {
-  width: 50%;
-  display: inline-block;
-  bottom: 0px;
-  position: relative;
-  cursor: pointer;
-  border-width: 30px;
-  border-bottom-color: red;
-}
-
-.occho:active {
-  background-color: yellow;
-}
-
-.jenn {
-  margin-top: 10px;
-  font-size: 30px;
-  font-family: medium;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

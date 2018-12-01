@@ -1,87 +1,146 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import '../styles/Home.css';
-import '../styles/User.css';
-import '../styles/AuthenLogin.css'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import AuthenLogin from './AuthenLogin.js';
+import {
+  Link,
+  withRouter,
+} from 'react-router-dom';
+import GuestNavbar from './GuestNavbar.js';
 
-class AuthenRegister extends Component {
+// import { SignInLink } from '../SignIn';
 
-    constructor(props) {
-        super(props);
+// import { auth, db } from '../../firebase';
+import * as routes from '../constants/routes';
 
-    this.registerNewUser = this.registerNewUser.bind(this);
-    this.testfunx = this.testfunx.bind(this);
-    }
+const SignUpPage = ({ history }) =>
+  <div>
+    <SignUpForm history={history} />
+  </div>
 
-    registerNewUser(event) {
-        console.log('testicle')
-        axios.post('http://127.0.0.1:5000/register', {
-            name: "Eugene McDermott",
-            username: "eugene1",
-            password: "macdermott",
-            confirm_password: "mcdermott"
-        })
-        .then(function(response) {
-          console.log(response);
-          console.log("Successful registered new user.")
-        })
-        .catch(function (error) {
-          console.log(error);
-          console.log("Failed to register.");
-        });
-        event.preventDefault();
-      }
+const updateByPropertyName = (propertyName, value) => () => ({
+  [propertyName]: value,
+});
 
-    testfunx(event) {
-        console.log("do Co mo")
-        axios.get(`http://127.0.0.1:5000/testcard`, { 
-            headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json',
-            },
-            }).then(response => {
-                // If request is good...
-                console.log(response.data);
-                console.log(response.json())
-            })
-            .catch((error) => {
-                console.log('error 3 ' + error);
-            });
-        event.preventDefault();
-    }
+const INITIAL_STATE = {
+  username: '',
+  email: '',
+  passwordOne: '',
+  passwordTwo: '',
+  error: null,
+};
 
-    render() {
-        return (
-          <div className="m-lm-background-signup">
-            <div className="m-lm-content rounded">
-                <button className="form-control mr-sm-2 m-lm-button" style={{backgroundColor: '#3b5998', color: '#eceff1'}}>Continue with Facebook</button>
-                <button className="form-control mr-sm-2 m-lm-button">Continue with Google</button>
-                <hr/>
-                <input className="form-control mr-sm-2 m-lm-input" placeholder="Name" aria-label="name" />
-                <input className="form-control mr-sm-2 m-lm-input" placeholder="Username" aria-label="username" />
-                <input className="form-control mr-sm-2 m-lm-input" placeholder="Password" aria-label="password" />
-                <input className="form-control mr-sm-2 m-lm-input" placeholder="Confirm Password" aria-label="password" />
+class SignUpForm extends Component {
+  constructor(props) {
+    super(props);
 
-                {/* Button */}
-                <form onSubmit={this.registerNewUser}>
-                    <button type="submit" className="btn form-control mr-sm-2 m-lm-button" style={{backgroundColor: 'rgb(255,45,85)', color: '#eceff1'}}>
-                        Sign up
-                    </button>
-                </form>
+    this.state = { ...INITIAL_STATE };
+  }
 
-                <hr/>
-                <t className="m-lm-text">
-                    Already have an account?
-                    <a className="m-lm-signup-text" href="/login">
-                        Log in
-                    </a>
-                </t>
-            </div>
-          </div>
-        );
-    }
+  onSubmit = (event) => {
+    const {
+      username,
+      email,
+      passwordOne,
+    } = this.state;
+
+    const {
+      history,
+    } = this.props;
+
+    // auth.doCreateUserWithEmailAndPassword(email, passwordOne)
+    //   .then(authUser => {
+
+    //     // Create a user in your own accessible Firebase Database too
+    //     db.doCreateUser(authUser.user.uid, username, email)
+    //       .then(() => {
+    //         this.setState(() => ({ ...INITIAL_STATE }));
+    //         history.push(routes.HOME);
+    //       })
+    //       .catch(error => {
+    //         this.setState(updateByPropertyName('error', error));
+    //       });
+
+    //   })
+    //   .catch(error => {
+    //     this.setState(updateByPropertyName('error', error));
+    //   });
+
+    event.preventDefault();
+  }
+
+  render() {
+    const {
+      username,
+      email,
+      passwordOne,
+      passwordTwo,
+      error,
+    } = this.state;
+
+    const isInvalid =
+      passwordOne !== passwordTwo ||
+      passwordOne === '' ||
+      username === '' ||
+      email === '';
+
+    return (
+      <div className="">
+        <GuestNavbar />
+        <div className="m-lm-content rounded">
+          <h3 className="m-lm-header-text">Welcome to Deckpath!</h3>
+          <h4 className="m-lm-sub-text">Create an account.</h4>
+          <form onSubmit={this.onSubmit}>
+            <input
+              className="mr-sm-2 m-lm-input rounded"
+              value={username}
+              onChange={event => this.setState(updateByPropertyName('username', event.target.value))}
+              type="text"
+              placeholder="Full Name"
+            />
+            <input
+              className="mr-sm-2 m-lm-input rounded"
+              value={email}
+              onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
+              type="text"
+              placeholder="Email Address"
+            />
+            <input
+              className="mr-sm-2 m-lm-input rounded"
+              value={passwordOne}
+              onChange={event => this.setState(updateByPropertyName('passwordOne', event.target.value))}
+              type="password"
+              placeholder="Password"
+            />
+            <input
+              className="mr-sm-2 m-lm-input rounded"
+              value={passwordTwo}
+              onChange={event => this.setState(updateByPropertyName('passwordTwo', event.target.value))}
+              type="password"
+              placeholder="Confirm Password"
+            />
+            <button className="mr-sm-2 m-lm-button rounded" disabled={isInvalid} type="submit">
+              Sign Up
+            </button>
+
+            {/* <div className="m-lm-text">
+              <SignInLink />
+            </div> */}
+
+            { error && <p>{error.message}</p> }
+          </form>
+
+        </div>
+      </div>
+    );
+  }
 }
 
-export default AuthenRegister;
+const SignUpLink = () =>
+  <p>
+    Don't have an account?
+    {' '}
+    <Link to={routes.SIGN_UP}>Sign Up</Link>
+  </p>
+export default withRouter(SignUpPage);
+export {
+  SignUpForm,
+  SignUpLink,
+};
