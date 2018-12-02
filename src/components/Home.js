@@ -36,8 +36,6 @@ class Home extends Component {
           ]
     }
   }
-
-  componentDidMount
   
   render() {
     const { posts } = this.state;
