@@ -62,7 +62,7 @@ class Home extends Component {
                   return (
                     <figure className="m-profile-whole-card-cover rounded" key={i}>
                       <img className="card-img-top m-profile-card-cover rounded" src={post.url} alt="" />
-                      <figcaption class="m-profile-card-text">{post.title}</figcaption>
+                      <figcaption className="m-profile-card-text">{post.title}</figcaption>
                     </figure>
                   )
                 })}

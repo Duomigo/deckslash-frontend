@@ -11,14 +11,13 @@ class Navigation extends Component {
     };
 
     render() {
-        const isAuth = this.state.status;
         let navigation;
 
-        if (isAuth) {
+        isAuth() ? (
             navigation = <UserNavbar />
-        } else {
+        ) : (
             navigation = <GuestNavbar />
-        };
+        )
 
         return (
             <div>

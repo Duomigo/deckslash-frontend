@@ -62,6 +62,8 @@ class SignUpForm extends Component {
         confirm_password: this.state.passwordTwo
       })
       .then(function(response) {
+        history.push(routes.SIGN_IN);
+
         console.log(response);
         console.log("Successful registered new user.")
       })
@@ -110,7 +112,6 @@ class SignUpForm extends Component {
 
     return (
       <div className="">
-        <GuestNavbar />
         <div className="m-lm-content rounded">
           <h3 className="m-lm-header-text">Welcome to Deckpath!</h3>
           <h4 className="m-lm-sub-text">Create an account.</h4>
