@@ -58,7 +58,7 @@ class SignInForm extends Component {
       const token = res.data.token;
       localStorage.setItem('jwtToken', token);
       history.push(routes.LANDING);
-      
+
       console.log("Token is " + token);
       console.log(res);
       console.log("Login Successful.");

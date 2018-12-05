@@ -6,6 +6,8 @@ import GuestNavbar from './Navigation/GuestNavbar.js';
 import MenuScrollBar from './MenuScrollBar';
 import UserNavbar from './Navigation/UserNavbar.js';
 
+import axios from 'axios';
+
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -36,9 +38,17 @@ class Home extends Component {
           ]
     }
   }
+
+  async componentDidMount() {
+    const res = await axios.get('http://127.0.0.1:5000/testcard');
+    console.log("Du lieu cho ban: ");
+    console.log(res.data);
+    await this.setState({ posts: res.data })
+  }
   
   render() {
     const { posts } = this.state;
+    const baseUrl = 'http://127.0.0.1:5000'
 
     return (
 
@@ -46,7 +56,7 @@ class Home extends Component {
         {/* <GuestNavbar /> */}
 
         <MenuScrollBar />
-        
+
         <div className="container">
           <div className="row">
 
@@ -59,7 +69,7 @@ class Home extends Component {
                 {posts.map(function (post, i) { //map function with server data
                   return (
                     <figure className="m-profile-whole-card-cover rounded" key={i}>
-                      <img className="card-img-top m-profile-card-cover rounded" src={post.url} alt="" />
+                      <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + post.picture} alt="" />
                       <figcaption className="m-profile-card-text">{post.title}</figcaption>
                     </figure>
                   )

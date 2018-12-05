@@ -17,7 +17,7 @@ class User extends Component {
               "title": "Measure what matters"
             },
             {
-              "url": "https://blowoutbuzz.files.wordpress.com/2018/01/2018-topps-tier-one-bryant.jpg?w=1400",
+              "url": "https://boygeniusreport.files.wordpress.com/2018/09/elon-musk-e1536329643105.png?w=782",
               "title": "Zero to One, or One to N"
             },
             {
