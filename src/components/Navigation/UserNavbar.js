@@ -17,7 +17,7 @@ class UserNavbar extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-style">
         <a className="navbar-brand" href="/">
-          <img src={logo} width="125" height="25" style={{marginLeft: 15}} alt="Deckslash-logo" />
+          <img src={logo} width="125" height="25" alt="Deckslash-logo" />
         </a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>

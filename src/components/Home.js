@@ -53,25 +53,23 @@ class Home extends Component {
     return (
 
       <div className="App">
-        {/* <GuestNavbar /> */}
-
         <MenuScrollBar />
 
         <div className="container">
           <div className="row">
 
-            <div className="m-profile-content-header">
+            {/* <div className="m-profile-content-header">
               Latest Decks
-            </div>
+            </div> */}
             
-            <div className="container content-main">
-              <div className="row justify-content-center">
+            <div className="container">
+              <div className="row m-profile-card-container">
                 {posts.map(function (post, i) { //map function with server data
                   return (
-                    <figure className="m-profile-whole-card-cover rounded" key={i}>
+                    <div className="m-profile-whole-card-cover rounded" key={i} style={{backgroundColor: 'yellow'}}>
                       <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + post.picture} alt="" />
-                      <figcaption className="m-profile-card-text">{post.title}</figcaption>
-                    </figure>
+                      <div className="m-profile-card-text">{post.title}</div>
+                    </div>
                   )
                 })}
               </div>

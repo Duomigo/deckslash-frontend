@@ -63,27 +63,36 @@
   color: #040d14;
 }
 
+.m-profile-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  justify-items: center;
+}
+
 .m-profile-card-text {
   font-family: medium;
   font-size: 20px;
   color: #040d14;
-  padding-top: 3%;
+  /* padding-top: 3%; */   
+  z-index: 1;
+  text-align: center;
+  position: absolute;
 }
 
 .m-profile-whole-card-cover {
-  border-width: 0;
-  width: 220px;
-  max-width: 100%;
-  transition: all .2s ease-in-out;
+  /* width: 210px;
+  max-width: 100%; */
+  /* transition: all .2s ease-in-out; */
+  margin: 5px;
+  background-color: aqua;
 }
 
 .m-profile-whole-card-cover:hover {
-  transform: scale(0.98);
+  /* transform: scale(0.98); */
 }
 
 .m-profile-card-cover {
-  border-width: 0;
-  width: 200px;
+  /* width: 200px; */
   justify-content: center;
 }
 
@@ -115,3 +124,4 @@
 .m-menu-scroll-bar a:hover {
   color: #777;
 }
+
