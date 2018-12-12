@@ -12,6 +12,7 @@ import axios from 'axios';
 // import { auth, db } from '../../firebase';
 import * as routes from '../constants/routes';
 import { throws } from 'assert';
+import { runInThisContext } from 'vm';
 
 const SignUpPage = ({ history }) =>
   <div>
@@ -39,6 +40,7 @@ class SignUpForm extends Component {
 
   onSubmit = (event) => {
     const {
+      email,
       name,
       username,
       passwordOne,
@@ -49,6 +51,7 @@ class SignUpForm extends Component {
     } = this.props;
 
     console.log({
+      email: this.state.email,
       name: this.state.name,
       username: this.state.username,
       password: this.state.passwordOne,
@@ -56,6 +59,7 @@ class SignUpForm extends Component {
     })
 
     axios.post('http://127.0.0.1:5000/register', {
+        email: this.state.email,
         name: this.state.name,
         username: this.state.username,
         password: this.state.passwordOne,
@@ -97,6 +101,7 @@ class SignUpForm extends Component {
 
   render() {
     const {
+      email,
       username,
       name,
       passwordOne,
@@ -105,6 +110,7 @@ class SignUpForm extends Component {
     } = this.state;
 
     const isInvalid =
+      email === '' ||
       passwordOne !== passwordTwo ||
       passwordOne === '' ||
       username === '' ||
@@ -116,6 +122,13 @@ class SignUpForm extends Component {
           <h3 className="m-lm-header-text">Welcome to Deckpath!</h3>
           <h4 className="m-lm-sub-text">Create an account.</h4>
           <form onSubmit={this.onSubmit}>
+            <input
+              className="mr-sm-2 m-lm-input rounded"
+              value={email}
+              onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
+              type="text"
+              placeholder="Email"
+            />
             <input
               className="mr-sm-2 m-lm-input rounded"
               value={name}

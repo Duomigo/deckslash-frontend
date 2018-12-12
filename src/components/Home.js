@@ -15,27 +15,11 @@ class Home extends Component {
     this.state = {
       posts:
         [
-            {
-              "url": "https://i.pinimg.com/736x/e0/06/f3/e006f3de43c580458aebf3e7f20d526f--tedy-bruschi-arizona-wildcats.jpg",
-              "title": "Measure what matters"
-            },
-            {
-              "url": "https://blowoutbuzz.files.wordpress.com/2018/01/2018-topps-tier-one-bryant.jpg?w=1400",
-              "title": "Zero to One, or One to N"
-            },
-            {
-              "url": "http://eddiessportstreasures.com/wp-content/uploads/2018/06/18_Topps-Stadium-Club-Baseball_Cards-7-1.jpg",
-              "title": "Category design at its peak"
-            },
-            {
-              "url": "https://i.pinimg.com/736x/e0/06/f3/e006f3de43c580458aebf3e7f20d526f--tedy-bruschi-arizona-wildcats.jpg",
-              "title": "American Studies"
-            },
-            {
-              "url": "https://gogts.net/wp-content/uploads/2018/05/2018-Topps-Finest-Baseball-Cards-3.jpg",
-              "title": "Plato is not a philosopher, he is a plain thinker"
-            },
-          ]
+          {
+            "url": "https://i.pinimg.com/736x/e0/06/f3/e006f3de43c580458aebf3e7f20d526f--tedy-bruschi-arizona-wildcats.jpg",
+            "title": "Measure what matters"
+          }
+        ]
     }
   }
 
@@ -52,32 +36,32 @@ class Home extends Component {
 
     return (
 
-      <div className="App">
+      <div className="Apple">
+
         <MenuScrollBar />
 
-        <div className="container">
-          <div className="row">
+        <div className="row justify-content-center">
+          <div className="col-lg-2 col-sm-12 col-xs-12">
+            <div className="m-profile-home-filter">
 
-            {/* <div className="m-profile-content-header">
-              Latest Decks
-            </div> */}
-            
-            <div className="container">
-              <div className="row m-profile-card-container">
-                {posts.map(function (post, i) { //map function with server data
-                  return (
-                    <div className="m-profile-whole-card-cover rounded" key={i} style={{backgroundColor: 'yellow'}}>
-                      <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + post.picture} alt="" />
-                      <div className="m-profile-card-text">{post.title}</div>
-                    </div>
-                  )
-                })}
-              </div>
             </div>
+          </div>
 
+          <div className="m-profile-card-container col-lg-8 col-md-10 col-sm-* col-xs-*">
+            {posts.map(function (post, i) { //map function with server data
+              return (
+                <div className="m-profile-whole-card-cover rounded" key={i}>
+                  <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + post.picture} alt="" />
+                  <p className="m-profile-card-text">{post.title}</p>
+                  <p className="m-profile-desc-text">Product Designer</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>
+        
+
     );
   }
 }

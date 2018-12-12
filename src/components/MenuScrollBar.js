@@ -14,11 +14,9 @@ class MenuScrollBar extends Component {
             <a href="#support">Education</a>
             <a href="#blog">Entertainment</a>
             <a href="#tools">Finance</a>  
-            <a href="#base">Games</a>
             <a href="#custom">Health</a>
-            <a href="#more">DYI</a>
             <a href="#logo">Humor</a>
-            <a href="#friends">Photos</a>
+            <a href="#friends">Entrepreneurs</a>
           </div>
         );
     }
