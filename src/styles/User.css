@@ -17,9 +17,8 @@
 }
 
 .m-profile-avatar {
-  margin-top: 20px;
-  height: 150px;
-  width: 150px;
+  height: 120px;
+  width: 120px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -41,7 +40,7 @@
 
 .m-profile-name {
   font-family: medium;
-  font-size: 24px;
+  font-size: 26px;
   color: #040d14;
   word-wrap: break-word;
   margin-top: 5px;
@@ -70,7 +69,7 @@
 
 .m-profile-card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 0.5fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 }
 
 .m-profile-card-text {
@@ -133,4 +132,22 @@
 
 .m-menu-scroll-bar a:hover {
   color: #777;
+}
+
+.m-profile-info {
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.m-profile-left {
+  height: 120px;
+  width: 120px;
+  overflow: hidden;
+}
+
+.m-profile-right {
+  margin-left: 20px;
+  height: 100%;
+  width: calc(100% - 140px);
+  float: left;
 }

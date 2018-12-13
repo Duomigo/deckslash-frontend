@@ -44,7 +44,7 @@ class CreateCard extends Component {
   
       axios.post('http://127.0.0.1:5000/cards', cardData, { headers: header })
       .then(res => {
-        history.push(routes.HOME);
+        history.push(routes.LANDING);
   
         console.log("New card successfully created.")
       })
