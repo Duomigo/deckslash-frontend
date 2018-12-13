@@ -41,7 +41,13 @@ class Home extends Component {
         <MenuScrollBar />
 
         <div className="row justify-content-center">
-          <div className="m-profile-card-container col-lg-8 col-md-10 col-sm-* col-xs-*" style={{backgroundColor: "yellow"}}>
+          <div className="col-lg-8 col-md-10 col-sm-* col-xs-*">
+            <h1 className="m-home-latest">Latest reviews</h1>
+          </div>
+        </div>
+
+        <div className="row justify-content-center">
+          <div className="m-home-card-container col-lg-8 col-md-10 col-sm-* col-xs-*">
             {posts.map(function (post, i) { //map function with server data
               return (
                 <div className="m-profile-whole-card-cover rounded" key={i}>

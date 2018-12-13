@@ -70,8 +70,8 @@ class CreateCard extends Component {
       return (
         <div className="">
           <div className="m-lm-content rounded">
-            <h3 className="m-lm-header-text">Welcome back!</h3>
-            <h4 className="m-lm-sub-text">Log In.</h4>
+            <h3 className="m-lm-header-text">New Book Review</h3>
+            <h4 className="m-lm-sub-text">What did you read?</h4>
             <form onSubmit={this.onSubmit}>
               <input
                 className="mr-sm-2 m-lm-input rounded"

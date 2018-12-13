@@ -16,7 +16,7 @@ const SignOutButton = () =>
     type="button"
     onClick={doSignOut}
   >
-    <Link className="navbar-signout-button" to={routes.SIGN_IN}>Sign Out</Link>
+    <Link className="navbar-signout-button" to={routes.LANDING}>Sign Out</Link>
   </button>
 
 export default SignOutButton;
