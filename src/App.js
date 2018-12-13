@@ -9,6 +9,8 @@ import Navigation from './components/Navigation/Navigation';
 
 import User from './components/User.js';
 
+import CreateCard from './components/CreateCard.js'
+
 import * as routes from './constants/routes.js';
 import axios from 'axios';
 import { throws } from 'assert';
@@ -38,6 +40,7 @@ class App extends Component {
           <Route path="/signin" component={AuthenLogin} />
           <Route path="/signup" component={AuthenRegister} />
           <Route path={"/u/:username"} component={User} />
+          <Route path="/new" component={CreateCard} />
         </div>
       </Router>
     );
