@@ -16,11 +16,6 @@ import '../styles/AuthenLogin.css'
 import '../styles/Home.css'
 import '../styles/User.css'
 
-const SignInPage = ({ history }) =>
-  <div>
-    <SignInForm history={history} />
-  </div>
-
 const updateByPropertyName = (propertyName, value) => () => ({
   [propertyName]: value,
 });
@@ -31,7 +26,7 @@ const INITIAL_STATE = {
   error: null,
 };
 
-class SignInForm extends Component {
+class Account extends Component {
   constructor(props) {
     super(props);
 
@@ -41,7 +36,10 @@ class SignInForm extends Component {
   onSubmit = (event) => {
     const {
       username,
-      password,
+      name,
+      email,
+      bio,
+      profile_image
     } = this.state;
 
     const {
@@ -50,7 +48,10 @@ class SignInForm extends Component {
 
     const loginData = {
       username: this.state.username,
-      password: this.state.password
+      name: this.state.name,
+      email: this.state.email,
+      bio: this.state.bio,
+      profile_image: this.state.profile_image
     }
 
     axios.post('http://127.0.0.1:5000/login', loginData)
@@ -68,36 +69,29 @@ class SignInForm extends Component {
       console.log("Login Failed.");
     });
 
-    isAuth();
-    console.log("Finished.")
-
-    // auth.doSignInWithEmailAndPassword(email, password)
-    //   .then(() => {
-    //     this.setState(() => ({ ...INITIAL_STATE }));
-    //     history.push(routes.HOME);
-    //   })
-    //   .catch(error => {
-    //     this.setState(updateByPropertyName('error', error));
-
     event.preventDefault();
   }
 
   render() {
     const {
       username,
-      password,
+      name,
+      email,
+      bio,
+      profile_image,
       error,
     } = this.state;
 
     const isInvalid =
       username === '' ||
-      password === '';
+      name === '' ||
+      email === '';
 
     return (
       <div className="">
         <div className="m-lm-content rounded">
-          <h3 className="m-lm-header-text">Welcome back!</h3>
-          <h4 className="m-lm-sub-text">Log In.</h4>
+          <h3 className="m-lm-header-text">Update your profile</h3>
+          <h4 className="m-lm-sub-text">Refresh yourself!</h4>
           <form onSubmit={this.onSubmit}>
             <input
               className="mr-sm-2 m-lm-input rounded"
@@ -108,23 +102,30 @@ class SignInForm extends Component {
             />
             <input
               className="mr-sm-2 m-lm-input rounded"
-              value={password}
-              onChange={event => this.setState(updateByPropertyName('password', event.target.value))}
-              type="password"
-              placeholder="Password"
+              value={name}
+              onChange={event => this.setState(updateByPropertyName('name', event.target.value))}
+              type="text"
+              placeholder="Name"
+            />
+            <input
+              className="mr-sm-2 m-lm-input rounded"
+              value={email}
+              onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
+              type="text"
+              placeholder="Email"
+            />
+            <input
+              className="mr-sm-2 m-lm-input rounded"
+              value={bio}
+              onChange={event => this.setState(updateByPropertyName('bio', event.target.value))}
+              type="text"
+              placeholder="Bio"
             />
             <button className="mr-sm-2 m-lm-button rounded" disabled={isInvalid} type="submit">
-              Sign In
+              Update Profile
             </button>
 
             { error && <p>{error.message}</p> }
-            
-            {/* <div className="m-lm-text">
-              <PasswordForgetLink />
-            </div> */}
-            <div className="m-lm-text">
-              <SignUpLink />
-            </div>
           </form>
         </div>
       </div>
@@ -132,16 +133,5 @@ class SignInForm extends Component {
   }
 }
 
-const SignInLink = () =>
-  <p>
-    Have an account?
-    {' '}
-    <Link to={routes.SIGN_IN}>Log In</Link>
-  </p>
 
-export default withRouter(SignInPage);
-
-export {
-  SignInForm,
-  SignInLink
-};
+export default Account;

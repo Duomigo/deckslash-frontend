@@ -53,7 +53,7 @@ class Home extends Component {
                 <div className="m-profile-whole-card-cover rounded" key={i}>
                   <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + post.picture} alt="" />
                   <p className="m-profile-card-text">{post.title}</p>
-                  <p className="m-profile-desc-text">Product Designer</p>
+                  <p className="m-profile-desc-text">{post.description}</p>
                 </div>
               )
             })}

@@ -9,6 +9,8 @@ import Navigation from './components/Navigation/Navigation';
 
 import User from './components/User.js';
 
+import Account from './components/Account.js';
+
 import CreateCard from './components/CreateCard.js'
 
 import * as routes from './constants/routes.js';
@@ -37,6 +39,7 @@ class App extends Component {
           <Navigation />
 
           <Route exact path="/" component={Home} />
+          <Route path="/account" component={Account} />
           <Route path="/signin" component={AuthenLogin} />
           <Route path="/signup" component={AuthenRegister} />
           <Route path={"/u/:username"} component={User} />
