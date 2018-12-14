@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../../images/dplogo.svg';
 import '../../styles/Home.css';
+import axios from 'axios';
+
 import SignOutButton from '../SignOut';
 
 import * as routes from '../../constants/routes';
@@ -13,7 +15,29 @@ import {
 
 class UserNavbar extends Component {
 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      currentUser: null
+    }
+  }
+
+  async componentDidMount() {
+
+    const bearer = 'Bearer ' + localStorage.getItem("accessToken")
+
+    var header = {
+        "Access-Control-Allow-Origin": 'content-type',
+        "Authorization": bearer
+    }
+
+    const res = await axios.get('http://127.0.0.1:5000/profile', { headers: header });
+    await this.setState({ currentUser: res.data.user.username })
+  }
+
   render() {
+    const profilePath = "/u/" + this.state.currentUser;
     return (
       <nav className="navbar navbar-expand-lg navbar-style">
         <a className="navbar-brand" href="/">
@@ -28,7 +52,7 @@ class UserNavbar extends Component {
 
           </ul>
             <Link className="navbar-button" to={routes.SIGN_IN}>Browse</Link>
-            <Link className="navbar-button" to={routes.ACCOUNT}>Profile</Link>
+            <Link className="navbar-button" to={profilePath}>Profile</Link>
             <SignOutButton />
         </div>
       </nav>

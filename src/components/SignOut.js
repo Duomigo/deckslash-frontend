@@ -7,7 +7,8 @@ import {
   } from 'react-router-dom';
 
 function doSignOut() {
-  localStorage.removeItem("jwtToken");
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("refreshToken")
 }
 
 const SignOutButton = () =>

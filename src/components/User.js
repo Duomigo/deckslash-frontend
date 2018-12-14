@@ -5,19 +5,22 @@ import '../styles/User.css';
 import axios from 'axios';
 
 import UserScreen from './UserScreen.js';
+import ProfileScreen from './ProfileScreen.js'
 
 class User extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      user: null
+      user: null,
+      userOwner: false
     }
 
     this.username = props.match.params.username;
   }
 
   async componentWillMount() {
+
     const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 
     var header = {
@@ -31,12 +34,30 @@ class User extends Component {
     } catch (error) {
       console.log(error.response);
     }
+
+    try {
+      const accountResponse = await axios.get('http://127.0.0.1:5000/profile', { headers: header });
+      const accountUsername = accountResponse.data.user.username;
+
+      if (accountUsername === this.username) {
+        this.setState({ userOwner: true })
+      }
+
+    } catch (error) {
+      console.log(error.response);
+    }
   }
+
   
   render() {
+
     return (
       (this.state.user) ? (
-        <UserScreen userData={this.state.user} />
+        (this.state.userOwner) ? (
+          <ProfileScreen userData={this.state.user} />
+        ) : (
+          <UserScreen userData={this.state.user} />
+        )
       ) : (
         <ErrorScreen />
       )

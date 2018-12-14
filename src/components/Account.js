@@ -22,7 +22,9 @@ const updateByPropertyName = (propertyName, value) => () => ({
 
 const INITIAL_STATE = {
   username: '',
-  password: '',
+  name: '',
+  email: '',
+  bio:'',
   error: null,
 };
 
@@ -30,7 +32,13 @@ class Account extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { ...INITIAL_STATE };
+    this.state = {
+      username: '',
+      name: '',
+      email: '',
+      bio:'',
+      error: null,
+    };
   }
 
   onSubmit = (event) => {
@@ -73,6 +81,7 @@ class Account extends Component {
   }
 
   render() {
+
     const {
       username,
       name,

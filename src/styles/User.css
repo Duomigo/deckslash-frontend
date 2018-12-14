@@ -26,6 +26,37 @@
   text-align: center;
 }
 
+.m-profile-button {
+  color: black;
+  background-color: transparent;
+  font-family: medium;
+  font-size: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.m-profile-button:hover {
+  color: #fe5257;
+  text-decoration: none;
+}
+
+.m-profile-edit-button {
+  color: black;
+  background-color: grey;
+  padding: 10px;
+  font-family: medium;
+  font-size: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.m-profile-edit-button:hover {
+  color: #fe5257;
+  text-decoration: none;
+}
+
 .flex-container {
   padding: 0;
   margin: 0;
@@ -45,6 +76,7 @@
   word-wrap: break-word;
   margin-top: 5px;
   display: block;
+  display: inline-block;
 }
 
 .m-profile-username {

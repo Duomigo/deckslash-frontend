@@ -4,7 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Home.css';
 import '../styles/User.css';
 
-class UserScreen extends Component {
+import { Link } from 'react-router-dom';
+import * as routes from '../constants/routes';
+
+import editlogo from '../images/edit-logo.svg';
+
+class ProfileScreen extends Component {
     constructor(props) {
       super(props)
   
@@ -30,20 +35,21 @@ class UserScreen extends Component {
                 </div>
                 <div className="m-profile-right">
                   <t className="m-profile-name">{user.name}</t>
-                  <span className="m-profile-username">@{user.username}</span>
+                  <a href={routes.ACCOUNT}>
+                    <img src={editlogo} width="20" height="20" style={{marginLeft: "10px", marginBottom:"10px"}} alt=""/>               
+                  </a>
+                  <t className="m-profile-username">@{user.username}</t>
                   <t className="m-profile-desc">{user.bio}</t>                           
                 </div>
               </div>
               <div className="m-profile-filter">
-                <button className="btn m-profile-button" type="submit">
-                  {cards.length} Books
-                </button>
+                <button className="btn m-profile-button" type="submit">{cards.length} Books</button>
                 <button className="btn m-profile-button" type="submit">10 Following</button>
                 <button className="btn m-profile-button" type="submit">88 Followers</button>
               </div> 
             </div>
   
-            <div className="m-profile-card-container col-lg-6 col-md-10 col-sm-* col-xs-*">              
+            <div className="m-profile-card-container col-lg-6 col-md-10 col-sm-* col-xs-*">           
               {cards.map(function (card, i) { // map function with server data
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
@@ -60,4 +66,4 @@ class UserScreen extends Component {
     }
   }
 
-export default UserScreen;
+export default ProfileScreen;

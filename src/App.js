@@ -8,6 +8,7 @@ import AuthenRegister from './components/AuthenRegister.js'
 import Navigation from './components/Navigation/Navigation';
 
 import User from './components/User.js';
+import UserScreen from './components/UserScreen.js';
 
 import Account from './components/Account.js';
 
@@ -22,14 +23,23 @@ class App extends Component {
     super(props);
       this.state = {
         users: null,
+        currentUser:  null
       }
   }
 
   async componentDidMount() {
-    const res = await axios.get('http://127.0.0.1:5000/testuser');
-    console.log("Du lieu nguoi dung: ");
-    console.log(res.data);
-    await this.setState({ users: res.data })
+
+    const bearer = 'Bearer ' + localStorage.getItem("accessToken")
+
+    const header = {
+        "Access-Control-Allow-Origin": 'content-type',
+        "Authorization": bearer
+    }
+
+    const usersData = await axios.get('http://127.0.0.1:5000/testuser');
+    await this.setState({ users: usersData.data })
+
+    const profileData = await axios.get(http://127.0.0.1:5000/profile, { headers: header})
   }
 
   render() {
