@@ -55,9 +55,13 @@ class SignInForm extends Component {
 
     axios.post('http://127.0.0.1:5000/login', loginData)
     .then(res => {
-      const token = res.data.token;
-      if (token) {
-        localStorage.setItem('jwtToken', token);
+      const accessToken = res.data.access_token;
+      const refreshToken = res.data.refresh_token
+      if (accessToken) {
+        localStorage.setItem('accessToken', accessToken);
+      }
+      if (refreshToken) {
+        localStorage.setItem('refreshToken', refreshToken);
       }
       history.push(routes.LANDING);
 

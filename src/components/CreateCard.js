@@ -37,9 +37,11 @@ class CreateCard extends Component {
 
       console.log(cardData)
 
+      const bearer = 'Bearer ' + localStorage.getItem("accessToken")
+
       var header = {
-          "x-access-token": localStorage.getItem("jwtToken"),
-          "Access-Control-Allow-Origin": 'X-Requested-With,content-type'
+          "Access-Control-Allow-Origin": 'X-Requested-With,content-type',
+          "Authorization": bearer
       }
   
       axios.post('http://127.0.0.1:5000/cards', cardData, { headers: header })

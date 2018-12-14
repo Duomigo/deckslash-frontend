@@ -1,5 +1,5 @@
 const isAuth = () => {
-    const token = localStorage.getItem('jwtToken');
+    const token = localStorage.getItem('accessToken');
     if (token == null) {
         console.log("There is no token in localStorage")
         return false;

@@ -58,7 +58,7 @@ class Account extends Component {
     .then(res => {
       const token = res.data.token;
       if (token) {
-        localStorage.setItem('jwtToken', token);
+        localStorage.setItem('accessToken', token);
       }
       history.push(routes.LANDING);
 
