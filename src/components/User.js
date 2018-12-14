@@ -18,13 +18,15 @@ class User extends Component {
   }
 
   async componentWillMount() {
-    const AuthToken = localStorage.getItem('jwtToken');
+    const bearer = 'Bearer ' + localStorage.getItem("accessToken")
+
+    var header = {
+        "Access-Control-Allow-Origin": 'content-type',
+        "Authorization": bearer
+    }
+
     try {
-      const response = await axios.get('http://127.0.0.1:5000/users/' + this.username, {
-        headers: {
-          "x-access-token": AuthToken
-        }
-      });
+      const response = await axios.get('http://127.0.0.1:5000/users/' + this.username, { headers: header });
       this.setState({user: response.data});
     } catch (error) {
       console.log(error.response);

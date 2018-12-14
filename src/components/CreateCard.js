@@ -35,8 +35,6 @@ class CreateCard extends Component {
         link: this.state.link
       }
 
-      console.log(cardData)
-
       const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 
       var header = {
