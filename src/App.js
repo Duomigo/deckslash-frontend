@@ -50,7 +50,7 @@ class App extends Component {
           <Navigation />
 
           <Route exact path="/" component={Home} />
-          <Route path="/account" render={()=><Account profileData={this.state.currentUser} />}/>
+          <Route path="/account" component={Account}/>
           <Route path="/signin" component={AuthenLogin} />
           <Route path="/signup" component={AuthenRegister} />
           <Route path={"/u/:username"} component={User} />

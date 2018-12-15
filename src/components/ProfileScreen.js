@@ -4,8 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Home.css';
 import '../styles/User.css';
 
-import { Link } from 'react-router-dom';
-import * as routes from '../constants/routes';
+import Account from './Account.js'
+
+import Modal from 'react-modal';
 
 import editlogo from '../images/edit-logo.svg';
 
@@ -15,13 +16,52 @@ class ProfileScreen extends Component {
   
       this.state = {
         user: props.userData.user,
-        cards: props.userData.cards
+        cards: props.userData.cards,
+        modalIsOpen: false
       }
+
+      this.openModal = this.openModal.bind(this)
+      this.closeModal = this.closeModal.bind(this)
+    }
+
+    openModal() {
+      this.setState({modalIsOpen: true});
+    }
+
+
+    closeModal() {
+      this.setState({modalIsOpen: false});
     }
     
     render() {
       const { user, cards } = this.state;
       const baseUrl = 'http://127.0.0.1:5000'
+
+      const customStyles = {
+        overlay: {
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(125, 125, 125, 0.7)'
+        },
+        content: {
+          position: 'absolute',
+          top: '45%',
+          left: '50%',
+          height: '550px',
+          width: '400px',
+          transform: 'translate(-50%, -50%)',
+          border: 'none',
+          background: '#fff',
+          overflow: 'auto',
+          WebkitOverflowScrolling: 'touch',
+          borderRadius: '4px',
+          outline: 'none',
+          padding: '20px'
+        }
+      };
   
       return (
   
@@ -35,9 +75,23 @@ class ProfileScreen extends Component {
                 </div>
                 <div className="m-profile-right">
                   <t className="m-profile-name">{user.name}</t>
-                  <a href={routes.ACCOUNT}>
-                    <img src={editlogo} width="20" height="20" style={{marginLeft: "10px", marginBottom:"10px"}} alt=""/>               
+
+                  <a>
+                    <a onClick={this.openModal}>
+                      <img src={editlogo} width="20" height="20" style={{marginLeft: "10px", marginBottom:"10px"}} alt=""/>               
+                    </a>
+                    <Modal
+                      isOpen={this.state.modalIsOpen}
+                      onRequestClose={this.closeModal}
+                      contentLabel="Example Modal"
+                      style={customStyles}
+                    >
+
+                      <Account profileData={this.state.user} />
+
+                    </Modal>
                   </a>
+
                   <t className="m-profile-username">@{user.username}</t>
                   <t className="m-profile-desc">{user.bio}</t>                           
                 </div>

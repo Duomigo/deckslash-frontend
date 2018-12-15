@@ -33,10 +33,10 @@ class Account extends Component {
     super(props);
 
     this.state = {
-      username: '',
-      name: '',
-      email: '',
-      bio: '',
+      username: props.profileData.username,
+      name: props.profileData.name,
+      email: props.profileData.email,
+      bio: props.profileData.bio,
       error: null,
     };
   }
@@ -55,11 +55,11 @@ class Account extends Component {
     } = this.props;
 
     const loginData = {
-      username: this.state.username,
-      name: this.state.name,
-      email: this.state.email,
-      bio: this.state.bio,
-      profile_image: this.state.profile_image
+      username: username,
+      name: name,
+      email: email,
+      bio: bio,
+      profile_image: profile_image
     }
 
     axios.post('http://127.0.0.1:5000/login', loginData)
@@ -81,11 +81,6 @@ class Account extends Component {
   }
 
   render() {
-
-    console.log("____________")
-    console.log(this.props.profileData)
-    console.log(this.props.profileData)
-    console.log("____________")
 
     const {
       username,
