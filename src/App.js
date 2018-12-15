@@ -10,6 +10,7 @@ import Navigation from './components/Navigation/Navigation';
 import User from './components/User.js';
 
 import CreateCard from './components/CreateCard.js'
+import ImageUpload from './components/ImageUpload.js'
 
 import axios from 'axios';
 
@@ -49,6 +50,7 @@ class App extends Component {
           <Route path="/signup" component={AuthenRegister} />
           <Route path={"/u/:username"} component={User} />
           <Route path="/new" component={CreateCard} />
+          <Route path="/upload" component={ImageUpload} />
         </div>
       </Router>
     );

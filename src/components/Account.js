@@ -8,7 +8,7 @@ import { SignUpLink } from './AuthenRegister';
 // import { PasswordForgetLink } from '../PasswordForget';
 
 import * as routes from '../constants/routes';
-import isAuth from './AuthenStatus';
+import isAuth from './AuthenStatus'
 
 import axios from 'axios';
 
@@ -54,27 +54,28 @@ class Account extends Component {
       history,
     } = this.props;
 
-    const loginData = {
+    const updateData = {
       username: username,
       name: name,
       email: email,
-      bio: bio,
-      profile_image: profile_image
+      bio: bio
     }
 
-    axios.post('http://127.0.0.1:5000/login', loginData)
-    .then(res => {
-      const token = res.data.token;
-      if (token) {
-        localStorage.setItem('accessToken', token);
-      }
-      history.push(routes.LANDING);
+    const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 
-      console.log("Login Successful.");
+    var header = {
+        "Access-Control-Allow-Origin": 'X-Requested-With,content-type',
+        "Authorization": bearer
+    }
+
+    axios.post('http://127.0.0.1:5000/profile', updateData, { headers: header })
+    .then(res => {
+
+      console.log("Successful.");
     })
     .catch(function (error) {
       console.log(error);
-      console.log("Login Failed.");
+      console.log("Failed.");
     });
 
     event.preventDefault();
