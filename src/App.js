@@ -39,7 +39,8 @@ class App extends Component {
     const usersData = await axios.get('http://127.0.0.1:5000/testuser');
     await this.setState({ users: usersData.data })
 
-    const profileData = await axios.get(http://127.0.0.1:5000/profile, { headers: header})
+    const profileData = await axios.get('http://127.0.0.1:5000/profile', { headers: header});
+    await this.setState({ currentUser: profileData.data });
   }
 
   render() {
@@ -49,7 +50,7 @@ class App extends Component {
           <Navigation />
 
           <Route exact path="/" component={Home} />
-          <Route path="/account" component={Account} />
+          <Route path="/account" render={()=><Account profileData={this.state.currentUser} />}/>
           <Route path="/signin" component={AuthenLogin} />
           <Route path="/signup" component={AuthenRegister} />
           <Route path={"/u/:username"} component={User} />

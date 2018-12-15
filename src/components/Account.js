@@ -36,7 +36,7 @@ class Account extends Component {
       username: '',
       name: '',
       email: '',
-      bio:'',
+      bio: '',
       error: null,
     };
   }
@@ -81,6 +81,11 @@ class Account extends Component {
   }
 
   render() {
+
+    console.log("____________")
+    console.log(this.props.profileData)
+    console.log(this.props.profileData)
+    console.log("____________")
 
     const {
       username,
