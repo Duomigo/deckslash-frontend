@@ -47,33 +47,29 @@ class ImageUpload extends Component {
     this.setState({ crop });
   };
 
-  onClickSubmit = () => {
+  onClickSubmit = (event) => {
       const imgFile = new FormData()
-      console.log(this.state.croppedImageUrl)
-      console.log(this.state.theBlob)
-      imgFile.append("file", this.state.theBlob, this.state.theBlob.name)
-      const data =  {
-        picture: imgFile
-      }
+      imgFile.append("picture", this.state.theBlob, this.state.theBlob.name)
 
       const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 
       var header = {
           "Access-Control-Allow-Origin": 'X-Requested-With,content-type',
-          "Authorization": bearer,
-          'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+          "Content-Type": `multipart/form-data; boundary=${imgFile._boundary}`,
+          "Authorization": bearer
       }
   
-      axios.post('http://127.0.0.1:5000/profilepic', data, { headers: header })
+      axios.post('http://127.0.0.1:5000/profilepic', imgFile, { headers: header })
       .then(res => {
-        console.log("hahaha")
-        console.log(data)
-        console.log(imgFile)
+        console.log("Successful changed profile picture.")
+        console.log(imgFile.get("picture"))
       })
       .catch(function (error) {
-        console.log(error);
-        console.log("Failed.");
+        console.log("Failed changing profile picture.")
+        console.log(error.response);
       });
+
+      event.preventDefault();
   }
 
   async makeClientCrop(crop, pixelCrop) {
@@ -111,7 +107,9 @@ class ImageUpload extends Component {
         window.URL.revokeObjectURL(this.fileUrl);
         this.fileUrl = window.URL.createObjectURL(blob);
         resolve(this.fileUrl);
+
         this.setState({ theBlob: blob })
+
       }, 'image/jpeg');
     });
   }
@@ -134,7 +132,10 @@ class ImageUpload extends Component {
           />
         )}
         <h1>{croppedImageUrl}</h1>
-        <button onClick={this.onClickSubmit}>Push</button>
+
+        <form onSubmit={this.onClickSubmit}>
+          <button className="btn navbar-button" type="submit">Push</button>
+        </form>
       </div>
     );
   }
