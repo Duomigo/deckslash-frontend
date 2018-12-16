@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import axios from 'axios';
+import '../styles/AuthenLogin.css'
+import '../styles/Home.css'
+import '../styles/User.css'
 
 class ImageUpload extends Component {
   state = {
@@ -119,8 +122,12 @@ class ImageUpload extends Component {
 
     return (
       <div className="App">
+        <h3 className="m-lm-header-text">Change your profile picture.</h3>
+        <h4 className="m-lm-sub-text">Show us your newest look!</h4>
         <div>
-          <input type="file" onChange={this.onSelectFile} />
+          <label className="mr-sm-2 m-lm-button rounded">
+            <input type="file" onChange={this.onSelectFile} />
+          </label>
         </div>
         {src && (
           <ReactCrop
@@ -134,7 +141,7 @@ class ImageUpload extends Component {
         <h1>{croppedImageUrl}</h1>
 
         <form onSubmit={this.onClickSubmit}>
-          <button className="btn navbar-button" type="submit">Push</button>
+          <button className="mr-sm-2 m-lm-button rounded" type="submit">Update Profile Image</button>
         </form>
       </div>
     );

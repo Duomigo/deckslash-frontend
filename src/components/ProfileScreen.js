@@ -5,6 +5,7 @@ import '../styles/Home.css';
 import '../styles/User.css';
 
 import Account from './Account.js'
+import ImageUpload from './ImageUpload.js'
 
 import Modal from 'react-modal';
 
@@ -17,19 +18,31 @@ class ProfileScreen extends Component {
       this.state = {
         user: props.userData.user,
         cards: props.userData.cards,
-        modalIsOpen: false,     
+        profileModalIsOpen: false, 
+        imageModalIsOpen: false    
       }
 
-      this.openModal = this.openModal.bind(this)
-      this.closeModal = this.closeModal.bind(this)
+      this.openProfileModal = this.openProfileModal.bind(this)
+      this.closeProfileModal = this.closeProfileModal.bind(this)
+
+      this.openImageModal = this.openImageModal.bind(this)
+      this.closeImageModal = this.closeImageModal.bind(this)
     }
 
-    openModal() {
-      this.setState({modalIsOpen: true});
+    openProfileModal() {
+      this.setState({ profileModalIsOpen: true });
     }
 
-    closeModal() {
-      this.setState({modalIsOpen: false});
+    closeProfileModal() {
+      this.setState({ profileModalIsOpen: false });
+    }
+
+    openImageModal() {
+      this.setState({ imageModalIsOpen: true })
+    }
+
+    closeImageModal() {
+      this.setState({ imageModalIsOpen: false })
     }
     
     render() {
@@ -69,20 +82,30 @@ class ProfileScreen extends Component {
           <div className="row text-align-center justify-content-center">
             <div className="col-12">
               <div className="row m-profile-info col-lg-6 col-md-10 col-sm-* col-xs-*">
-                <a onClick={this.openModal} className="m-profile-left">
+                <a onClick={this.openImageModal} className="m-profile-left">
                   <img className="rounded-circle m-profile-avatar" src={baseUrl + user.profile_image} alt="" />     
                 </a>
+                  <Modal
+                    isOpen={this.state.imageModalIsOpen}
+                    onRequestClose={this.closeImageModal}
+                    contentLabel="Avatar"
+                    style={customStyles}
+                  >
+
+                    <ImageUpload />
+
+                  </Modal>
                 <div className="m-profile-right">
                   <t className="m-profile-name">{user.name}</t>
 
                   <a>
-                    <a onClick={this.openModal}>
+                    <a onClick={this.openProfileModal}>
                       <img src={editlogo} width="20" height="20" style={{marginLeft: "10px", marginBottom:"10px"}} alt=""/>               
                     </a>
                     <Modal
-                      isOpen={this.state.modalIsOpen}
-                      onRequestClose={this.closeModal}
-                      contentLabel="Example Modal"
+                      isOpen={this.state.profileModalIsOpen}
+                      onRequestClose={this.closeProfileModal}
+                      contentLabel="Profile"
                       style={customStyles}
                     >
 
