@@ -219,24 +219,6 @@
   text-align: center;
 }
 
-.m-profile-image-button {
-  background-color: #fe5257;
-  color: #eceff1;
-  border: none;
-  font-family: regular;
-  font-size: 20px;
-  margin-bottom: 10px;
-  width: 50%;
-  padding: 5px;
-  padding-top: 8px;
-  outline: none;
-}
-
-.m-profile-image-button:hover {
-  background-color: #ff656a;
-  cursor: pointer;
-}
-
 #upload-photo {
   opacity: 0;
   position: absolute;
@@ -245,4 +227,15 @@
 
 input[type="file"] {
   display: none;
+}
+
+.m-lm-image-upload > input
+{
+    display: none;
+}
+
+.m-lm-image-upload img
+{
+    width: 80px;
+    cursor: pointer;
 }

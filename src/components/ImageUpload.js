@@ -5,6 +5,7 @@ import axios from 'axios';
 import '../styles/AuthenLogin.css'
 import '../styles/Home.css'
 import '../styles/User.css'
+import upload from '../images/upload.svg'
 
 class ImageUpload extends Component {
   state = {
@@ -124,11 +125,15 @@ class ImageUpload extends Component {
       <div className="App">
         <h3 className="m-lm-header-text">Change your profile picture.</h3>
         <h4 className="m-lm-sub-text">Show us your newest look!</h4>
-        <div>
-          <label className="mr-sm-2 m-lm-button rounded">
-            <input type="file" onChange={this.onSelectFile} />
+
+        <div class="m-lm-image-upload">
+          <label for="file-input">
+            <img src={upload}/>
           </label>
+
+          <input id="file-input" type="file" onChange={this.onSelectFile}/>
         </div>
+
         {src && (
           <ReactCrop
             src={src}
