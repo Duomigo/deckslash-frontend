@@ -17,7 +17,7 @@ class ProfileScreen extends Component {
       this.state = {
         user: props.userData.user,
         cards: props.userData.cards,
-        modalIsOpen: false
+        modalIsOpen: false,     
       }
 
       this.openModal = this.openModal.bind(this)
@@ -27,7 +27,6 @@ class ProfileScreen extends Component {
     openModal() {
       this.setState({modalIsOpen: true});
     }
-
 
     closeModal() {
       this.setState({modalIsOpen: false});
@@ -70,9 +69,9 @@ class ProfileScreen extends Component {
           <div className="row text-align-center justify-content-center">
             <div className="col-12">
               <div className="row m-profile-info col-lg-6 col-md-10 col-sm-* col-xs-*">
-                <div className="m-profile-left">
+                <a onClick={this.openModal} className="m-profile-left">
                   <img className="rounded-circle m-profile-avatar" src={baseUrl + user.profile_image} alt="" />     
-                </div>
+                </a>
                 <div className="m-profile-right">
                   <t className="m-profile-name">{user.name}</t>
 
