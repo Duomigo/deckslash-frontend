@@ -48,26 +48,27 @@ class ImageUpload extends Component {
   };
 
   onClickSubmit = () => {
-      const imgFile = this.state.croppedImageUrl
-      var xxx = new File([imgFile], "name");
-      console.log('File anh cho ban')
-      console.log(xxx)
-      this.setState({ xxx })
-
-      const infoData = {
-        profile_image: "xxx"
+      const imgFile = new FormData()
+      console.log(this.state.croppedImageUrl)
+      console.log(this.state.theBlob)
+      imgFile.append("file", this.state.theBlob, this.state.theBlob.name)
+      const data =  {
+        picture: imgFile
       }
 
       const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 
       var header = {
           "Access-Control-Allow-Origin": 'X-Requested-With,content-type',
-          "Authorization": bearer
+          "Authorization": bearer,
+          'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
       }
   
-      axios.post('http://127.0.0.1:5000/profilepic', infoData, { headers: header })
+      axios.post('http://127.0.0.1:5000/profilepic', data, { headers: header })
       .then(res => {
         console.log("hahaha")
+        console.log(data)
+        console.log(imgFile)
       })
       .catch(function (error) {
         console.log(error);
@@ -110,12 +111,13 @@ class ImageUpload extends Component {
         window.URL.revokeObjectURL(this.fileUrl);
         this.fileUrl = window.URL.createObjectURL(blob);
         resolve(this.fileUrl);
+        this.setState({ theBlob: blob })
       }, 'image/jpeg');
     });
   }
 
   render() {
-    const { crop, croppedImageUrl, xxx, src } = this.state;
+    const { crop, croppedImageUrl, src } = this.state;
 
     return (
       <div className="App">
