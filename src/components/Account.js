@@ -70,8 +70,8 @@ class Account extends Component {
 
     axios.post('http://127.0.0.1:5000/profile', updateData, { headers: header })
     .then(res => {
-
       console.log("Successful.");
+      window.location.reload()
     })
     .catch(function (error) {
       console.log(error);

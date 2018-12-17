@@ -13,13 +13,7 @@ class Home extends Component {
     super(props)
 
     this.state = {
-      posts:
-        [
-          {
-            "url": "https://i.pinimg.com/736x/e0/06/f3/e006f3de43c580458aebf3e7f20d526f--tedy-bruschi-arizona-wildcats.jpg",
-            "title": "Measure what matters"
-          }
-        ]
+      posts: []
     }
   }
 
@@ -48,7 +42,7 @@ class Home extends Component {
 
         <div className="row justify-content-center">
           <div className="m-home-card-container col-lg-8 col-md-10 col-sm-* col-xs-*">
-            {posts.map(function (post, i) { //map function with server data
+            {posts.slice(0).reverse().map(function (post, i) { // reverse array map function with server data
               return (
                 <div className="m-profile-whole-card-cover rounded" key={i}>
                   <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + post.picture} alt="" />

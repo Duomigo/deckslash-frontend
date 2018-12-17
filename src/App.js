@@ -51,6 +51,7 @@ class App extends Component {
           <Route path={"/u/:username"} component={User} />
           <Route path="/new" component={CreateCard} />
           <Route path="/upload" component={ImageUpload} />
+          
         </div>
       </Router>
     );

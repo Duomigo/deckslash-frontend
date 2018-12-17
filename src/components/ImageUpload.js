@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import axios from 'axios';
+
 import '../styles/AuthenLogin.css'
 import '../styles/Home.css'
 import '../styles/User.css'
 import upload from '../images/upload.svg'
+import * as routes from '../constants/routes';
 
 class ImageUpload extends Component {
   state = {
@@ -52,6 +54,7 @@ class ImageUpload extends Component {
   };
 
   onClickSubmit = (event) => {
+
       const imgFile = new FormData()
       imgFile.append("picture", this.state.theBlob, this.state.theBlob.name)
 
@@ -66,7 +69,8 @@ class ImageUpload extends Component {
       axios.post('http://127.0.0.1:5000/profilepic', imgFile, { headers: header })
       .then(res => {
         console.log("Successful changed profile picture.")
-        console.log(imgFile.get("picture"))
+        console.log(res)
+        window.location.reload()
       })
       .catch(function (error) {
         console.log("Failed changing profile picture.")
@@ -143,7 +147,7 @@ class ImageUpload extends Component {
             onChange={this.onCropChange}
           />
         )}
-        <h1>{croppedImageUrl}</h1>
+        {/* <h1>{croppedImageUrl}</h1> */}
 
         <form onSubmit={this.onClickSubmit}>
           <button className="mr-sm-2 m-lm-button rounded" type="submit">Update Profile Image</button>
