@@ -8,6 +8,7 @@ import AuthenRegister from './components/AuthenRegister.js'
 import Navigation from './components/Navigation/Navigation';
 
 import User from './components/User.js';
+import UserScreen from './components/UserScreen.js'
 
 import CreateCard from './components/CreateCard.js'
 import ImageUpload from './components/ImageUpload.js'
@@ -19,7 +20,7 @@ class App extends Component {
     super(props);
       this.state = {
         users: null,
-        currentUser:  null
+        currentUser:  null,
       }
   }
 
@@ -37,6 +38,7 @@ class App extends Component {
 
     const profileData = await axios.get('http://127.0.0.1:5000/profile', { headers: header});
     await this.setState({ currentUser: profileData.data });
+
   }
 
   render() {
@@ -51,7 +53,7 @@ class App extends Component {
           <Route path={"/u/:username"} component={User} />
           <Route path="/new" component={CreateCard} />
           <Route path="/upload" component={ImageUpload} />
-          
+
         </div>
       </Router>
     );

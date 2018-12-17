@@ -10,7 +10,8 @@ import * as routes from '../../constants/routes';
 import {
     BrowserRouter as Router,
     Route,
-    Link
+    Link,
+    Switch
   } from 'react-router-dom';
 
 class UserNavbar extends Component {
@@ -38,6 +39,7 @@ class UserNavbar extends Component {
 
   render() {
     const profilePath = "/u/" + this.state.currentUser;
+    console.log(profilePath)
     return (
       <nav className="navbar navbar-expand-lg navbar-style">
         <a className="navbar-brand" href="/">
@@ -52,7 +54,7 @@ class UserNavbar extends Component {
 
           </ul>
             <Link className="navbar-button" to={routes.SIGN_IN}>Browse</Link>
-            <Link className="navbar-button" to={profilePath}>Profile</Link>
+            <a className="navbar-button" href={profilePath}>Profile</a>
             <SignOutButton />
         </div>
       </nav>
