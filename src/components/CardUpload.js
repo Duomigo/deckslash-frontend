@@ -11,6 +11,10 @@ import '../styles/User.css'
 import upload from '../images/upload.svg'
 import * as routes from '../constants/routes';
 
+const updateByPropertyName = (propertyName, value) => () => ({
+  [propertyName]: value,
+});
+
 class CardUpload extends Component {
   state = {
     src: null,
@@ -20,6 +24,9 @@ class CardUpload extends Component {
       x: 0,
       y: 0,
     },
+    title: '',
+    description: '',
+    link: '',
   };
 
   onSelectFile = e => {
@@ -57,18 +64,21 @@ class CardUpload extends Component {
 
   onClickSubmit = (event) => {
 
-      const imgFile = new FormData()
-      imgFile.append("picture", this.state.theBlob, this.state.theBlob.name)
+      const cardFile = new FormData()
+      cardFile.set('title', this.state.title);
+      cardFile.set('description', this.state.description);
+      cardFile.set('link', this.state.link);
+      cardFile.append('picture', this.state.theBlob, this.state.theBlob.name)
 
       const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 
       var header = {
           "Access-Control-Allow-Origin": 'X-Requested-With,content-type',
-          "Content-Type": `multipart/form-data; boundary=${imgFile._boundary}`,
+          "Content-Type": `multipart/form-data; boundary=${cardFile._boundary}`,
           "Authorization": bearer
       }
   
-      axios.post('http://127.0.0.1:5000/profilepic', imgFile, { headers: header })
+      axios.post('http://127.0.0.1:5000/cards', cardFile, { headers: header })
       .then(res => {
         console.log("Successful changed profile picture.")
         console.log(res)
@@ -127,35 +137,70 @@ class CardUpload extends Component {
   render() {
     const { crop, croppedImageUrl, src } = this.state;
 
+    const {
+      title,
+      description ,
+      link,
+    } = this.state;
+
+    const isInvalid =
+      title === '' ||
+      description === '';
+
     return (
       <div className="App">
-        <h3 className="m-lm-header-text">Change your profile picture.</h3>
-        <h4 className="m-lm-sub-text">Show us your newest look!</h4>
 
-        <div class="m-lm-image-upload">
-          <label for="file-input">
-            <img src={upload}/>
-          </label>
+        <div className="m-lm-content rounded">
+            <h3 className="m-lm-header-text">New Book Review</h3>
+            <h4 className="m-lm-sub-text">What did you read?</h4>
+            <form onSubmit={this.onClickSubmit}>
+            
+              <div class="m-lm-image-upload">
+                <label for="file-input">
+                  <img src={upload}/>
+                </label>
 
-          <input id="file-input" type="file" onChange={this.onSelectFile}/>
-        </div>
+                <input id="file-input" type="file" onChange={this.onSelectFile}/>
+              </div>
 
-        {src && (
-          <ReactCrop
-            src={src}
-            crop={crop}
-            onImageLoaded={this.onImageLoaded}
-            onComplete={this.onCropComplete}
-            onChange={this.onCropChange}
-          />
-        )}
-        {/* <h1>{croppedImageUrl}</h1> */}
+              {src && (
+                <ReactCrop
+                  src={src}
+                  crop={crop}
+                  onImageLoaded={this.onImageLoaded}
+                  onComplete={this.onCropComplete}
+                  onChange={this.onCropChange}
+                />
+              )}
 
-        <CreateCard />
+              <input
+                className="mr-sm-2 m-lm-input rounded"
+                value={title}
+                onChange={event => this.setState(updateByPropertyName('title', event.target.value))}
+                type="text"
+                placeholder="Title"
+              />
+              <input
+                className="mr-sm-2 m-lm-input rounded"
+                value={description}
+                onChange={event => this.setState(updateByPropertyName('description', event.target.value))}
+                type="text"
+                placeholder="Description"
+              />
+              <input
+                className="mr-sm-2 m-lm-input rounded"
+                value={link}
+                onChange={event => this.setState(updateByPropertyName('link', event.target.value))}
+                type="text"
+                placeholder="Link"
+              />
 
-        <form onSubmit={this.onClickSubmit}>
-          <button className="mr-sm-2 m-lm-button rounded" type="submit">Update Profile Image</button>
-        </form>
+              <button className="mr-sm-2 m-lm-button rounded" disabled={isInvalid} type="submit">
+               Create Card
+              </button>
+
+            </form>
+          </div>
       </div>
     );
   }
