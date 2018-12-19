@@ -13,6 +13,10 @@ import UserScreen from './components/UserScreen.js'
 import CreateCard from './components/CreateCard.js'
 import ImageUpload from './components/ImageUpload.js'
 
+import CardUpload from './components/CardUpload.js'
+
+import { refreshUser } from './components/AuthenStatus.js'
+
 import axios from 'axios';
 
 class App extends Component {
@@ -39,6 +43,34 @@ class App extends Component {
     const profileData = await axios.get('http://127.0.0.1:5000/profile', { headers: header});
     await this.setState({ currentUser: profileData.data });
 
+
+    // const refreshBearer = 'Bearer ' + localStorage.getItem("refreshToken")
+
+    // const refreshHeader = {
+    //     "Access-Control-Allow-Origin": 'content-type',
+    //     "Authorization": refreshBearer
+    // }
+
+    // this.interval = setInterval(() => {
+    //   axios.get('http://127.0.0.1:5000/refresh', { headers: refreshHeader})
+    // .then(res => {
+    //   const newAccessToken = res.data.access_token;
+
+    //   if (newAccessToken) {
+    //     localStorage.removeItem('accessToken')
+    //     localStorage.setItem('accessToken', newAccessToken);
+    //   }
+
+    //   console.log("Update Access Token Successful.");
+    //   console.log(newAccessToken)
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    //   console.log("Update Access Token Unsuccessful.");
+    // });
+    // }, 1000);
+
+    refreshUser();
   }
 
   render() {
@@ -53,6 +85,8 @@ class App extends Component {
           <Route path={"/u/:username"} component={User} />
           <Route path="/new" component={CreateCard} />
           <Route path="/upload" component={ImageUpload} />
+
+          <Route path="/yolo" component={CardUpload} />
 
         </div>
       </Router>
