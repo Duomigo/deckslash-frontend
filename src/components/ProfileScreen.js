@@ -6,10 +6,12 @@ import '../styles/User.css';
 
 import Account from './Account.js'
 import ImageUpload from './ImageUpload.js'
+import CardUpload from './CardUpload.js'
 
 import Modal from 'react-modal';
 
 import editlogo from '../images/edit-logo.svg';
+import newlogo from '../images/newbutton.svg';
 
 class ProfileScreen extends Component {
     constructor(props) {
@@ -20,6 +22,7 @@ class ProfileScreen extends Component {
         cards: props.userData.cards,
         profileModalIsOpen: false, 
         imageModalIsOpen: false,   
+        cardModalIsOpen: false
       }
 
       this.openProfileModal = this.openProfileModal.bind(this)
@@ -27,6 +30,9 @@ class ProfileScreen extends Component {
 
       this.openImageModal = this.openImageModal.bind(this)
       this.closeImageModal = this.closeImageModal.bind(this)
+
+      this.openCardModal = this.openCardModal.bind(this)
+      this.closeCardModal = this.closeCardModal.bind(this)
     }
 
     openProfileModal() {
@@ -44,12 +50,20 @@ class ProfileScreen extends Component {
     closeImageModal() {
       this.setState({ imageModalIsOpen: false })
     }
+
+    openCardModal() {
+      this.setState({ cardModalIsOpen: true })
+    }
+
+    closeCardModal() {
+      this.setState({ cardModalIsOpen: false })
+    }
     
     render() {
       const { user, cards } = this.state;
       const baseUrl = 'http://127.0.0.1:5000'
 
-      const customStyles = {
+      const profileStyle = {
         overlay: {
           position: 'fixed',
           top: 0,
@@ -64,6 +78,32 @@ class ProfileScreen extends Component {
           left: '50%',
           height: '550px',
           width: '400px',
+          transform: 'translate(-50%, -50%)',
+          border: 'none',
+          background: '#fff',
+          overflow: 'auto',
+          WebkitOverflowScrolling: 'touch',
+          borderRadius: '4px',
+          outline: 'none',
+          padding: '20px'
+        }
+      };
+
+      const cardStyle = {
+        overlay: {
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(125, 125, 125, 0.7)'
+        },
+        content: {
+          position: 'absolute',
+          top: '45%',
+          left: '50%',
+          height: '550px',
+          width: '800px',
           transform: 'translate(-50%, -50%)',
           border: 'none',
           background: '#fff',
@@ -89,7 +129,7 @@ class ProfileScreen extends Component {
                     isOpen={this.state.imageModalIsOpen}
                     onRequestClose={this.closeImageModal}
                     contentLabel="Avatar"
-                    style={customStyles}
+                    style={profileStyle}
                   >
 
                     <ImageUpload />
@@ -106,11 +146,23 @@ class ProfileScreen extends Component {
                       isOpen={this.state.profileModalIsOpen}
                       onRequestClose={this.closeProfileModal}
                       contentLabel="Profile"
-                      style={customStyles}
+                      style={profileStyle}
                     >
-
                       <Account profileData={this.state.user} />
+                    </Modal>
+                  </a>
 
+                  <a>
+                    <a onClick={this.openCardModal}>
+                      <img src={newlogo} width="20" height="20" style={{float: "right", marginTop: "10px", marginBottom:"10px"}} alt=""/>               
+                    </a>
+                    <Modal
+                      isOpen={this.state.cardModalIsOpen}
+                      onRequestClose={this.closeCardModal}
+                      contentLabel="Profile"
+                      style={cardStyle}
+                    >
+                      <CardUpload />
                     </Modal>
                   </a>
 
