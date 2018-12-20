@@ -44,33 +44,9 @@ class App extends Component {
     await this.setState({ currentUser: profileData.data });
 
 
-    // const refreshBearer = 'Bearer ' + localStorage.getItem("refreshToken")
-
-    // const refreshHeader = {
-    //     "Access-Control-Allow-Origin": 'content-type',
-    //     "Authorization": refreshBearer
-    // }
-
-    // this.interval = setInterval(() => {
-    //   axios.get('http://127.0.0.1:5000/refresh', { headers: refreshHeader})
-    // .then(res => {
-    //   const newAccessToken = res.data.access_token;
-
-    //   if (newAccessToken) {
-    //     localStorage.removeItem('accessToken')
-    //     localStorage.setItem('accessToken', newAccessToken);
-    //   }
-
-    //   console.log("Update Access Token Successful.");
-    //   console.log(newAccessToken)
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    //   console.log("Update Access Token Unsuccessful.");
-    // });
-    // }, 1000);
-
-    refreshUser();
+    this.interval = setInterval(() => {
+      refreshUser();
+    }, 60000);
   }
 
   render() {

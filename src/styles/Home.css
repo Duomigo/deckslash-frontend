@@ -71,7 +71,7 @@
 }
 
 .navbar-signout-button {
-  color: black;
+  color: #040d14;
   background-color: transparent;
   font-family: medium;
   font-size: 20px;
@@ -227,15 +227,4 @@
 
 input[type="file"] {
   display: none;
-}
-
-.m-lm-image-upload > input
-{
-    display: none;
-}
-
-.m-lm-image-upload img
-{
-    width: 80px;
-    cursor: pointer;
 }

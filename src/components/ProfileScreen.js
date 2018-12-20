@@ -6,6 +6,7 @@ import '../styles/User.css';
 
 import Account from './Account.js'
 import ImageUpload from './ImageUpload.js'
+import NewCard from './NewCard.js'
 
 import Modal from 'react-modal';
 
@@ -19,7 +20,8 @@ class ProfileScreen extends Component {
         user: props.userData.user,
         cards: props.userData.cards,
         profileModalIsOpen: false, 
-        imageModalIsOpen: false    
+        imageModalIsOpen: false,
+        cardModalIsOpen: false    
       }
 
       this.openProfileModal = this.openProfileModal.bind(this)
@@ -27,6 +29,9 @@ class ProfileScreen extends Component {
 
       this.openImageModal = this.openImageModal.bind(this)
       this.closeImageModal = this.closeImageModal.bind(this)
+
+      this.openCardModal = this.openCardModal.bind(this)
+      this.closeCardModal = this.closeCardModal.bind(this)
     }
 
     openProfileModal() {
@@ -43,6 +48,14 @@ class ProfileScreen extends Component {
 
     closeImageModal() {
       this.setState({ imageModalIsOpen: false })
+    }
+
+    openCardModal() {
+      this.setState({ cardModalIsOpen: true })
+    }
+
+    closeCardModal() {
+      this.setState({ cardModalIsOpen: false})
     }
     
     render() {
@@ -110,6 +123,22 @@ class ProfileScreen extends Component {
                     >
 
                       <Account profileData={this.state.user} />
+
+                    </Modal>
+                  </a>
+
+                  <a>
+                    <a onClick={this.openCardModal}>
+                      <img src={editlogo} width="20" height="20" style={{marginLeft: "10px", marginBottom:"10px"}} alt=""/>               
+                    </a>
+                    <Modal
+                      isOpen={this.state.cardModalIsOpen}
+                      onRequestClose={this.closeCardModal}
+                      contentLabel="Profile"
+                      style={customStyles}
+                    >
+
+                      <NewCard />
 
                     </Modal>
                   </a>

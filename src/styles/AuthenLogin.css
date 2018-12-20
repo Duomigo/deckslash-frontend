@@ -83,10 +83,10 @@
   border: none;
   font-family: regular;
   font-size: 20px;
-  margin-bottom: 10px;
-  width: 100%;
-  padding: 5px;
+  margin-bottom: 5px;
+  width: 320px;
   padding-top: 8px;
+  margin-top: 5px;
   outline: none;
 }
 
@@ -137,4 +137,16 @@
   justify-content: center;
   margin-top: -30px;
   margin-bottom: 10px;
+}
+
+.m-lm-image-upload > input
+{
+    display: none;
+}
+
+.m-lm-image-upload img
+{
+    width: 320px;
+    border-radius: 5px;
+    cursor: pointer;
 }

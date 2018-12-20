@@ -12,6 +12,7 @@ import * as routes from '../constants/routes';
 class ImageUpload extends Component {
   state = {
     src: null,
+    imageSelected: false,
     crop: {
       aspect: 1,
       width: 50,
@@ -27,8 +28,16 @@ class ImageUpload extends Component {
         this.setState({ src: reader.result }),
       );
       reader.readAsDataURL(e.target.files[0]);
+
+      this.setState({ imageSelected: true })
     }
   };
+
+  onDeselectFile = e => {
+    e.target.src = null
+    this.setState({ imageSelected: false })
+    this.setState({ theBlob: null})
+  }
 
   onImageLoaded = (image, pixelCrop) => {
     this.imageRef = image;
@@ -123,34 +132,47 @@ class ImageUpload extends Component {
   }
 
   render() {
-    const { crop, croppedImageUrl, src } = this.state;
+    const { crop, src } = this.state;
+
+    let imagePicker;
+
+    this.state.imageSelected ? (
+      imagePicker = 
+        <div>
+          <form onSubmit={this.onDeselectFile}>
+            <button className="m-lm-button rounded" type="submit">Clear Image</button>
+          </form>
+          
+          {src && (
+            <ReactCrop
+              src={src}
+              crop={crop}
+              onImageLoaded={this.onImageLoaded}
+              onComplete={this.onCropComplete}
+              onChange={this.onCropChange}
+            />
+          )}
+        </div>
+    ) : (
+      imagePicker =
+        <div class="m-lm-image-upload">
+          <label for="file-input">
+            <img src={upload} alt="Deckslash-logo" />
+          </label>
+
+          <input id="file-input" type="file" onChange={this.onSelectFile}/>
+        </div>
+    )
 
     return (
       <div className="App">
         <h3 className="m-lm-header-text">Change your profile picture.</h3>
         <h4 className="m-lm-sub-text">Show us your newest look!</h4>
 
-        <div class="m-lm-image-upload">
-          <label for="file-input">
-            <img src={upload}/>
-          </label>
-
-          <input id="file-input" type="file" onChange={this.onSelectFile}/>
-        </div>
-
-        {src && (
-          <ReactCrop
-            src={src}
-            crop={crop}
-            onImageLoaded={this.onImageLoaded}
-            onComplete={this.onCropComplete}
-            onChange={this.onCropChange}
-          />
-        )}
-        {/* <h1>{croppedImageUrl}</h1> */}
+        {imagePicker}
 
         <form onSubmit={this.onClickSubmit}>
-          <button className="mr-sm-2 m-lm-button rounded" type="submit">Update Profile Image</button>
+          <button className="m-lm-button rounded" type="submit">Update Profile Image</button>
         </form>
       </div>
     );

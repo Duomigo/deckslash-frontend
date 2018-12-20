@@ -11,7 +11,9 @@ const isAuth = () => {
     }
 }
 
+
 export function refreshUser() {
+
     const refreshBearer = 'Bearer ' + localStorage.getItem("refreshToken")
 
     const refreshHeader = {
@@ -19,24 +21,24 @@ export function refreshUser() {
         "Authorization": refreshBearer
     }
 
-    setInterval(() => {
-      axios.get('http://127.0.0.1:5000/refresh', { headers: refreshHeader})
-    .then(res => {
-      const newAccessToken = res.data.access_token;
-
-      if (newAccessToken) {
-        localStorage.removeItem('accessToken')
-        localStorage.setItem('accessToken', newAccessToken);
-      }
-
-      console.log("Update Access Token Successful.");
-      console.log(newAccessToken)
-    })
-    .catch(function (error) {
-      console.log(error);
-      console.log("Update Access Token Unsuccessful.");
-    });
-    }, 60000);
+    if (localStorage.getItem("refreshToken")) {
+        axios.get('http://127.0.0.1:5000/refresh', { headers: refreshHeader})
+        .then(res => {
+        const newAccessToken = res.data.access_token;
+      
+        if (newAccessToken) {
+            localStorage.removeItem('accessToken')
+            localStorage.setItem('accessToken', newAccessToken);
+        }
+      
+        console.log("Update Access Token Successful.");
+        console.log(newAccessToken)
+        })
+        .catch(function (error) {
+            console.log(error);
+            console.log("Update Access Token Unsuccessful.");
+        });     
+    }
 }
 
 export default isAuth;
