@@ -18,6 +18,7 @@ const updateByPropertyName = (propertyName, value) => () => ({
 class CardUpload extends Component {
   state = {
     src: null,
+    imageSelected: false,
     crop: {
       aspect: 1,
       width: 50,
@@ -36,8 +37,16 @@ class CardUpload extends Component {
         this.setState({ src: reader.result }),
       );
       reader.readAsDataURL(e.target.files[0]);
+
+      this.setState({ imageSelected: true })
     }
   };
+
+  onDeselectFile = e => {
+    e.target.src = null
+    this.setState({ imageSelected: false })
+    this.setState({ theBlob: null})
+  }
 
   onImageLoaded = (image, pixelCrop) => {
     this.imageRef = image;
