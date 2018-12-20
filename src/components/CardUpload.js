@@ -20,7 +20,7 @@ class CardUpload extends Component {
     src: null,
     imageSelected: false,
     crop: {
-      aspect: 1,
+      aspect: 240/336,
       width: 50,
       x: 0,
       y: 0,
@@ -156,31 +156,46 @@ class CardUpload extends Component {
       title === '' ||
       description === '';
 
+      let imagePicker;
+
+      this.state.imageSelected ? (
+        imagePicker = 
+          <div>
+            <form onSubmit={this.onDeselectFile}>
+              <button className="m-lm-button rounded" type="submit">Clear Image</button>
+            </form>
+            
+            {src && (
+              <ReactCrop
+                src={src}
+                crop={crop}
+                onImageLoaded={this.onImageLoaded}
+                onComplete={this.onCropComplete}
+                onChange={this.onCropChange}
+              />
+            )}
+          </div>
+      ) : (
+        imagePicker =
+          <div class="m-lm-image-upload">
+            <label for="file-input">
+              <img src={upload} alt="Deckslash-logo" />
+            </label>
+  
+            <input id="file-input" type="file" onChange={this.onSelectFile}/>
+          </div>
+      )
+
     return (
       <div className="App">
 
         <div className="m-lm-content rounded">
             <h3 className="m-lm-header-text">New Book Review</h3>
             <h4 className="m-lm-sub-text">What did you read?</h4>
-            <form onSubmit={this.onClickSubmit}>
             
-              <div class="m-lm-image-upload">
-                <label for="file-input">
-                  <img src={upload}/>
-                </label>
+            {imagePicker}
 
-                <input id="file-input" type="file" onChange={this.onSelectFile}/>
-              </div>
-
-              {src && (
-                <ReactCrop
-                  src={src}
-                  crop={crop}
-                  onImageLoaded={this.onImageLoaded}
-                  onComplete={this.onCropComplete}
-                  onChange={this.onCropChange}
-                />
-              )}
+            <form onSubmit={this.onClickSubmit}>
 
               <input
                 className="mr-sm-2 m-lm-input rounded"
@@ -207,7 +222,6 @@ class CardUpload extends Component {
               <button className="mr-sm-2 m-lm-button rounded" disabled={isInvalid} type="submit">
                Create Card
               </button>
-
             </form>
           </div>
       </div>
