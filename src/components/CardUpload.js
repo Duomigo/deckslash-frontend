@@ -161,9 +161,6 @@ class CardUpload extends Component {
       this.state.imageSelected ? (
         imagePicker = 
           <div>
-            <form onSubmit={this.onDeselectFile}>
-              <button className="m-lm-button rounded" type="submit">Clear Image</button>
-            </form>
             
             {src && (
               <ReactCrop
@@ -174,6 +171,11 @@ class CardUpload extends Component {
                 onChange={this.onCropChange}
               />
             )}
+
+            <form onSubmit={this.onDeselectFile}>
+              <button className="m-lm-button rounded" type="submit">Clear Image</button>
+            </form>
+
           </div>
       ) : (
         imagePicker =
@@ -188,43 +190,49 @@ class CardUpload extends Component {
 
     return (
       <div className="App">
-
-        <div className="m-lm-content rounded">
-          <h3 className="m-lm-header-text">New Book Review</h3>
-          <h4 className="m-lm-sub-text">What did you read?</h4>
           
-          {imagePicker}
+          <div className="m-lm-content rounded">
+            <h3 className="m-lm-header-text">New Book Review</h3>
+            <h4 className="m-lm-sub-text">What did you read?</h4>
 
-          <form onSubmit={this.onClickSubmit}>
+            <div className="split left container">
+              <div>
+                {imagePicker}
+              </div>
+            </div>
 
-            <input
-              className="mr-sm-2 m-lm-input rounded"
-              value={title}
-              onChange={event => this.setState(updateByPropertyName('title', event.target.value))}
-              type="text"
-              placeholder="Title"
-            />
-            <input
-              className="mr-sm-2 m-lm-input rounded"
-              value={description}
-              onChange={event => this.setState(updateByPropertyName('description', event.target.value))}
-              type="text"
-              placeholder="Description"
-            />
-            <input
-              className="mr-sm-2 m-lm-input rounded"
-              value={link}
-              onChange={event => this.setState(updateByPropertyName('link', event.target.value))}
-              type="text"
-              placeholder="Link"
-            />
+            <div className="split right">
+              <form onSubmit={this.onClickSubmit}>
 
-            <button className="mr-sm-2 m-lm-button rounded" disabled={isInvalid} type="submit">
-              Create Card
-            </button>
-          </form>
+                <input
+                  className="mr-sm-2 m-lm-input rounded"
+                  value={title}
+                  onChange={event => this.setState(updateByPropertyName('title', event.target.value))}
+                  type="text"
+                  placeholder="Title"
+                />
+                <input
+                  className="mr-sm-2 m-lm-input rounded"
+                  value={description}
+                  onChange={event => this.setState(updateByPropertyName('description', event.target.value))}
+                  type="text"
+                  placeholder="Description"
+                />
+                <input
+                  className="mr-sm-2 m-lm-input rounded"
+                  value={link}
+                  onChange={event => this.setState(updateByPropertyName('link', event.target.value))}
+                  type="text"
+                  placeholder="Link"
+                />
+
+                <button className="mr-sm-2 m-lm-button rounded" disabled={isInvalid} type="submit">
+                  Create Card
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
-      </div>
     );
   }
 }
