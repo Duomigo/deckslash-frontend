@@ -190,47 +190,49 @@ class CardUpload extends Component {
       <div className="App">
           
           <div className="m-lm-content rounded">
-            <h3 className="m-lm-header-text">New Book Review</h3>
-            <h4 className="m-lm-sub-text">What did you read?</h4>
-
-            <div className="split left container">
-              <div>
-                {imagePicker}
-              </div>
-            </div>
-
-            <div className="split right">
-              <form onSubmit={this.onClickSubmit}>
-
-                <input
-                  className="mr-sm-2 m-lm-input rounded"
-                  value={title}
-                  onChange={event => this.setState(updateByPropertyName('title', event.target.value))}
-                  type="text"
-                  placeholder="Title"
-                />
-                <input
-                  className="mr-sm-2 m-lm-input rounded"
-                  value={description}
-                  onChange={event => this.setState(updateByPropertyName('description', event.target.value))}
-                  type="text"
-                  placeholder="Description"
-                />
-                <input
-                  className="mr-sm-2 m-lm-input rounded"
-                  value={link}
-                  onChange={event => this.setState(updateByPropertyName('link', event.target.value))}
-                  type="text"
-                  placeholder="Link"
-                />
-
-                <button className="mr-sm-2 m-lm-button rounded" disabled={isInvalid} type="submit">
-                  Create Card
+            <form onSubmit={this.onClickSubmit}>
+              <h3 className="m-lm-header-text">New Book Review</h3>
+              <h4 className="m-lm-sub-text">What did you read?</h4>
+              <span>
+                <button className="mr-sm-2 m-lm-create-card-button rounded" disabled={isInvalid} type="submit">
+                  Post
                 </button>
-              </form>
-            </div>
+              </span>
+
+              <div className="split left">
+                <div>
+                  {imagePicker}
+                </div>
+              </div>
+
+              <div className="split right">
+
+                  <input
+                    className="m-lm-ghost-input-title"
+                    value={title}
+                    onChange={event => this.setState(updateByPropertyName('title', event.target.value))}
+                    type="text"
+                    placeholder="Title"
+                  />
+                  <input
+                    className="m-lm-ghost-input"
+                    value={description}
+                    onChange={event => this.setState(updateByPropertyName('description', event.target.value))}
+                    type="text"
+                    placeholder="Description"
+                  />
+                  <textarea
+                    className="m-lm-ghost-input"
+                    value={link}
+                    onChange={event => this.setState(updateByPropertyName('link', event.target.value))}
+                    type="text"
+                    placeholder="Link"
+                  />
+
+              </div>
+            </form>
           </div>
-        </div>
+      </div>
     );
   }
 }

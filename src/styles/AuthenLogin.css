@@ -95,6 +95,27 @@
   cursor: pointer;
 }
 
+.m-lm-create-card-button {
+  background-color: #fe5257;
+  color: #eceff1;
+  border: none;
+  font-family: regular;
+  font-size: 20px;
+  margin-bottom: 5px;
+  width: 80px;
+  padding-top: 8px;
+  margin-top: 5px;
+  outline: none;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+}
+
+.m-lm-create-card-button:hover {
+  background-color: #ff656a;
+  cursor: pointer;
+}
+
 .m-lm-close-button {
   width: 20px;
   height: 20px;
@@ -150,4 +171,34 @@
     width: 320px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.m-lm-ghost-input {
+  display: block;
+  width: 320px;
+  font-size: 22px;
+  border:0px;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #4b545f;
+  background: #fff;
+  font-family: regular;
+  padding: 5px 15px;
+}
+
+.m-lm-ghost-input-title {
+  display: block;
+  width: 320px;
+  font-size: 26px;
+  border:0px;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #4b545f;
+  background: #fff;
+  font-family: medium;
+  padding: 5px 15px;
 }

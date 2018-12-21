@@ -13,8 +13,6 @@ import UserScreen from './components/UserScreen.js'
 import ImageUpload from './components/ImageUpload.js'
 import CardUpload from './components/CardUpload.js'
 
-import Test from './components/Test.js'
-
 import { refreshUser } from './components/AuthenStatus.js'
 
 import axios from 'axios';
@@ -61,8 +59,6 @@ class App extends Component {
           <Route path={"/u/:username"} component={User} />
           <Route path="/upload" component={ImageUpload} />
           <Route path="/new" component={CardUpload} />
-
-          <Route path="/lol" component={Test} />
 
         </div>
       </Router>
