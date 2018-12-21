@@ -30,27 +30,29 @@ class Home extends Component {
 
     return (
 
-      <div className="Apple">
+      <div className="container-fluid">
 
         <MenuScrollBar />
 
-        <div className="row justify-content-center">
-          <div className="col-lg-8 col-md-10 col-sm-* col-xs-*">
-            <h1 className="m-home-latest">Latest reviews</h1>
+        <div className="container-fluid">
+          <div className="row justify-content-center">
+            <div className="col-lg-8 col-md-10 col-sm-* col-xs-*">
+              <h1 className="m-home-latest">Latest reviews</h1>
+            </div>
           </div>
-        </div>
 
-        <div className="row justify-content-center">
-          <div className="m-home-card-container col-lg-8 col-md-10 col-sm-* col-xs-*">
-            {posts.slice(0).reverse().map(function (post, i) { // reverse array map function with server data
-              return (
-                <div className="m-profile-whole-card-cover rounded" key={i}>
-                  <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + post.picture} alt="" />
-                  <p className="m-profile-card-text">{post.title}</p>
-                  <p className="m-profile-desc-text">{post.description}</p>
-                </div>
-              )
-            })}
+          <div className="row justify-content-center">
+            <div className="m-home-card-container col-lg-8 col-md-10 col-sm-* col-xs-*">
+              {posts.slice(0).reverse().map(function (post, i) { // reverse array map function with server data
+                return (
+                  <div className="m-profile-whole-card-cover rounded" key={i}>
+                    <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + post.picture} alt="" />
+                    <p className="m-profile-card-text">{post.title}</p>
+                    <p className="m-profile-desc-text">{post.description}</p>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>

@@ -35,6 +35,10 @@ class ProfileScreen extends Component {
       this.closeCardModal = this.closeCardModal.bind(this)
     }
 
+    componentDidMount() {
+      Modal.setAppElement('body');
+    }
+
     openProfileModal() {
       this.setState({ profileModalIsOpen: true });
     }

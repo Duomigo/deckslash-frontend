@@ -3,8 +3,6 @@ import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import axios from 'axios';
 
-import CreateCard from './CreateCard.js'
-
 import '../styles/AuthenLogin.css'
 import '../styles/Home.css'
 import '../styles/User.css'
@@ -87,7 +85,7 @@ class CardUpload extends Component {
           "Authorization": bearer
       }
   
-      axios.post('http://127.0.0.1:5000/cards', cardFile, { headers: header })
+      axios.post('http://127.0.0.1:5000/post', cardFile, { headers: header })
       .then(res => {
         console.log("Successful changed profile picture.")
         console.log(res)

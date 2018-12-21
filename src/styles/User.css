@@ -121,16 +121,17 @@
   font-family: medium;
   font-size: 18px;
   color: #040d14;
-  margin-left: 10px;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
 .m-profile-desc-text {
   font-family: regular;
   font-size: 16px;
   color: #040d14;
-  margin-left: 10px;
+  margin-left: 5px;
   margin-top: -20px;
-  margin-bottom: -10px;
+  margin-bottom: -5px;
 }
 
 .m-profile-whole-card-cover {

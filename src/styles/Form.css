@@ -1,0 +1,39 @@
+@font-face {
+  font-family: medium;
+  src: url('../fonts/Calibre-Medium.otf');
+}
+
+@font-face {
+  font-family: regular;
+  src: url('../fonts/Calibre-Regular.otf');
+}
+
+.m-lm-ghost-input {
+  display: block;
+  width: 320px;
+  font-size: 25px;
+  border:0px;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #4b545f;
+  background: #fff;
+  font-family: regular;
+  padding: 10px 15px;
+}
+
+.m-lm-ghost-input-title {
+  display: block;
+  width: 320px;
+  font-size: 25px;
+  border:0px;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #4b545f;
+  background: #fff;
+  font-family: medium;
+  padding: 10px 15px;
+}
