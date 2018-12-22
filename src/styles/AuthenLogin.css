@@ -102,13 +102,13 @@
   font-family: regular;
   font-size: 20px;
   margin-bottom: 5px;
-  width: 80px;
+  width: 120px;
   padding-top: 8px;
   margin-top: 5px;
   outline: none;
   position: absolute;
-  top: 30px;
-  right: 20px;
+  top: -100px;
+  right: 30px;
 }
 
 .m-lm-create-card-button:hover {
