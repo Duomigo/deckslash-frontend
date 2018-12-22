@@ -6,7 +6,8 @@ import axios from 'axios';
 import '../styles/AuthenLogin.css'
 import '../styles/Home.css'
 import '../styles/User.css'
-import upload from '../images/upload.svg'
+import thumbnailupload from '../images/thumbnailupload.svg'
+import newLogo from '../images/newbutton.svg'
 import * as routes from '../constants/routes';
 
 const updateByPropertyName = (propertyName, value) => () => ({
@@ -176,7 +177,7 @@ class CardUpload extends Component {
         imagePicker =
           <div class="m-lm-image-upload">
             <label for="file-input">
-              <img src={upload} alt="Deckslash-logo" />
+              <img src={thumbnailupload} alt="Deckslash-logo" />
             </label>
   
             <input id="file-input" type="file" onChange={this.onSelectFile}/>
@@ -184,43 +185,46 @@ class CardUpload extends Component {
       )
 
     return (
-      <div className="App">
-          
-        <div className="m-lm-content rounded">
-          <h3 className="m-lm-header-text">New Book Review</h3>
-          <h4 className="m-lm-sub-text">What did you read?</h4>
+      <div className="container" style={{backgroundColor: 'grey'}}>
 
-          <div className="split left">
-            <div>
-              {imagePicker}
-            </div>
+          <div className="">
+            <h2 style={{paddingTop:'10px', paddingBottom:'15px', paddingLeft: '20px'}}>Latest Review</h2>
+            <a>
+              <img src={newLogo} width="30" height="30" style={{float: "right", marginTop: '-55px', marginRight:'20px'}} alt=""/>               
+            </a>
           </div>
 
-          <div className="split right">
+          <div className="row kaka" style={{marginTop: '10px'}}>
+            <div className="col-lg-4 col-md-12 kaka">
+              <div>
+                {imagePicker}
+              </div>
+            </div>
 
-            <form onSubmit={this.onClickSubmit}>
+            <div className="col-lg-8 col-md-*">
+              <form onSubmit={this.onClickSubmit}>
                 <input
                   className="m-lm-ghost-input-title"
                   value={title}
                   onChange={event => this.setState(updateByPropertyName('title', event.target.value))}
                   type="text"
-                  placeholder="Title"
+                  placeholder="Add A Title"
                 />
                 <textarea
                   className="m-lm-ghost-input"
                   value={description}
                   onChange={event => this.setState(updateByPropertyName('description', event.target.value))}
                   type="text"
-                  placeholder="Your thoughts ..."
+                  placeholder="Say more about this book ..."
                 />
                 <button className="mr-sm-2 m-lm-create-card-button rounded" disabled={isInvalid} type="submit">
                   Submit Post
                 </button>
-            </form>
+              </form>
+            </div>
 
           </div>
         </div>
-      </div>
     );
   }
 }

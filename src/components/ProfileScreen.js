@@ -121,7 +121,7 @@ class ProfileScreen extends Component {
   
       return (
   
-        <div className=" container-fluid">
+        <div className="container-fluid">
   
           <div className="row text-align-center justify-content-center">
             <div className="col-12">

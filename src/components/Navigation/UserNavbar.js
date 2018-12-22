@@ -53,7 +53,7 @@ class UserNavbar extends Component {
           <ul className="navbar-nav mr-auto">
 
           </ul>
-            <Link className="navbar-button" to={routes.SIGN_IN}>Browse</Link>
+            <Link className="navbar-button" to={routes.NEW}>New</Link>
             <a className="navbar-button" href={profilePath}>Profile</a>
             <SignOutButton />
         </div>

@@ -168,14 +168,14 @@
 
 .m-lm-image-upload img
 {
-    width: 320px;
+    width: 280px;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .m-lm-ghost-input {
   display: block;
-  width: 320px;
+  width: 100%;
   font-size: 22px;
   border:0px;
   outline: none;
@@ -190,7 +190,7 @@
 
 .m-lm-ghost-input-title {
   display: block;
-  width: 320px;
+  width: 100%;
   font-size: 26px;
   border:0px;
   outline: none;

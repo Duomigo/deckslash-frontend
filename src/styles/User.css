@@ -197,3 +197,12 @@
   width: calc(100% - 140px);
   float: left;
 }
+
+.kaka {
+  text-align: center;
+}
+
+.haha {
+  justify-content: center;
+  text-align: center
+}
