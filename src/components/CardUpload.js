@@ -196,8 +196,8 @@ class CardUpload extends Component {
             </a>
           </div>
 
-          <div className="row kaka">
-            <div className="col-lg-4 col-md-12 kaka">
+          <div className="row m-row-center">
+            <div className="col-lg-4 col-md-12 m-row-center">
               <div>
                 {imagePicker}
               </div>
