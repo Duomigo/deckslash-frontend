@@ -104,11 +104,9 @@
   margin-bottom: 5px;
   width: 120px;
   padding-top: 8px;
-  margin-top: 5px;
   outline: none;
-  position: absolute;
-  top: -100px;
-  right: 30px;
+  display:inline-block;
+  overflow: auto;
 }
 
 .m-lm-create-card-button:hover {
@@ -186,6 +184,7 @@
   background: #fff;
   font-family: regular;
   padding: 5px 15px;
+  height: 320px;
 }
 
 .m-lm-ghost-input-title {
@@ -201,4 +200,18 @@
   background: #fff;
   font-family: medium;
   padding: 5px 15px;
+}
+
+.m-lm-title-create-card {
+  margin-top: 30px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  font-size: 36px;
+  font-family: medium;
+}
+
+.m-lm-card-upload-container {
+  padding-top: 10px;
+  margin-bottom: 20px;
+  margin-top: 25px
 }

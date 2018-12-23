@@ -7,7 +7,7 @@ import '../styles/AuthenLogin.css'
 import '../styles/Home.css'
 import '../styles/User.css'
 import thumbnailupload from '../images/thumbnailupload.svg'
-import newLogo from '../images/newbutton.svg'
+import publish from '../images/publish.svg'
 import * as routes from '../constants/routes';
 
 const updateByPropertyName = (propertyName, value) => () => ({
@@ -185,16 +185,18 @@ class CardUpload extends Component {
       )
 
     return (
-      <div className="container" style={{backgroundColor: 'grey'}}>
+      <div className="container">
 
-          <div className="">
-            <h2 style={{paddingTop:'10px', paddingBottom:'15px', paddingLeft: '20px'}}>Latest Review</h2>
-            <a>
-              <img src={newLogo} width="30" height="30" style={{float: "right", marginTop: '-55px', marginRight:'20px'}} alt=""/>               
+          <div className="m-lm-card-upload-container">
+            <a className="m-lm-title-create-card">Latest Review</a>
+            <a onClick={this.onClickSubmit}>
+              <button className="mr-sm-2 m-lm-create-card-button rounded float-right">
+                Submit Post
+              </button>
             </a>
           </div>
 
-          <div className="row kaka" style={{marginTop: '10px'}}>
+          <div className="row kaka">
             <div className="col-lg-4 col-md-12 kaka">
               <div>
                 {imagePicker}
@@ -217,9 +219,9 @@ class CardUpload extends Component {
                   type="text"
                   placeholder="Say more about this book ..."
                 />
-                <button className="mr-sm-2 m-lm-create-card-button rounded" disabled={isInvalid} type="submit">
+                {/* <button className="mr-sm-2 m-lm-create-card-button rounded" disabled={isInvalid} type="submit">
                   Submit Post
-                </button>
+                </button> */}
               </form>
             </div>
 

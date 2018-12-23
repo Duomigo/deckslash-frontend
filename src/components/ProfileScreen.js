@@ -30,9 +30,6 @@ class ProfileScreen extends Component {
 
       this.openImageModal = this.openImageModal.bind(this)
       this.closeImageModal = this.closeImageModal.bind(this)
-
-      this.openCardModal = this.openCardModal.bind(this)
-      this.closeCardModal = this.closeCardModal.bind(this)
     }
 
     componentDidMount() {
@@ -53,14 +50,6 @@ class ProfileScreen extends Component {
 
     closeImageModal() {
       this.setState({ imageModalIsOpen: false })
-    }
-
-    openCardModal() {
-      this.setState({ cardModalIsOpen: true })
-    }
-
-    closeCardModal() {
-      this.setState({ cardModalIsOpen: false })
     }
     
     render() {
@@ -157,17 +146,9 @@ class ProfileScreen extends Component {
                   </a>
 
                   <a>
-                    <a onClick={this.openCardModal}>
+                    <a href="/new">
                       <img src={newlogo} width="20" height="20" style={{float: "right", marginTop: "10px", marginBottom:"10px"}} alt=""/>               
                     </a>
-                    <Modal
-                      isOpen={this.state.cardModalIsOpen}
-                      onRequestClose={this.closeCardModal}
-                      contentLabel="Profile"
-                      style={cardStyle}
-                    >
-                      <CardUpload />
-                    </Modal>
                   </a>
 
                   <t className="m-profile-username">@{user.username}</t>
