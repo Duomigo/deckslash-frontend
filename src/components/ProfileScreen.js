@@ -174,14 +174,14 @@ class ProfileScreen extends Component {
                     </a>
                   </a>
 
-                  <t className="m-profile-username">@{user.username}</t>
+                  <t className="m-profile-username">@{user.username} has {cards.length} books.</t>
                   <t className="m-profile-desc">{user.bio}</t>                           
                 </div>
               </div>
-              <div className="m-profile-filter">
-                <button className="btn m-profile-button" type="submit">{cards.length} Books</button>
+              <div className="m-profile-filter" style={{marginBottom: '20px'}}>
+                {/* <button className="btn m-profile-button" type="submit">{cards.length} Books</button>
                 <button className="btn m-profile-button" type="submit">10 Following</button>
-                <button className="btn m-profile-button" type="submit">88 Followers</button>
+                <button className="btn m-profile-button" type="submit">88 Followers</button> */}
               </div> 
             </div>
   
