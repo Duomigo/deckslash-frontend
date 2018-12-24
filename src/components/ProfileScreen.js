@@ -12,6 +12,7 @@ import Modal from 'react-modal';
 
 import editlogo from '../images/edit-logo.svg';
 import newlogo from '../images/newbutton.svg';
+import axios from 'axios';
 
 class ProfileScreen extends Component {
     constructor(props) {
@@ -52,8 +53,26 @@ class ProfileScreen extends Component {
       this.setState({ imageModalIsOpen: false })
     }
 
-    removeCard() {
-      console.log("hello")
+    removeCard(id) {
+      console.log("Removing card with ID: " + id)
+      var deleteRoute = 'http://127.0.0.1:5000/post/' + id
+
+      const bearer = 'Bearer ' + localStorage.getItem("accessToken")
+
+      var header = {
+          "Access-Control-Allow-Origin": 'X-Requested-With,content-type',
+          "Authorization": bearer
+      }
+
+      axios.delete(deleteRoute, { headers: header })
+      .then(res => {
+        console.log(res)
+        console.log('done')
+        window.location.reload()
+      })
+      .catch(err => {
+        console.log(err)
+      })
     }
     
     render() {
@@ -172,7 +191,7 @@ class ProfileScreen extends Component {
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + "/static/CardPicture/" + card.picture} alt="" />
                     <p className="m-profile-card-text">{card.title}</p>
-                    <a onClick={this.removeCard}>
+                    <a onClick={() => this.removeCard(card.id)}>
                       <img className="m-remove-logo" src={newlogo} alt=""/>
                     </a>
                   </div>
