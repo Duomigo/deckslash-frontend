@@ -51,6 +51,10 @@ class ProfileScreen extends Component {
     closeImageModal() {
       this.setState({ imageModalIsOpen: false })
     }
+
+    removeCard() {
+      console.log("hello")
+    }
     
     render() {
       const { user, cards } = this.state;
@@ -168,10 +172,12 @@ class ProfileScreen extends Component {
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + "/static/CardPicture/" + card.picture} alt="" />
                     <p className="m-profile-card-text">{card.title}</p>
-                    <p className="m-profile-desc-text">{card.description}</p>
+                    <a onClick={this.removeCard}>
+                      <img className="m-remove-logo" src={newlogo} alt=""/>
+                    </a>
                   </div>
                 )
-              })}
+              }.bind(this))}
             </div>
           </div>
         </div>

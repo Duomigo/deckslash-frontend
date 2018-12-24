@@ -123,9 +123,24 @@
   color: #040d14;
   margin-left: 5px;
   margin-top: 5px;
+  background-color: yellow;
+  display: inline;
 }
 
-.m-profile-desc-text {
+.hoho {
+  display: inline;
+  float: right
+}
+
+.m-user-card-text {
+  font-family: medium;
+  font-size: 18px;
+  color: #040d14;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.m-user-desc-text {
   font-family: regular;
   font-size: 16px;
   color: #040d14;
@@ -205,4 +220,12 @@
 .haha {
   justify-content: center;
   text-align: center
+}
+
+.m-remove-logo {
+  width: 15px;
+  height: 15px;
+  margin-top: 5px;
+  float: right;
+  transform: rotate(45deg)
 }

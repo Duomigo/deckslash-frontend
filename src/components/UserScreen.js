@@ -48,8 +48,8 @@ class UserScreen extends Component {
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + "/static/CardPicture/" + card.picture} alt="" />
-                    <p className="m-profile-card-text">{card.title}</p>
-                    <p className="m-profile-desc-text">{card.description}</p>
+                    <p className="m-user-card-text">{card.title}</p>
+                    <p className="m-user-desc-text">{card.description}</p>
                   </div>
                 )
               })}
