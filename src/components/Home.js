@@ -41,7 +41,7 @@ class Home extends Component {
             </div>
           </div>
 
-          <div className="row justify-content-center">
+          <div className="row text-align-center justify-content-center">
             <div className="m-home-card-container col-lg-8 col-md-10 col-sm-* col-xs-*">
               {posts.slice(0).reverse().map(function (post, i) { // reverse array map function with server data
                 return (
