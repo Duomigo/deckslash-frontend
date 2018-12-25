@@ -215,3 +215,50 @@
   margin-bottom: 20px;
   margin-top: 25px
 }
+
+.m-lm-signout-link {
+  color: #eceff1;
+}
+
+.m-lm-signout-link:hover {
+  color: #eceff1;
+  text-decoration: none;
+}
+
+.m-lm-modal-proceed-button {
+  background-color: #fe5257;
+  color: #eceff1;
+  border: none;
+  font-family: regular;
+  font-size: 20px;
+  margin-bottom: 5px;
+  width: 100px;
+  padding-top: 8px;
+  outline: none;
+  display:inline-block;
+  overflow: auto;
+}
+
+.m-lm-modal-proceed-button:hover {
+  background-color: #ff656a;
+  cursor: pointer;
+}
+
+.m-lm-modal-return-button {
+  background-color: #eceff1;
+  color: #040d14;
+  border: none;
+  font-family: regular;
+  font-size: 20px;
+  margin-bottom: 5px;
+  width: 100px;
+  padding-top: 8px;
+  outline: none;
+  display:inline-block;
+  overflow: auto;
+}
+
+.m-lm-modal-return-button:hover {
+  background-color: #e3e5e9;
+  cursor: pointer;
+}

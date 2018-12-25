@@ -5,6 +5,7 @@ import '../../styles/Home.css';
 import axios from 'axios';
 
 import SignOutButton from '../SignOut';
+import SignOutButto from '../SignOut';
 
 import * as routes from '../../constants/routes';
 import {
@@ -55,7 +56,7 @@ class UserNavbar extends Component {
           </ul>
             <Link className="navbar-button" to={routes.NEW}>New</Link>
             <a className="navbar-button" href={profilePath}>Profile</a>
-            <SignOutButton />
+            <SignOutButto />
         </div>
       </nav>
     )

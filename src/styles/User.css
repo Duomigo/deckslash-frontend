@@ -230,3 +230,21 @@
   float: right;
   transform: rotate(45deg)
 }
+
+.m-profile-modal-title {
+  font-family: medium;
+  font-size: 40px;
+  color: #040d14;
+  word-wrap: break-word;
+  margin-top: 5px;
+  display: block;
+  display: inline-block;
+}
+
+.m-profile-modal-desc {
+  margin-top: -15px;
+  margin-bottom: 30px;
+  font-family: regular;
+  font-size: 20px;
+  color: #040d14;
+}
