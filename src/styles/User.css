@@ -121,16 +121,17 @@
   font-family: medium;
   font-size: 18px;
   color: #040d14;
-  margin-left: 5px;
   margin-top: 5px;
-  background-color: yellow;
-  width: 70%;
-  display: inline;
+  width: 90%;
 }
 
-.hoho {
+.m-remove-logo {
+  width: 15px;
+  height: 15px;
+  margin-top: 10px;
+  transform: rotate(45deg);
   display: inline;
-  float: right
+  float: right;
 }
 
 .m-user-card-text {
@@ -223,14 +224,6 @@
   text-align: center
 }
 
-.m-remove-logo {
-  width: 15px;
-  height: 15px;
-  margin-top: 5px;
-  float: right;
-  transform: rotate(45deg)
-}
-
 .m-profile-modal-title {
   font-family: medium;
   font-size: 40px;
@@ -247,4 +240,9 @@
   font-family: regular;
   font-size: 20px;
   color: #040d14;
+}
+
+.hoho {
+  display: inline;
+  float: right
 }

@@ -11,17 +11,15 @@ import '../styles/Home.css';
 import '../styles/User.css';
 import '../styles/AuthenLogin.css'
 
+import axios from 'axios';
 import Modal from 'react-modal';
+
 import { signoutStyle } from '../styles/style.js'
+import newlogo from '../images/newbutton.svg';
 
-function doSignOut() {
-  localStorage.removeItem("accessToken");
-  localStorage.removeItem("refreshToken")
-}
-
-class SignOutButton extends Component {
-  constructor() {
-    super()
+class RemoveCard extends Component {
+  constructor(props) {
+    super(props)
 
     this.state = {
       showModal: false
@@ -39,16 +37,36 @@ class SignOutButton extends Component {
     this.setState({ showModal: false });
   }
 
+  removeCard(id) {
+    console.log("Removing card with ID: " + id)
+    var deleteRoute = 'http://127.0.0.1:5000/post/' + id
+
+    const bearer = 'Bearer ' + localStorage.getItem("accessToken")
+
+    var header = {
+        "Access-Control-Allow-Origin": 'X-Requested-With,content-type',
+        "Authorization": bearer
+    }
+
+    axios.delete(deleteRoute, { headers: header })
+    .then(res => {
+      console.log(res)
+      console.log('done')
+      window.location.reload()
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
   render() {
     return (
       <div>
-        <button
-          className="navbar-signout-button"
-          type="button"
+        <a
           onClick={this.handleOpenModal}
         >
-          Sign Out
-        </button>
+          <img className="m-remove-logo" src={newlogo} alt=""/>
+        </a>
 
         <Modal
           isOpen={this.state.showModal}
@@ -56,15 +74,16 @@ class SignOutButton extends Component {
           contentLabel="Avatar"
           style={signoutStyle}
         >
-          <p className="m-profile-modal-title">Sign out?</p>
-          <p className="m-profile-modal-desc">If so, we wish you a wonderful day with your friends and family.</p>
+          <p className="m-profile-modal-title">Remove Post?</p>
+          <p className="m-profile-modal-desc">Are you sure you want to remove this post. Posts can't be recovered once deleted?</p>
 
           <button
             className="mr-sm-2 m-lm-modal-proceed-button rounded float-right"
             type="button"
-            onClick={doSignOut}
+            onClick={() => this.removeCard(this.props.cardId)}
           >
-            <Link className="m-lm-signout-link" to={routes.LANDING}>Sign Out</Link>
+            {/* <Link className="m-lm-signout-link" to={routes.LANDING}>Delete</Link> */}
+            Remove
           </button>
 
           <button 
@@ -72,14 +91,13 @@ class SignOutButton extends Component {
             type="button"
             onClick={this.handleCloseModal}
           >
-            Return
+            Cancel
           </button>
 
         </Modal>
       </div>
     )
-  }
-  
+  } 
 }
 
-export default SignOutButton;
+export default RemoveCard;

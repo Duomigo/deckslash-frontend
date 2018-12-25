@@ -7,6 +7,7 @@ import '../styles/User.css';
 import Account from './Account.js'
 import ImageUpload from './ImageUpload.js'
 import CardUpload from './CardUpload.js'
+import RemoveCard from './RemoveCard.js'
 
 import Modal from 'react-modal';
 
@@ -140,10 +141,11 @@ class ProfileScreen extends Component {
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + "/static/CardPicture/" + card.picture} alt="" />
+                    <RemoveCard cardId={card.id}/>
                     <p className="m-profile-card-text">{card.title}</p>
-                    <a onClick={() => this.removeCard(card.id)}>
+                    {/* <a onClick={() => this.removeCard(card.id)}>
                       <img className="m-remove-logo" src={newlogo} alt=""/>
-                    </a>
+                    </a> */}
                   </div>
                 )
               }.bind(this))}
