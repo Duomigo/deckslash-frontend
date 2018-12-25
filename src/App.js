@@ -12,6 +12,7 @@ import UserScreen from './components/UserScreen.js'
 
 import ImageUpload from './components/ImageUpload.js'
 import CardUpload from './components/CardUpload.js'
+import Card from './components/Card.js'
 
 import { refreshUser } from './components/AuthenStatus.js'
 
@@ -57,6 +58,7 @@ class App extends Component {
           <Route path="/signin" component={AuthenLogin} />
           <Route path="/signup" component={AuthenRegister} />
           <Route path={"/u/:username"} component={User} />
+          <Route path={"/p/:postId"} component={Card} />
           <Route path="/upload" component={ImageUpload} />
           <Route path="/new" component={CardUpload} />
 
