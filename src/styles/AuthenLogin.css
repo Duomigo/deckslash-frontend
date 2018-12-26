@@ -114,6 +114,25 @@
   cursor: pointer;
 }
 
+.m-lm-update-card-button {
+  background-color: #fe5257;
+  color: #eceff1;
+  border: none;
+  font-family: regular;
+  font-size: 20px;
+  margin-bottom: 5px;
+  width: 100%;
+  padding-top: 8px;
+  outline: none;
+  display:inline-block;
+  overflow: auto;
+}
+
+.m-lm-update-card-button:hover {
+  background-color: #ff656a;
+  cursor: pointer;
+}
+
 .m-lm-close-button {
   width: 20px;
   height: 20px;
@@ -180,11 +199,12 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  color: #4b545f;
-  background: #fff;
+  background: #eceff1;
+  border-radius: 4px;
   font-family: regular;
   padding: 5px 15px;
-  height: 320px;
+  height: 330px;
+  margin-bottom: 10px;
 }
 
 .m-lm-ghost-input-title {
@@ -196,10 +216,11 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  color: #4b545f;
-  background: #fff;
+  background: #eceff1;
+  border-radius: 4px;
   font-family: medium;
   padding: 5px 15px;
+  margin-bottom: 10px;
 }
 
 .m-lm-title-create-card {

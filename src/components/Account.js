@@ -20,14 +20,6 @@ const updateByPropertyName = (propertyName, value) => () => ({
   [propertyName]: value,
 });
 
-const INITIAL_STATE = {
-  username: '',
-  name: '',
-  email: '',
-  bio:'',
-  error: null,
-};
-
 class Account extends Component {
   constructor(props) {
     super(props);
