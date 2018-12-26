@@ -27,7 +27,7 @@ class RemoveCard extends Component {
 
     this.state = {
       showModal: false,
-      card: props.card,
+      id: props.card.id,
       title: props.card.title,
       description: props.card.description
     }
@@ -44,10 +44,11 @@ class RemoveCard extends Component {
     this.setState({ showModal: false });
   }
 
-  onSubmit = (event) => {
+  onClickSubmit = (event) => {
     const {
       title,
-      description
+      description,
+      id
     } = this.state;
 
     const {
@@ -66,7 +67,7 @@ class RemoveCard extends Component {
         "Authorization": bearer
     }
 
-    axios.post('http://127.0.0.1:5000/profile', updateData, { headers: header })
+    axios.put('http://127.0.0.1:5000/post/' + id, updateData, { headers: header })
     .then(res => {
       console.log("Successful.");
       window.location.reload()
@@ -120,7 +121,7 @@ class RemoveCard extends Component {
                   placeholder="Say more about this book ..."
                 />
                 <button className="mr-sm-2 m-lm-update-card-button rounded" type="submit">
-                  Submit Post
+                  Update Post
                 </button>
               </form>
             </div>
