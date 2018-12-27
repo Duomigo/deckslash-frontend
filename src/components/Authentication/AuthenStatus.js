@@ -41,4 +41,20 @@ export function refreshUser() {
     }
 }
 
+export function getUser(id) {
+    const header = {
+        "Access-Control-Allow-Origin": 'content-type',
+        "Authorization": localStorage.getItem('accessToken')
+    }
+
+    axios.get('http://127.0.0.1:5000/testuser', { headers: header })
+    .then(res => {
+        console.log("ID is " + id)
+        console.log(res.data[id-1])
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
 export default isAuth;

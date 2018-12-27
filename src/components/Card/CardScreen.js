@@ -4,6 +4,8 @@ import '../../styles/AuthenLogin.css'
 import '../../styles/Home.css'
 import '../../styles/User.css'
 
+import { getUser } from '../Authentication/AuthenStatus.js'
+
 class CardScreen extends Component {
     constructor(props) {
         super(props)
@@ -23,7 +25,7 @@ class CardScreen extends Component {
 
                     <div className="col-lg-4 col-md-12 m-row-center">
                         <div style={{marginBottom: '20px'}}>
-                            <img className="m-profile-post-image rounded" src={baseUrl + post.picture}/>
+                            <img onClick={() => getUser(post.author)} className="m-profile-post-image rounded" src={baseUrl + post.picture}/>
                         </div>
                     </div>
 
