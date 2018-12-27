@@ -4,20 +4,28 @@ import '../../styles/AuthenLogin.css'
 import '../../styles/Home.css'
 import '../../styles/User.css'
 
-import { getUser } from '../Authentication/AuthenStatus.js'
+import axios from 'axios';
 
 class CardScreen extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            post: props.post
+            post: props.post,
+            user: {}
         }
     }
 
+    async componentDidMount() {
+        var id = this.state.post.author
+        const res = await axios.get('http://127.0.0.1:5000/testuser');
+        await this.setState({ user: res.data[id-1] })
+    }
+
     render() {
-        const { post } = this.state
-        const baseUrl = 'http://127.0.0.1:5000/static/CardPicture/';
+        const { post, user } = this.state
+        const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
+        const profileUrl = 'http://127.0.0.1:5000/static/ProfileImage/'
 
         return (
             <div className="container">
@@ -25,7 +33,7 @@ class CardScreen extends Component {
 
                     <div className="col-lg-4 col-md-12 m-row-center">
                         <div style={{marginBottom: '20px'}}>
-                            <img onClick={() => getUser(post.author)} className="m-profile-post-image rounded" src={baseUrl + post.picture}/>
+                            <img className="m-profile-post-card rounded" src={cardUrl + post.picture}/>
                         </div>
                     </div>
 
@@ -33,6 +41,13 @@ class CardScreen extends Component {
                         <div className="m-profile-post-text">
                             {post.title}
                         </div>
+
+                        <div>
+                            <img className="m-profile-post-avatar" src={profileUrl + user.profile_image} />
+                            <t className="m-profile-post-name">{user.name}</t>
+                            <t className="m-profile-post-username">@{user.username}</t>
+                        </div>
+
                         <div className="m-profile-post-desc">
                             {post.description}
                         </div>
