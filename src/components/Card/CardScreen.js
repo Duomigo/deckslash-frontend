@@ -27,6 +27,11 @@ class CardScreen extends Component {
         const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
         const profileUrl = 'http://127.0.0.1:5000/static/ProfileImage/'
 
+        const goToProfile = () => {
+            var username = this.state.user.username
+            window.location.href = '/u/' + username;
+        }
+
         return (
             <div className="container">
                 <div className="row" style={{marginTop: '30px'}}>
@@ -42,10 +47,11 @@ class CardScreen extends Component {
                             {post.title}
                         </div>
 
-                        <div>
-                            <img className="m-profile-post-avatar" src={profileUrl + user.profile_image} />
-                            <t className="m-profile-post-name">{user.name}</t>
-                            <t className="m-profile-post-username">@{user.username}</t>
+                        <div className="m-profile-banner">
+                            <img onClick={goToProfile} className="m-profile-post-avatar" src={profileUrl + user.profile_image} />
+                            <div onClick={goToProfile} className="m-profile-post-name">{user.name}</div>
+                            <br />
+                            <div className="m-profile-post-date">{post.date_posted}</div>
                         </div>
 
                         <div className="m-profile-post-desc">

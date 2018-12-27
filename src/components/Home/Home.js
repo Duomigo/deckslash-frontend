@@ -37,7 +37,7 @@ class Home extends Component {
 
     return (
 
-      <div className="container-fluid">
+      <div>
 
         <MenuScrollBar />
 
