@@ -27,7 +27,12 @@ class Home extends Component {
   
   render() {
     const { posts } = this.state;
-    const baseUrl = 'http://127.0.0.1:5000/static/CardPicture/'
+    const baseUrl = 'http://127.0.0.1:5000/static/CardPicture/';
+
+    const goToCard = (id) => {
+      console.log(id);
+      window.location.href = '/p/' + id;
+    }
 
     return (
 
@@ -47,7 +52,7 @@ class Home extends Component {
               {posts.slice(0).reverse().map(function (post, i) { // reverse array map function with server data
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
-                    <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + post.picture} alt="" />
+                    <img onClick={() => goToCard(post.id)} className="card-img-top m-profile-card-cover rounded" src={baseUrl + post.picture} alt="" />
                     <p className="m-user-card-text">{post.title}</p>
                     <p className="m-user-desc-text">{post.description}</p>
                   </div>

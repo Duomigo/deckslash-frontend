@@ -4,8 +4,8 @@ import '../../styles/Home.css';
 import '../../styles/User.css';
 import axios from 'axios';
 
-import UserScreen from '../User/UserScreen.js';
-import ProfileScreen from '../User/ProfileScreen.js'
+import CardScreen from './CardScreen.js';
+
 
 class User extends Component {
   constructor(props) {
@@ -31,6 +31,7 @@ class User extends Component {
     try {
       const response = await axios.get('http://127.0.0.1:5000/post/' + this.postId, { headers: header });
       this.setState({post: response.data});
+      console.log(this.state.post)
     } catch (error) {
       console.log(error.response);
     }
@@ -52,12 +53,8 @@ class User extends Component {
   render() {
 
     return (
-      (this.state.user) ? (
-        (this.state.userOwner) ? (
-          <ProfileScreen userData={this.state.user} />
-        ) : (
-          <UserScreen userData={this.state.user} />
-        )
+      (this.state.post) ? (
+        <CardScreen post={this.state.post}/>
       ) : (
         <ErrorScreen />
       )
