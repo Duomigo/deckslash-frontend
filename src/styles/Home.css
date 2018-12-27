@@ -250,3 +250,21 @@ input[type="file"] {
   text-align: center;
   margin-right: 15px;
 }
+
+.m-profile-post-text {
+  font-family: medium;
+  font-size: 25px;
+  display: flex;
+}
+
+.m-profile-post-desc {
+  font-family: regular;
+  font-size: 20px;
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.m-profile-post-image {
+  height: 392px;
+  width: 280px;
+}

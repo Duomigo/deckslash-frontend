@@ -18,19 +18,20 @@ class CardScreen extends Component {
         const baseUrl = 'http://127.0.0.1:5000/static/CardPicture/';
 
         return (
-            <div>
-                <div className="row m-row-center">
+            <div className="container">
+                <div className="row" style={{marginTop: '30px'}}>
+
                     <div className="col-lg-4 col-md-12 m-row-center">
-                        <div>
-                            <img src={baseUrl + post.picture} />
+                        <div style={{marginBottom: '20px'}}>
+                            <img className="m-profile-post-image rounded" src={baseUrl + post.picture}/>
                         </div>
                     </div>
 
                     <div className="col-lg-8 col-md-*">
-                        <div>
+                        <div className="m-profile-post-text">
                             {post.title}
                         </div>
-                        <div>
+                        <div className="m-profile-post-desc">
                             {post.description}
                         </div>
                     </div>
