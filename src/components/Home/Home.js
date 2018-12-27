@@ -42,7 +42,7 @@ class Home extends Component {
         <MenuScrollBar />
 
         <div className="container-fluid">
-          <div className="row justify-content-center">
+          <div className="row col-12 justify-content-center">
             <div className="col-lg-8 col-md-10 col-sm-* col-xs-*">
               <h1 className="m-home-latest">Latest reviews</h1>
             </div>
@@ -54,7 +54,7 @@ class Home extends Component {
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img onClick={() => goToCard(post.id)} className="card-img-top m-profile-card-cover rounded" src={baseUrl + post.picture} alt="" />
-                    <p className="m-user-card-text">{post.title}</p>
+                    <p onClick={() => goToCard(post.id)} className="m-user-card-text">{post.title}</p>
                     <p className="m-user-desc-text">{post.description}</p>
                   </div>
                 )

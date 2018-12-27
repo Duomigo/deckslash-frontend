@@ -138,16 +138,13 @@ class ProfileScreen extends Component {
             </div>
   
             <div className="m-profile-card-container col-lg-6 col-md-10 col-sm-* col-xs-*">           
-              {cards.map(function (card, i) { // map function with server data
+              {cards.slice(0).reverse().map(function (card, i) { // map function with server data
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + "/static/CardPicture/" + card.picture} alt="" />
                     <RemoveCard cardId={card.id}/>
                     <EditCard card={card}/>
                     <p className="m-profile-card-text">{card.title}</p>
-                    {/* <a onClick={() => this.removeCard(card.id)}>
-                      <img className="m-remove-logo" src={newlogo} alt=""/>
-                    </a> */}
                   </div>
                 )
               }.bind(this))}

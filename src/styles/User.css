@@ -151,6 +151,11 @@
   margin-top: 5px;
 }
 
+.m-user-card-text:hover {
+  cursor: pointer;
+  text-decoration: underline
+}
+
 .m-user-desc-text {
   font-family: regular;
   font-size: 16px;
@@ -172,8 +177,11 @@
 }
 
 .m-profile-card-cover {
-  /* width: 200px; */
   justify-content: center;
+}
+
+.m-profile-card-cover:hover {
+  cursor: pointer;
 }
 
 .m-profile-card-cover:hover {
