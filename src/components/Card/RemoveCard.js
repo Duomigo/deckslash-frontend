@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import * as routes from '../constants/routes';
+import * as routes from '../../constants/routes';
 import {
     BrowserRouter as Router,
     Route,
     Link
   } from 'react-router-dom';
 
-import ImageUpload from './ImageUpload.js';
-import '../styles/Home.css';
-import '../styles/User.css';
-import '../styles/AuthenLogin.css'
+import ImageUpload from '../Account/ImageUpload.js';
+import '../../styles/Home.css';
+import '../../styles/User.css';
+import '../../styles/AuthenLogin.css'
 
 import axios from 'axios';
 import Modal from 'react-modal';
 
-import { signoutStyle } from '../styles/style.js'
-import newlogo from '../images/newbutton.svg';
+import { signoutStyle } from '../../styles/style.js'
+import newlogo from '../../images/newbutton.svg';
 
 class RemoveCard extends Component {
   constructor(props) {

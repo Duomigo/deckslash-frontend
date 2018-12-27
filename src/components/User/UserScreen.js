@@ -1,8 +1,7 @@
-
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Home.css';
-import '../styles/User.css';
+import '../../styles/Home.css';
+import '../../styles/User.css';
 
 class UserScreen extends Component {
     constructor(props) {

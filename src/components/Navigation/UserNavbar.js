@@ -4,7 +4,7 @@ import logo from '../../images/dplogo.svg';
 import '../../styles/Home.css';
 import axios from 'axios';
 
-import SignOutButton from '../SignOut';
+import SignOutButton from '../Authentication/SignOut';
 
 import * as routes from '../../constants/routes';
 import {

@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/Home.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Home from "./components/Home.js"
-import AuthenLogin from './components/AuthenLogin.js';
-import AuthenRegister from './components/AuthenRegister.js'
+import Home from "./components/Home/Home.js"
+import AuthenLogin from './components/Authentication/AuthenLogin.js';
+import AuthenRegister from './components/Authentication/AuthenRegister.js'
 import Navigation from './components/Navigation/Navigation';
 
-import User from './components/User.js';
-import UserScreen from './components/UserScreen.js'
+import User from './components/User/User.js';
 
-import ImageUpload from './components/ImageUpload.js'
-import CardUpload from './components/CardUpload.js'
-import Card from './components/Card.js'
+import ImageUpload from './components/Account/ImageUpload.js'
+import CardUpload from './components/Card/CardUpload.js'
+import Card from './components/Card/Card.js'
 
-import { refreshUser } from './components/AuthenStatus.js'
+import { refreshUser } from './components/Authentication/AuthenStatus.js'
 
 import axios from 'axios';
+import Switch from 'react-router-dom/Switch';
 
 class App extends Component {
   constructor(props) {

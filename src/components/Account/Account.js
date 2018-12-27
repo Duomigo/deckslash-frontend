@@ -4,17 +4,17 @@ import {
   withRouter 
 } from 'react-router-dom';
 
-import { SignUpLink } from './AuthenRegister';
+import { SignUpLink } from '../Authentication/AuthenRegister';
 // import { PasswordForgetLink } from '../PasswordForget';
 
-import * as routes from '../constants/routes';
-import isAuth from './AuthenStatus'
+import * as routes from '../../constants/routes';
+import isAuth from '../Authentication/AuthenStatus'
 
 import axios from 'axios';
 
-import '../styles/AuthenLogin.css'
-import '../styles/Home.css'
-import '../styles/User.css'
+import '../../styles/AuthenLogin.css'
+import '../../styles/Home.css'
+import '../../styles/User.css'
 
 const updateByPropertyName = (propertyName, value) => () => ({
   [propertyName]: value,

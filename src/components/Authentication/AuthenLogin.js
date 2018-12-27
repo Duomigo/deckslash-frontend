@@ -7,14 +7,14 @@ import {
 import { SignUpLink } from './AuthenRegister';
 // import { PasswordForgetLink } from '../PasswordForget';
 
-import * as routes from '../constants/routes';
+import * as routes from '../../constants/routes';
 import isAuth from './AuthenStatus';
 
 import axios from 'axios';
 
-import '../styles/AuthenLogin.css'
-import '../styles/Home.css'
-import '../styles/User.css'
+import '../../styles/AuthenLogin.css'
+import '../../styles/Home.css'
+import '../../styles/User.css'
 
 const SignInPage = ({ history }) =>
   <div>

@@ -1,20 +1,20 @@
 
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Home.css';
-import '../styles/User.css';
+import '../../styles/Home.css';
+import '../../styles/User.css';
 
-import Account from './Account.js'
-import ImageUpload from './ImageUpload.js'
-import CardUpload from './CardUpload.js'
-import RemoveCard from './RemoveCard.js'
-import EditCard from './EditCard.js'
+import Account from '../Account/Account.js'
+import ImageUpload from '../Account/ImageUpload.js'
+import CardUpload from '../Card/CardUpload.js'
+import RemoveCard from '../Card/RemoveCard.js'
+import EditCard from '../Card/EditCard.js'
 
 import Modal from 'react-modal';
 
-import editlogo from '../images/edit-logo.svg';
-import newlogo from '../images/newbutton.svg';
-import { profileStyle } from '../styles/style.js'
+import editlogo from '../../images/edit-logo.svg';
+import newlogo from '../../images/newbutton.svg';
+import { profileStyle } from '../../styles/style.js'
 
 import axios from 'axios';
 

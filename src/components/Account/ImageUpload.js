@@ -3,11 +3,11 @@ import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import axios from 'axios';
 
-import '../styles/AuthenLogin.css'
-import '../styles/Home.css'
-import '../styles/User.css'
-import upload from '../images/upload.svg'
-import * as routes from '../constants/routes';
+import '../../styles/AuthenLogin.css'
+import '../../styles/Home.css'
+import '../../styles/User.css'
+import upload from '../../images/upload.svg'
+import * as routes from '../../constants/routes';
 
 class ImageUpload extends Component {
   state = {

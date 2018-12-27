@@ -1,10 +1,11 @@
+
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Home.css';
-import '../styles/User.css'
-import GuestNavbar from './Navigation/GuestNavbar.js';
+import '../../styles/Home.css';
+import '../../styles/User.css'
+import GuestNavbar from '../Navigation/GuestNavbar.js';
 import MenuScrollBar from './MenuScrollBar';
-import UserNavbar from './Navigation/UserNavbar.js';
+import UserNavbar from '../Navigation/UserNavbar.js';
 
 import axios from 'axios';
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Home.css';
-import '../styles/User.css';
+import '../../styles/Home.css';
+import '../../styles/User.css';
 import axios from 'axios';
 
 import UserScreen from './UserScreen.js';
@@ -12,11 +12,11 @@ class User extends Component {
     super(props);
 
     this.state = {
-      post: null,
+      user: null,
       userOwner: false
     }
 
-    this.postId = props.match.params.postId;
+    this.username = props.match.params.username;
   }
 
   async componentWillMount() {
@@ -29,8 +29,8 @@ class User extends Component {
     }
 
     try {
-      const response = await axios.get('http://127.0.0.1:5000/post/' + this.postId, { headers: header });
-      this.setState({post: response.data});
+      const response = await axios.get('http://127.0.0.1:5000/users/' + this.username, { headers: header });
+      this.setState({user: response.data});
     } catch (error) {
       console.log(error.response);
     }

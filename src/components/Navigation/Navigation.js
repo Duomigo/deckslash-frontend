@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import isAuth from '../AuthenStatus';
+import isAuth from '../Authentication/AuthenStatus';
 import GuestNavbar from './GuestNavbar';
 import UserNavbar from './UserNavbar';
 

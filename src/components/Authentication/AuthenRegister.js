@@ -3,14 +3,14 @@ import {
   Link,
   withRouter,
 } from 'react-router-dom';
-import GuestNavbar from './Navigation/GuestNavbar.js';
+import GuestNavbar from '../Navigation/GuestNavbar.js';
 
 import axios from 'axios';
 
 // import { SignInLink } from '../SignIn';
 
 // import { auth, db } from '../../firebase';
-import * as routes from '../constants/routes';
+import * as routes from '../../constants/routes';
 import { throws } from 'assert';
 import { runInThisContext } from 'vm';
 

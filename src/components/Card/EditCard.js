@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import * as routes from '../constants/routes';
+import * as routes from '../../constants/routes';
 import {
     BrowserRouter as Router,
     Route,
     Link
   } from 'react-router-dom';
 
-import ImageUpload from './ImageUpload.js';
-import '../styles/Home.css';
-import '../styles/User.css';
-import '../styles/AuthenLogin.css'
+import ImageUpload from '../Account/ImageUpload.js';
+import '../../styles/Home.css';
+import '../../styles/User.css';
+import '../../styles/AuthenLogin.css'
 
 import axios from 'axios';
 import Modal from 'react-modal';
 
-import { editCardStyle } from '../styles/style.js'
-import editlogo from '../images/edit-logo.svg';
+import { editCardStyle } from '../../styles/style.js'
+import editlogo from '../../images/edit-logo.svg';
 
 const updateByPropertyName = (propertyName, value) => () => ({
     [propertyName]: value,

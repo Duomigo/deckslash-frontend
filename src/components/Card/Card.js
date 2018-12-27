@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Home.css';
-import '../styles/User.css';
+import '../../styles/Home.css';
+import '../../styles/User.css';
 import axios from 'axios';
 
-import UserScreen from './UserScreen.js';
-import ProfileScreen from './ProfileScreen.js'
+import UserScreen from '../User/UserScreen.js';
+import ProfileScreen from '../User/ProfileScreen.js'
 
 class User extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      user: null,
+      post: null,
       userOwner: false
     }
 
-    this.username = props.match.params.username;
+    this.postId = props.match.params.postId;
   }
 
   async componentWillMount() {
@@ -29,8 +29,8 @@ class User extends Component {
     }
 
     try {
-      const response = await axios.get('http://127.0.0.1:5000/users/' + this.username, { headers: header });
-      this.setState({user: response.data});
+      const response = await axios.get('http://127.0.0.1:5000/post/' + this.postId, { headers: header });
+      this.setState({post: response.data});
     } catch (error) {
       console.log(error.response);
     }
