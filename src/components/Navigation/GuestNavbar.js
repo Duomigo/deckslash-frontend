@@ -26,7 +26,7 @@ class GuestNavbar extends Component {
           <ul className="navbar-nav mr-auto">
 
           </ul>
-            <Link className="navbar-button" to={routes.SIGN_IN}>Browse</Link>
+            <Link className="navbar-button" to={routes.SEARCH}>Search</Link>
             <Link className="navbar-button" to={routes.SIGN_IN}>Log In</Link>
             <Link className="navbar-button" to={routes.SIGN_UP}>Sign Up</Link>
         </div>

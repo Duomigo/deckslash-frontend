@@ -7,6 +7,7 @@ import '../../styles/User.css'
 import MenuScrollBar from './MenuScrollBar';
 
 import { getUser } from '../Authentication/AuthenStatus.js'
+import { goToCard } from '../Authentication/AuthenStatus.js'
 
 import axios from 'axios';
 
@@ -15,25 +16,19 @@ class Home extends Component {
     super(props)
 
     this.state = {
-      posts: []
+      posts: [],
+      users: []
     }
   }
 
   async componentDidMount() {
-    const res = await axios.get('http://127.0.0.1:5000/testcard');
-    console.log("Du lieu cho ban: ");
-    console.log(res.data);
-    await this.setState({ posts: res.data })
+    const cards = await axios.get('http://127.0.0.1:5000/testcard');
+    await this.setState({ posts: cards.data })
   }
   
   render() {
-    const { posts } = this.state;
-    const baseUrl = 'http://127.0.0.1:5000/static/CardPicture/';
-
-    const goToCard = (id) => {
-      console.log(id);
-      window.location.href = '/p/' + id;
-    }
+    const { posts, users } = this.state;
+    const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
 
     return (
 
@@ -53,9 +48,9 @@ class Home extends Component {
               {posts.slice(0).reverse().map(function (post, i) { // reverse array map function with server data
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
-                    <img onClick={() => goToCard(post.id)} className="card-img-top m-profile-card-cover rounded" src={baseUrl + post.picture} alt="" />
+                    <img onClick={() => goToCard(post.id)} className="card-img-top m-profile-card-cover rounded" src={cardUrl + post.picture} alt="" />
                     <p onClick={() => goToCard(post.id)} className="m-user-card-text">{post.title}</p>
-                    <p className="m-user-desc-text">{post.description}</p>
+                    {/* <p className="m-user-desc-text">{post.description}</p> */}
                   </div>
                 )
               })}

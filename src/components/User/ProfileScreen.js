@@ -16,6 +16,8 @@ import editlogo from '../../images/edit-logo.svg';
 import newlogo from '../../images/newbutton.svg';
 import { profileStyle } from '../../styles/style.js'
 
+import { goToCard } from '../Authentication/AuthenStatus.js'
+
 import axios from 'axios';
 
 class ProfileScreen extends Component {
@@ -141,10 +143,10 @@ class ProfileScreen extends Component {
               {cards.slice(0).reverse().map(function (card, i) { // map function with server data
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
-                    <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + "/static/CardPicture/" + card.picture} alt="" />
+                    <img onClick={() => goToCard(card.id)} className="card-img-top m-profile-card-cover rounded" src={baseUrl + "/static/CardPicture/" + card.picture} alt="" />
                     <RemoveCard cardId={card.id}/>
                     <EditCard card={card}/>
-                    <p className="m-profile-card-text">{card.title}</p>
+                    <p onClick={() => goToCard(card.id)} className="m-user-card-text">{card.title}</p>
                   </div>
                 )
               }.bind(this))}

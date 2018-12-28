@@ -41,4 +41,9 @@ export function refreshUser() {
     }
 }
 
+export const goToCard = (id) => {
+    console.log(id);
+    window.location.href = '/p/' + id;
+}
+
 export default isAuth;

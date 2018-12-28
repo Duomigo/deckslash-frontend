@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../styles/Home.css';
 import '../../styles/User.css';
 
+import { goToCard } from '../Authentication/AuthenStatus.js'
+
 class UserScreen extends Component {
     constructor(props) {
       super(props)
@@ -46,9 +48,8 @@ class UserScreen extends Component {
               {cards.slice(0).reverse().map(function (card, i) { // map function with server data
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
-                    <img className="card-img-top m-profile-card-cover rounded" src={baseUrl + "/static/CardPicture/" + card.picture} alt="" />
-                    <p className="m-user-card-text">{card.title}</p>
-                    <p className="m-user-desc-text">{card.description}</p>
+                    <img onClick={() => goToCard(card.id)} className="card-img-top m-profile-card-cover rounded" src={baseUrl + "/static/CardPicture/" + card.picture} alt="" />
+                    <p onClick={() => goToCard(card.id)} className="m-user-card-text">{card.title}</p>
                   </div>
                 )
               })}

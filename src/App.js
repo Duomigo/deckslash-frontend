@@ -12,6 +12,7 @@ import User from './components/User/User.js';
 import ImageUpload from './components/Account/ImageUpload.js'
 import CardUpload from './components/Card/CardUpload.js'
 import Card from './components/Card/Card.js'
+import Search from './components/Navigation/Search.js'
 
 import { refreshUser } from './components/Authentication/AuthenStatus.js'
 
@@ -61,6 +62,7 @@ class App extends Component {
           <Route path={"/p/:postId"} component={Card} />
           <Route path="/upload" component={ImageUpload} />
           <Route path="/new" component={CardUpload} />
+          <Route path="/search" component={Search} />
 
         </div>
       </Router>
