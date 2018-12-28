@@ -24,6 +24,15 @@ class Home extends Component {
   async componentDidMount() {
     const cards = await axios.get('http://127.0.0.1:5000/testcard');
     await this.setState({ posts: cards.data })
+
+    const users = await axios.get('http://127.0.0.1:5000/testuser')
+    await this.setState({ users: users.data })
+  }
+
+  getCurrentUser(id) {
+    const ans = this.state.users[id-1].name
+    console.log(ans)
+    return ans;
   }
   
   render() {
@@ -50,6 +59,7 @@ class Home extends Component {
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img onClick={() => goToCard(post.id)} className="card-img-top m-profile-card-cover rounded" src={cardUrl + post.picture} alt="" />
                     <p onClick={() => goToCard(post.id)} className="m-user-card-text">{post.title}</p>
+                    {/* <p onClick={() => goToCard(post.id)} className="m-user-card-text">{this.getCurrentUser(post.author)}</p> */}
                     {/* <p className="m-user-desc-text">{post.description}</p> */}
                   </div>
                 )
