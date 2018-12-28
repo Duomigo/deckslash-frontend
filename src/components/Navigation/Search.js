@@ -19,8 +19,8 @@ class Search extends Component {
         }
     }
 
-    onClickSearch() {
-        console.log(this.state.term)
+    querySearch(term) {
+        console.log(term)
     }
 
     render() {
@@ -31,18 +31,19 @@ class Search extends Component {
             <div className="container">
                 <div className="row col-12 justify-content-center">
                     <div className="col-lg-8 col-md-10 col-md-*">
-                        <form onSubmit={this.onClickSearch}>
-                            <input
-                                className="m-lm-ghost-search"
-                                value={term}
-                                onChange={event => this.setState(updateByPropertyName('term', event.target.value))}
-                                type="text"
-                                placeholder="Add A Title"
-                            />
-                            {/* <button className="mr-sm-2 m-lm-create-card-button rounded" disabled={isInvalid} type="submit">
-                                Submit Post
-                            </button> */}
-                        </form>
+                        <input
+                            className="m-lm-ghost-search"
+                            value={term}
+                            onChange={event => {
+                                this.setState(updateByPropertyName('term', event.target.value))
+                                this.querySearch(term)
+                            }}
+                            type="text"
+                            placeholder="Add A Title"
+                        />
+                        {/* <button className="mr-sm-2 m-lm-create-card-button rounded" disabled={isInvalid} type="submit">
+                            Submit Post
+                        </button> */}
                     </div>
                 </div>
             </div>
