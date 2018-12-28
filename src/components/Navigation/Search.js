@@ -18,7 +18,6 @@ class Search extends Component {
     }
 
     querySearch(term) {
-        console.log(term)
 
         const data = {
             'term': term
@@ -26,12 +25,12 @@ class Search extends Component {
 
         axios.post('http://127.0.0.1:5000/search', data)
         .then(res => {
-            console.log(res)
             this.setState({ query: res.data })
         })
         .catch(err => {
             console.log(err)
         })
+
     }
 
     render() {
@@ -40,7 +39,7 @@ class Search extends Component {
         const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
 
         const updateByPropertyName = (propertyName, value) => () => ({
-            [propertyName]: value,
+            [propertyName]: value
         });
 
         return(
@@ -54,6 +53,7 @@ class Search extends Component {
                             value={term}
                             onChange={event => {
                                 this.setState(updateByPropertyName('term', event.target.value))
+                                this.querySearch(event.target.value)
                             }}
                             type="text"
                             placeholder="Add A Title"
