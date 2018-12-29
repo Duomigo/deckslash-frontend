@@ -65,15 +65,15 @@ class SignUpForm extends Component {
         password: this.state.passwordOne,
         confirm_password: this.state.passwordTwo
       })
-      .then(function(response) {
+      .then(res => {
         history.push(routes.SIGN_IN);
 
-        console.log(response);
+        console.log(res);
         console.log("Successful registered new user.")
       })
-      .catch(function (error) {
+      .catch(err => {
         //this.setState(updateByPropertyName('error', error));
-        console.log(error);
+        console.log(err.response);
         console.log("Failed to register.");
     });
         

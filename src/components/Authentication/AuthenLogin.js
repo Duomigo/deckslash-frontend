@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import { SignUpLink } from './AuthenRegister';
-import { PasswordForgetLink } from '../PasswordForget';
+import { PasswordForgetLink } from './PasswordForget';
 
 import * as routes from '../../constants/routes';
 import isAuth from './AuthenStatus';
@@ -49,8 +49,8 @@ class SignInForm extends Component {
     } = this.props;
 
     const loginData = {
-      username: this.state.username,
-      password: this.state.password
+      username: username,
+      password: password
     }
 
     axios.post('http://127.0.0.1:5000/login', loginData)
@@ -67,8 +67,8 @@ class SignInForm extends Component {
 
       console.log("Login Successful.");
     })
-    .catch(function (error) {
-      console.log(error);
+    .catch(err => {
+      console.log(err.response);
       console.log("Login Failed.");
     });
 

@@ -4,9 +4,11 @@ import './styles/Home.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home/Home.js"
 import AuthenLogin from './components/Authentication/AuthenLogin.js';
-import AuthenRegister from './components/Authentication/AuthenRegister.js'
-import Navigation from './components/Navigation/Navigation';
+import AuthenRegister from './components/Authentication/AuthenRegister.js';
+import PasswordForget from './components/Authentication/PasswordForget.js';
 
+
+import Navigation from './components/Navigation/Navigation';
 import User from './components/User/User.js';
 
 import ImageUpload from './components/Account/ImageUpload.js'
@@ -63,6 +65,7 @@ class App extends Component {
           <Route path="/upload" component={ImageUpload} />
           <Route path="/new" component={CardUpload} />
           <Route path="/search" component={Search} />
+          <Route path="/pw-forget" component={PasswordForget} />
 
         </div>
       </Router>
