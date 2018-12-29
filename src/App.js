@@ -20,6 +20,7 @@ import { refreshUser } from './components/Authentication/AuthenStatus.js'
 
 import axios from 'axios';
 import Switch from 'react-router-dom/Switch';
+import ResetPassword from './components/Authentication/ResetPassword';
 
 class App extends Component {
   constructor(props) {
@@ -66,6 +67,7 @@ class App extends Component {
           <Route path="/new" component={CardUpload} />
           <Route path="/search" component={Search} />
           <Route path="/pw-forget" component={PasswordForget} />
+          <Route path={"/reset_password/:token"} component={ResetPassword} />
 
         </div>
       </Router>

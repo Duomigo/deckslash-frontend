@@ -9,17 +9,21 @@ const updateByPropertyName = (propertyName, value) => () => ({
   });
   
 const INITIAL_STATE = {
-    email: '',
+    password: '',
+    confirm_password: '',
     error: '',
     notification: ''
 };
 
-class PasswordForget extends Component {
+class ResetPassword extends Component {
     constructor(props) {
         super(props)
 
-        this.state = { ...INITIAL_STATE };
+        this.state = { 
+            ...INITIAL_STATE 
+        };
 
+        this.token = props.match.params.token;
         this.onSubmit = this.onSubmit.bind(this)
     }
 
@@ -30,15 +34,17 @@ class PasswordForget extends Component {
         } = this.props;
     
         const emailAdd = {
-          email: this.state.email,
+          password: this.state.password,
+          confirm_password: this.state.confirm_password
         }
     
-        axios.post('http://127.0.0.1:5000/reset_password', emailAdd)
+        axios.post('http://127.0.0.1:5000/reset_password/' + this.token, emailAdd)
         .then(res => {
-          this.setState({ notification: res.data.message})
+          console.log(res.data)
+          history.push(routes.SIGN_IN)
         })
         .catch(err => {
-          this.setState({ error: err.response.data.email[0]})
+          console.log(err)
         });
     
         event.preventDefault();
@@ -46,25 +52,36 @@ class PasswordForget extends Component {
 
     render() {
         const {
-            email,
+            password,
+            confirm_password,
             error,
             notification
           } = this.state;
       
-        const isInvalid = (email === '')
+        const isInvalid = 
+            password === '' ||
+            confirm_password === '';
         
         return(
             <div className="">
             <div className="m-lm-content rounded">
-              <h3 className="m-lm-header-text">Forgot your password.</h3>
-              <h4 className="m-lm-sub-text">Enter your email address.</h4>
+              <h3 className="m-lm-header-text">Reset your password.</h3>
+              <h4 className="m-lm-sub-text">Enter your new password.</h4>
               <form onSubmit={this.onSubmit}>
                 <input
                   className="mr-sm-2 m-lm-input rounded"
-                  value={email}
-                  onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
-                  type="text"
-                  placeholder="Email"
+                  value={password}
+                  onChange={event => this.setState(updateByPropertyName('password', event.target.value))}
+                  type="password"
+                  placeholder="Password"
+                />
+
+                <input
+                  className="mr-sm-2 m-lm-input rounded"
+                  value={confirm_password}
+                  onChange={event => this.setState(updateByPropertyName('confirm_password', event.target.value))}
+                  type="password"
+                  placeholder="Confirm Password"
                 />
 
                 <button className="mr-sm-2 m-lm-button rounded" disabled={isInvalid} type="submit">
@@ -81,9 +98,4 @@ class PasswordForget extends Component {
     }
 }
 
-export const PasswordForgetLink = () =>
-  <p>
-    <Link to={routes.PASSWORD_FORGET}>Forgot Password?</Link>
-  </p>
-
-export default withRouter(PasswordForget);
+export default withRouter(ResetPassword);
