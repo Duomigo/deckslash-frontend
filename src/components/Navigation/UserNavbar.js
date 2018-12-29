@@ -7,6 +7,9 @@ import axios from 'axios';
 import SignOutButton from '../Authentication/SignOut';
 
 import * as routes from '../../constants/routes';
+import newB from '../../images/m-new.svg'
+import profileB from '../../images/m-user.svg'
+
 import {
     BrowserRouter as Router,
     Route,
@@ -53,8 +56,12 @@ class UserNavbar extends Component {
           <ul className="navbar-nav mr-auto">
 
           </ul>
-            <Link className="navbar-button" to={routes.NEW}>New</Link>
-            <a className="navbar-button" href={profilePath}>Profile</a>
+            <Link className="navbar-button" to={routes.NEW}>
+              <img src={newB} width="25" height="25" alt="New"/>
+            </Link>
+            <a className="navbar-button" href={profilePath}>
+              <img src={profileB} width="25" height="25" alt="Profile"/>
+            </a>
             <SignOutButton />
         </div>
       </nav>

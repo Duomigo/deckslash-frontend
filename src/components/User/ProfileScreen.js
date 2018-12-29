@@ -124,7 +124,7 @@ class ProfileScreen extends Component {
 
                   <a>
                     <a href="/new">
-                      <img src={newlogo} width="25" height="25" style={{float: "right", marginTop: "10px", marginBottom:"10px"}} alt=""/>               
+                      <img src={newlogo} width="25" height="25" style={{float: "right", marginTop: "5px", marginBottom:"10px"}} alt=""/>               
                     </a>
                   </a>
 

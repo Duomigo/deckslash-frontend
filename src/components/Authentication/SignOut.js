@@ -13,7 +13,7 @@ import '../../styles/AuthenLogin.css'
 
 import Modal from 'react-modal';
 import { signoutStyle } from '../../styles/style.js'
-import signOutButton from '../../images/m-out.svg'
+import outB from '../../images/m-out.svg'
 
 function doSignOut() {
   localStorage.removeItem("accessToken");
@@ -48,7 +48,7 @@ class SignOutButton extends Component {
           type="button"
           onClick={this.handleOpenModal}
         >
-          Sign Out
+          <img src={outB} width="25" height="25" alt="Out"/>
         </button>
 
         <Modal
