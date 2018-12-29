@@ -287,10 +287,16 @@ input[type="file"] {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
+.m-profile-post-clap {
+  height: 30px;
+  width: 30px;
+  float: right; 
+  display: inline;
+}
+
 .m-profile-post-name {
   font-family: medium;
-  font-size: 18px;
-  margin-top: -14px;
+  font-size: 19px;
 }
 
 .m-profile-post-name:hover {
@@ -303,4 +309,17 @@ input[type="file"] {
   font-size: 18px;
   vertical-align:top;
   margin-top: -30px;
+}
+
+.m-profile-banner {
+  margin-bottom: 10px;
+}
+
+.m-profile-post-count {
+  float: right;
+  font-size: 20px;
+  font-family: medium;
+  margin-left: 7px;
+  margin-right: 7px;
+  margin-top: 7px;
 }

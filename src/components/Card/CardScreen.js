@@ -6,24 +6,54 @@ import '../../styles/User.css'
 
 import axios from 'axios';
 
+import likeB from '../../images/m-like.svg'
+
 class CardScreen extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             post: props.post,
+            cardId: props.post.id,
             user: {}
         }
+
+        this.onClapPost = this.onClapPost.bind(this)
     }
 
     async componentDidMount() {
         var id = this.state.post.author
-        const res = await axios.get('http://127.0.0.1:5000/testuser');
-        await this.setState({ user: res.data[id-1] })
+        const userData = await axios.get('http://127.0.0.1:5000/testuser');
+        await this.setState({ user: userData.data[id-1] })
+
+        this.setState({ claps: this.state.post.likes })
+    }
+
+    onClapPost(event) {
+        const route = 'http://127.0.0.1:5000/clap/' + this.state.cardId
+        
+        const bearer = 'Bearer ' + localStorage.getItem("accessToken")
+
+        var header = {
+            "Access-Control-Allow-Origin": 'X-Requested-With,content-type',
+            "Authorization": bearer
+        }
+
+        console.log(header)
+
+        axios.post(route, { headers: header })
+        .then(res => {
+            this.setState({ claps: this.state.claps + 1 })
+        })
+        .catch(err => {
+            console.log(err.response)
+        })
+
+        event.preventDefault();
     }
 
     render() {
-        const { post, user } = this.state
+        const { post, user, cardId, claps } = this.state
         const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
         const profileUrl = 'http://127.0.0.1:5000/static/ProfileImage/'
 
@@ -99,6 +129,12 @@ class CardScreen extends Component {
 
                         <div className="m-profile-banner">
                             <img onClick={goToProfile} className="m-profile-post-avatar" src={profileUrl + user.profile_image} />
+
+                            <div className="">
+                                <t className="m-profile-post-count">{claps}</t>
+                                <img onClick={this.onClapPost} className="m-profile-post-clap" src={likeB} />
+                            </div>
+
                             <div onClick={goToProfile} className="m-profile-post-name">{user.name}</div>
                             <br />
                             <div className="m-profile-post-date">{convertDate(post.date_posted)}</div>
