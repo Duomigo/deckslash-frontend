@@ -12,8 +12,8 @@ import EditCard from '../Card/EditCard.js'
 
 import Modal from 'react-modal';
 
-import editlogo from '../../images/edit-logo.svg';
-import newlogo from '../../images/newbutton.svg';
+import editlogo from '../../images/m-edit.svg';
+import newlogo from '../../images/m-new.svg';
 import { profileStyle } from '../../styles/style.js'
 
 import { goToCard } from '../Authentication/AuthenStatus.js'
@@ -124,7 +124,7 @@ class ProfileScreen extends Component {
 
                   <a>
                     <a href="/new">
-                      <img src={newlogo} width="20" height="20" style={{float: "right", marginTop: "10px", marginBottom:"10px"}} alt=""/>               
+                      <img src={newlogo} width="25" height="25" style={{float: "right", marginTop: "10px", marginBottom:"10px"}} alt=""/>               
                     </a>
                   </a>
 

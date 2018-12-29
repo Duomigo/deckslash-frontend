@@ -128,8 +128,7 @@
 .m-remove-logo {
   width: 15px;
   height: 15px;
-  margin-top: 10px;
-  transform: rotate(45deg);
+  margin-top: 8px;
   display: inline;
   float: right;
 }
@@ -137,7 +136,7 @@
 .m-edit-logo {
   width: 15px;
   height: 15px;
-  margin-top: 10px;
+  margin-top: 8px;
   margin-right: 3px;
   display: inline;
   float: right;

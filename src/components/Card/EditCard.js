@@ -15,7 +15,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 
 import { editCardStyle } from '../../styles/style.js'
-import editlogo from '../../images/edit-logo.svg';
+import editlogo from '../../images/m-edit.svg';
 
 const updateByPropertyName = (propertyName, value) => () => ({
     [propertyName]: value,

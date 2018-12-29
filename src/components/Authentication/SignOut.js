@@ -13,6 +13,7 @@ import '../../styles/AuthenLogin.css'
 
 import Modal from 'react-modal';
 import { signoutStyle } from '../../styles/style.js'
+import signOutButton from '../../images/m-out.svg'
 
 function doSignOut() {
   localStorage.removeItem("accessToken");

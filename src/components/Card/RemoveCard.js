@@ -15,7 +15,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 
 import { signoutStyle } from '../../styles/style.js'
-import newlogo from '../../images/newbutton.svg';
+import newlogo from '../../images/m-trash.svg';
 
 class RemoveCard extends Component {
   constructor(props) {
