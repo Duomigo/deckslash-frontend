@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import { SignUpLink } from './AuthenRegister';
-// import { PasswordForgetLink } from '../PasswordForget';
+import { PasswordForgetLink } from '../PasswordForget';
 
 import * as routes from '../../constants/routes';
 import isAuth from './AuthenStatus';
@@ -123,9 +123,10 @@ class SignInForm extends Component {
 
             { error && <p>{error.message}</p> }
             
-            {/* <div className="m-lm-text">
+            <div className="m-lm-text">
               <PasswordForgetLink />
-            </div> */}
+            </div>
+
             <div className="m-lm-text">
               <SignUpLink />
             </div>
