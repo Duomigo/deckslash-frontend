@@ -43,8 +43,6 @@ class Home extends Component {
 
       <div>
 
-        <MenuScrollBar />
-
         <div className="container-fluid">
           <div className="row col-12 justify-content-center">
             <div className="col-lg-8 col-md-10 col-sm-* col-xs-*">
