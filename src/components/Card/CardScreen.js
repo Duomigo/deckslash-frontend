@@ -114,38 +114,41 @@ class CardScreen extends Component {
         }
 
         return (
-            <div className="container">
-                <div className="row" style={{marginTop: '30px'}}>
+            <div className="container-fluid">
+                <div className="row text-align-center justify-content-center" style={{marginTop: '30px'}}>
 
-                    <div className="col-lg-4 col-md-12 m-row-center">
-                        <div style={{marginBottom: '20px'}}>
-                            <img className="m-profile-post-card rounded" src={cardUrl + post.picture}/>
-                        </div>
-                    </div>
-
-                    <div className="col-lg-8 col-md-*">
-                        <div className="m-profile-post-text">
-                            {post.title}
-                        </div>
-
-                        <div className="m-profile-banner">
-                            <img onClick={goToProfile} className="m-profile-post-avatar" src={profileUrl + user.profile_image} />
-
-                            <div className="">
-                                <t className="m-profile-post-count">{claps}</t>
-                                <img onClick={this.onClapPost} className="m-profile-post-clap" src={clapB} />
+                    <div className="col-12">
+                        <div className="row m-profile-info col-lg-6 col-md-10 col-sm-* col-xs-*">
+                            <div className="col-sm-4 col-xs-* m-row-center">
+                                <div style={{marginBottom: '20px'}}>
+                                    <img className="m-profile-post-card rounded" src={cardUrl + post.picture}/>
+                                </div>
                             </div>
 
-                            <div onClick={goToProfile} className="m-profile-post-name">{user.name}</div>
-                            <br />
-                            <div className="m-profile-post-date">{convertDate(post.date_posted)}</div>
-                        </div>
+                            <div className="col-sm-8 col-xs-*">
+                                <div className="m-profile-post-text">
+                                    {post.title}
+                                </div>
 
-                        <div className="m-profile-post-desc">
-                            {post.description}
+                                <div className="m-profile-banner">
+                                    <img onClick={goToProfile} className="m-profile-post-avatar" src={profileUrl + user.profile_image} />
+
+                                    <div className="">
+                                        <t className="m-profile-post-count">{claps}</t>
+                                        <img onClick={this.onClapPost} className="m-profile-post-clap" src={clapB} />
+                                    </div>
+
+                                    <div onClick={goToProfile} className="m-profile-post-name">{user.name}</div>
+                                    <br />
+                                    <div className="m-profile-post-date">{convertDate(post.date_posted)}</div>
+                                </div>
+
+                                <div className="m-profile-post-desc">
+                                    {post.description}
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         )

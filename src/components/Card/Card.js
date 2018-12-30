@@ -12,6 +12,7 @@ class User extends Component {
     super(props);
 
     this.state = {
+      loading: true,
       post: null,
       userOwner: false
     }
@@ -31,21 +32,9 @@ class User extends Component {
     try {
       const response = await axios.get('http://127.0.0.1:5000/post/' + this.postId, { headers: header });
       this.setState({post: response.data});
-      console.log(this.state.post)
+      this.setState({ loading: false })
     } catch (error) {
-      console.log(error.response);
-    }
-
-    try {
-      const accountResponse = await axios.get('http://127.0.0.1:5000/profile', { headers: header });
-      const accountUsername = accountResponse.data.user.username;
-
-      if (accountUsername === this.username) {
-        this.setState({ userOwner: true })
-      }
-
-    } catch (error) {
-      console.log(error.response);
+      this.setState({ loading: false })
     }
   }
 
@@ -53,10 +42,14 @@ class User extends Component {
   render() {
 
     return (
-      (this.state.post) ? (
-        <CardScreen post={this.state.post}/>
+      (this.state.loading) ? (
+        <LoadingScreen />
       ) : (
-        <ErrorScreen />
+        (this.state.post) ? (
+          <CardScreen post={this.state.post}/>
+        ) : (
+          <ErrorScreen />
+        )
       )
     );
   }
@@ -64,7 +57,12 @@ class User extends Component {
 
 const ErrorScreen = () =>
   <div className="App">
-    <p1>Error, user does not exist</p1>
+    <p1>Error, card does not exist</p1>
+  </div>
+
+const LoadingScreen = () =>
+  <div className="App">
+    <p1>Loading...</p1>
   </div>
 
 export default User;

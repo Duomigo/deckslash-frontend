@@ -74,6 +74,8 @@ class SignUpForm extends Component {
       .catch(err => {
         //this.setState(updateByPropertyName('error', error));
         console.log(err.response);
+        console.log(err.response.data)
+        console.log(err.response.data.keys())
         console.log("Failed to register.");
     });
         

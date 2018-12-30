@@ -12,6 +12,7 @@ class User extends Component {
     super(props);
 
     this.state = {
+      loading: true,
       user: null,
       userOwner: false
     }
@@ -30,9 +31,11 @@ class User extends Component {
 
     try {
       const response = await axios.get('http://127.0.0.1:5000/users/' + this.username, { headers: header });
-      this.setState({user: response.data});
+      this.setState({ user: response.data });
+      this.setState({ loading: false })
     } catch (error) {
       console.log(error.response);
+      this.setState({ loading: false })
     }
 
     try {
@@ -52,14 +55,19 @@ class User extends Component {
   render() {
 
     return (
-      (this.state.user) ? (
-        (this.state.userOwner) ? (
-          <ProfileScreen userData={this.state.user} />
-        ) : (
-          <UserScreen userData={this.state.user} />
-        )
+
+      (this.state.loading) ? (
+        <LoadingScreen />
       ) : (
-        <ErrorScreen />
+        (this.state.user) ? (
+          (this.state.userOwner) ? (
+            <ProfileScreen userData={this.state.user} />
+          ) : (
+            <UserScreen userData={this.state.user} />
+          )
+        ) : (
+          <ErrorScreen />
+        )
       )
     );
   }
@@ -68,6 +76,11 @@ class User extends Component {
 const ErrorScreen = () =>
   <div className="App">
     <p1>Error, user does not exist</p1>
+  </div>
+
+const LoadingScreen = () =>
+  <div className="App">
+    <p1>Loading...</p1>
   </div>
 
 export default User;
