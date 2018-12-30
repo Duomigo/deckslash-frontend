@@ -188,7 +188,7 @@ class CardUpload extends Component {
       <div className="container">
 
           <div className="m-lm-card-upload-container">
-            <a className="m-lm-title-create-card">Latest Review</a>
+            <a className="m-lm-title-create-card">New Review</a>
             <a onClick={this.onClickSubmit}>
               <button className="mr-sm-2 m-lm-create-card-button rounded float-right">
                 Submit Post

@@ -18,7 +18,7 @@ import { profileStyle } from '../../styles/style.js'
 
 import { goToCard } from '../Authentication/AuthenStatus.js'
 
-import { bookB } from '../../images/m-book.svg'
+import bookB from '../../images/m-book.svg'
 
 import axios from 'axios';
 
@@ -82,6 +82,16 @@ class ProfileScreen extends Component {
         console.log(err)
       })
     }
+
+    formatReview(username, cards) {
+      if (cards == 1) {
+        return '@' + username + ' has 1 review.'
+      } else if (cards == 0) {
+        return '@' + username + ' has no reviews yet.'
+      } else {
+        return '@' + username + ' has ' + cards + ' reviews.'
+      }
+    }
     
     render() {
       const { user, cards } = this.state;
@@ -130,8 +140,9 @@ class ProfileScreen extends Component {
                     </a>
                   </a>
 
-                  <t className="m-profile-username">@{user.username} has {cards.length}</t>
-                  <img src={bookB} height="20px" width="20px" />
+                  <t className="m-profile-username">
+                    {this.formatReview(user.username, cards.length)}
+                  </t>
                   <t className="m-profile-desc">{user.bio}</t>                           
                 </div>
               </div>

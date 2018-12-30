@@ -14,6 +14,16 @@ class UserScreen extends Component {
         cards: props.userData.cards
       }
     }
+
+    formatReview(username, cards) {
+      if (cards == 1) {
+        return '@' + username + ' has 1 review.'
+      } else if (cards == 0) {
+        return '@' + username + ' has no reviews yet.'
+      } else {
+        return '@' + username + ' has ' + cards + ' reviews.'
+      }
+    }
     
     render() {
       const { user, cards } = this.state;
@@ -31,16 +41,18 @@ class UserScreen extends Component {
                 </div>
                 <div className="m-profile-right">
                   <t className="m-profile-name">{user.name}</t>
-                  <span className="m-profile-username">@{user.username}</span>
+                  <t className="m-profile-username">
+                    {this.formatReview(user.username, cards.length)}
+                  </t>
                   <t className="m-profile-desc">{user.bio}</t>                           
                 </div>
               </div>
-              <div className="m-profile-filter">
-                <button className="btn m-profile-button" type="submit">
+              <div className="m-profile-filter" style={{marginBottom: '20px'}}>
+                {/* <button className="btn m-profile-button" type="submit">
                   {cards.length} Books
                 </button>
                 <button className="btn m-profile-button" type="submit">10 Following</button>
-                <button className="btn m-profile-button" type="submit">88 Followers</button>
+                <button className="btn m-profile-button" type="submit">88 Followers</button> */}
               </div> 
             </div>
   
