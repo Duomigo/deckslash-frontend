@@ -58,9 +58,9 @@ class UserNavbar extends Component {
             <Link className="navbar-button" to={routes.SEARCH}>
               <img src={searchB} width="25" height="25" alt="New"/>
             </Link>
-            <Link className="navbar-button" to={routes.NEW}>
+            {/* <Link className="navbar-button" to={routes.NEW}>
               <img src={newB} width="25" height="25" alt="New"/>
-            </Link>
+            </Link> */}
             <a className="navbar-button" href={profilePath}>
               <img src={profileB} width="25" height="25" alt="Profile"/>
             </a>

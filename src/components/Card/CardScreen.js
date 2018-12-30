@@ -7,6 +7,7 @@ import '../../styles/User.css'
 import axios from 'axios';
 
 import likeB from '../../images/m-like.svg'
+import clapB from '../../images/m-clap.png'
 
 class CardScreen extends Component {
     constructor(props) {
@@ -29,20 +30,20 @@ class CardScreen extends Component {
         this.setState({ claps: this.state.post.likes })
     }
 
-    onClapPost(event) {
-        const route = 'http://127.0.0.1:5000/clap/' + this.state.cardId
-        
-        const bearer = 'Bearer ' + localStorage.getItem("accessToken")
+    onClapPost = (event) => {
 
+        const route = 'http://127.0.0.1:5000/clap/' + this.state.cardId
+
+        const data = {}
+        
         var header = {
             "Access-Control-Allow-Origin": 'X-Requested-With,content-type',
-            "Authorization": bearer
+            "Authorization": 'Bearer ' + localStorage.getItem("accessToken")
         }
 
-        console.log(header)
-
-        axios.post(route, { headers: header })
+        axios.post(route, data, { headers: header })
         .then(res => {
+            console.log(res.data)
             this.setState({ claps: this.state.claps + 1 })
         })
         .catch(err => {
@@ -53,7 +54,7 @@ class CardScreen extends Component {
     }
 
     render() {
-        const { post, user, cardId, claps } = this.state
+        const { post, user, claps } = this.state
         const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
         const profileUrl = 'http://127.0.0.1:5000/static/ProfileImage/'
 
@@ -132,7 +133,7 @@ class CardScreen extends Component {
 
                             <div className="">
                                 <t className="m-profile-post-count">{claps}</t>
-                                <img onClick={this.onClapPost} className="m-profile-post-clap" src={likeB} />
+                                <img onClick={this.onClapPost} className="m-profile-post-clap" src={clapB} />
                             </div>
 
                             <div onClick={goToProfile} className="m-profile-post-name">{user.name}</div>
