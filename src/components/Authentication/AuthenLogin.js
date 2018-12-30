@@ -6,6 +6,7 @@ import {
 
 import { SignUpLink } from './AuthenRegister';
 import { PasswordForgetLink } from './PasswordForget';
+import { ErrorLists } from './AuthenStatus'
 
 import * as routes from '../../constants/routes';
 import isAuth from './AuthenStatus';
@@ -68,7 +69,7 @@ class SignInForm extends Component {
       console.log("Login Successful.");
     })
     .catch(err => {
-      console.log(err.response);
+      // this.setState({ error: err.response.data.msg }) watch out this kiddo
       console.log("Login Failed.");
     });
 
@@ -120,8 +121,6 @@ class SignInForm extends Component {
             <button className="mr-sm-2 m-lm-button rounded" disabled={isInvalid} type="submit">
               Sign In
             </button>
-
-            { error && <p>{error.message}</p> }
             
             <div className="m-lm-text">
               <PasswordForgetLink />
@@ -130,6 +129,9 @@ class SignInForm extends Component {
             <div className="m-lm-text">
               <SignUpLink />
             </div>
+
+            { error && <ErrorLists errors={error} /> }
+
           </form>
         </div>
       </div>

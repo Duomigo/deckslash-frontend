@@ -322,3 +322,10 @@ input[type="file"] {
   margin-right: 7px;
   margin-top: 7px;
 }
+
+.m-profile-errors {
+  text-align: center;
+  font-family: medium;
+  font-size: 16px;
+  color: #fe5257
+}

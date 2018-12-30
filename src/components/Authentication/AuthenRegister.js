@@ -3,7 +3,8 @@ import {
   Link,
   withRouter,
 } from 'react-router-dom';
-import GuestNavbar from '../Navigation/GuestNavbar.js';
+
+import { ErrorLists } from './AuthenStatus.js'
 
 import axios from 'axios';
 
@@ -74,7 +75,7 @@ class SignUpForm extends Component {
       .catch(err => {
         //this.setState(updateByPropertyName('error', error));
         console.log(err.response);
-        console.log(err.response.data)
+        this.setState({ error: err.response.data.msg})
         console.log("Failed to register.");
     });
         
@@ -166,7 +167,7 @@ class SignUpForm extends Component {
               <SignInLink />
             </div>
 
-            { error && <p>{error.message}</p> }
+            { error && <ErrorLists errors={error} /> }
           </form>
 
         </div>

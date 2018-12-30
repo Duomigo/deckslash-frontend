@@ -1,4 +1,9 @@
 import axios from 'axios';
+import React from 'react';
+
+import '../../styles/AuthenLogin.css'
+import '../../styles/Home.css'
+import '../../styles/User.css'
 
 const isAuth = () => {
     const token = localStorage.getItem('accessToken');
@@ -45,5 +50,14 @@ export const goToCard = (id) => {
     console.log(id);
     window.location.href = '/p/' + id;
 }
+
+export const ErrorLists = (props) =>
+    <div className="m-profile-errors">
+        {props.errors.map(function (error, i) { // reverse array map function with server data
+            return (
+                <p>{error}</p>
+            )
+        })}
+    </div>
 
 export default isAuth;
