@@ -18,6 +18,8 @@ import { profileStyle } from '../../styles/style.js'
 
 import { goToCard } from '../Authentication/AuthenStatus.js'
 
+import { bookB } from '../../images/m-book.svg'
+
 import axios from 'axios';
 
 class ProfileScreen extends Component {
@@ -128,7 +130,8 @@ class ProfileScreen extends Component {
                     </a>
                   </a>
 
-                  <t className="m-profile-username">@{user.username} has {cards.length} books.</t>
+                  <t className="m-profile-username">@{user.username} has {cards.length}</t>
+                  <img src={bookB} height="20px" width="20px" />
                   <t className="m-profile-desc">{user.bio}</t>                           
                 </div>
               </div>
