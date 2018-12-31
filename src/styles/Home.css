@@ -353,6 +353,8 @@ input[type="file"] {
 }
 
 .m-profile-loading-logo {
+  margin-top: -80px;
+  margin-bottom: -80px;
   animation: App-logo-spin infinite 10s linear;
   height: 40vmin;
 }

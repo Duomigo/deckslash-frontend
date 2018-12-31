@@ -8,7 +8,7 @@ class LoadingScreen extends Component {
         return(
             <div className="m-home-error-page">
                 <h1 className="m-home-error-text">Please be patient :)</h1>
-                <img src={loadingB} className="m-profile-loading-logo" width='200' height='200' />
+                <img src={loadingB} className="m-profile-loading-logo" width='100' height='100' />
                 <h1 className="m-home-error-text">Loading ...</h1>
             </div>
         )

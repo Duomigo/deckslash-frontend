@@ -6,6 +6,7 @@ import axios from 'axios';
 import '../../styles/AuthenLogin.css'
 import '../../styles/Home.css'
 import '../../styles/User.css'
+
 import thumbnailupload from '../../images/thumbnailupload.svg'
 import publish from '../../images/publish.svg'
 import * as routes from '../../constants/routes';
@@ -204,6 +205,9 @@ class CardUpload extends Component {
                 Submit Post
               </button>
             </a>
+            <div className="App">
+              {notification && <NotificationLists noti={notification} />}
+            </div>
           </div>
 
           <div className="row m-row-center">
@@ -236,8 +240,6 @@ class CardUpload extends Component {
             </div>
 
           </div>
-
-          {notification && <NotificationLists noti={notification} />}
 
         </div>
     );

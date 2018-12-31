@@ -6,3 +6,4 @@ export const RESET_PASSWORD = '/reset-password'
 export const HOME = '/home';
 export const NEW = '/new'
 export const SEARCH = '/search'
+export const PROFILE = '/profile'
