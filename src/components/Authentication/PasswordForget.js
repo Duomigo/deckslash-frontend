@@ -4,13 +4,14 @@ import axios from 'axios';
 import * as routes from '../../constants/routes'
 import { Link, withRouter } from 'react-router-dom'
 
+import { NotificationLists } from './AuthenStatus'
+
 const updateByPropertyName = (propertyName, value) => () => ({
     [propertyName]: value,
   });
   
 const INITIAL_STATE = {
     email: '',
-    error: '',
     notification: ''
 };
 
@@ -35,10 +36,12 @@ class PasswordForget extends Component {
     
         axios.post('http://127.0.0.1:5000/reset_password', emailAdd)
         .then(res => {
-          this.setState({ notification: res.data.message})
+          console.log(res.data)
+          this.setState({ notification: res.data.msg})
         })
         .catch(err => {
-          this.setState({ error: err.response.data.email[0]})
+          console.log(err.response)
+          this.setState({ notification: err.response.data.msg })
         });
     
         event.preventDefault();
@@ -71,8 +74,7 @@ class PasswordForget extends Component {
                   Reset Password
                 </button>
     
-                { error && <p>{error}</p> }
-                {notification && <p>{notification}</p>}
+                { notification && <NotificationLists noti={notification} />}
     
               </form>
             </div>

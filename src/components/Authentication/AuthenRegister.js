@@ -4,7 +4,7 @@ import {
   withRouter,
 } from 'react-router-dom';
 
-import { ErrorLists } from './AuthenStatus.js'
+import { NotificationLists } from './AuthenStatus.js'
 
 import axios from 'axios';
 
@@ -29,7 +29,7 @@ const INITIAL_STATE = {
   username: '',
   passwordOne: '',
   passwordTwo: '',
-  error: null,
+  notification: null,
 };
 
 class SignUpForm extends Component {
@@ -75,7 +75,7 @@ class SignUpForm extends Component {
       .catch(err => {
         //this.setState(updateByPropertyName('error', error));
         console.log(err.response);
-        this.setState({ error: err.response.data.msg})
+        this.setState({ notification: err.response.data.msg})
         console.log("Failed to register.");
     });
         
@@ -108,7 +108,7 @@ class SignUpForm extends Component {
       name,
       passwordOne,
       passwordTwo,
-      error,
+      notification,
     } = this.state;
 
     const isInvalid =
@@ -167,7 +167,7 @@ class SignUpForm extends Component {
               <SignInLink />
             </div>
 
-            { error && <ErrorLists errors={error} /> }
+            { notification && <NotificationLists noti={notification} /> }
           </form>
 
         </div>

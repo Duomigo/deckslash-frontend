@@ -4,6 +4,8 @@ import axios from 'axios';
 import * as routes from '../../constants/routes'
 import { Link, withRouter } from 'react-router-dom'
 
+import { NotificationLists } from './AuthenStatus'
+
 const updateByPropertyName = (propertyName, value) => () => ({
     [propertyName]: value,
   });
@@ -11,8 +13,7 @@ const updateByPropertyName = (propertyName, value) => () => ({
 const INITIAL_STATE = {
     password: '',
     confirm_password: '',
-    error: '',
-    notification: ''
+    notification: null
 };
 
 class ResetPassword extends Component {
@@ -44,7 +45,9 @@ class ResetPassword extends Component {
           history.push(routes.SIGN_IN)
         })
         .catch(err => {
-          console.log(err)
+          console.log(err.response)
+          console.log(err.response.data.msg)
+          this.setState({ notification: err.response.data.msg })
         });
     
         event.preventDefault();
@@ -54,7 +57,6 @@ class ResetPassword extends Component {
         const {
             password,
             confirm_password,
-            error,
             notification
           } = this.state;
       
@@ -88,8 +90,7 @@ class ResetPassword extends Component {
                   Reset Password
                 </button>
     
-                { error && <p>{error}</p> }
-                {notification && <p>{notification}</p>}
+                { notification && <NotificationLists noti={notification} /> }
     
               </form>
             </div>

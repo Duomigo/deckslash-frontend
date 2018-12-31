@@ -25,7 +25,8 @@ class CardUpload extends Component {
       y: 0,
     },
     title: '',
-    description: ''
+    description: '',
+    theBlob: null
   };
 
   onSelectFile = e => {
@@ -74,7 +75,10 @@ class CardUpload extends Component {
       const cardFile = new FormData()
       cardFile.set('title', this.state.title);
       cardFile.set('description', this.state.description);
-      cardFile.append('picture', this.state.theBlob, this.state.theBlob.name)
+
+      if (this.state.theBlob != null) {
+        cardFile.append('picture', this.state.theBlob, this.state.theBlob.name)
+      }
 
       const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 

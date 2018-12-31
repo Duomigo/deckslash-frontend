@@ -6,7 +6,7 @@ import {
 
 import { SignUpLink } from './AuthenRegister';
 import { PasswordForgetLink } from './PasswordForget';
-import { ErrorLists } from './AuthenStatus'
+import { NotificationLists } from './AuthenStatus'
 
 import * as routes from '../../constants/routes';
 import isAuth from './AuthenStatus';
@@ -29,7 +29,7 @@ const updateByPropertyName = (propertyName, value) => () => ({
 const INITIAL_STATE = {
   username: '',
   password: '',
-  error: null,
+  notification: null,
 };
 
 class SignInForm extends Component {
@@ -70,6 +70,7 @@ class SignInForm extends Component {
     })
     .catch(err => {
       // this.setState({ error: err.response.data.msg }) watch out this kiddo
+      console.log(err.response)
       console.log("Login Failed.");
     });
 
@@ -91,7 +92,7 @@ class SignInForm extends Component {
     const {
       username,
       password,
-      error,
+      notification,
     } = this.state;
 
     const isInvalid =
@@ -130,7 +131,7 @@ class SignInForm extends Component {
               <SignUpLink />
             </div>
 
-            { error && <ErrorLists errors={error} /> }
+            { notification && <NotificationLists noti={notification} /> }
 
           </form>
         </div>

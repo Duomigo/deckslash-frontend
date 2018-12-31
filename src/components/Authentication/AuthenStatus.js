@@ -51,13 +51,20 @@ export const goToCard = (id) => {
     window.location.href = '/p/' + id;
 }
 
-export const ErrorLists = (props) =>
-    <div className="m-profile-errors">
-        {props.errors.map(function (error, i) { // reverse array map function with server data
+export const NotificationLists = (props) =>
+
+    (typeof(props.noti) == 'string') ? (
+        <div className="App">
+            <p>{props.noti}</p>
+        </div>
+    ) : (
+        <div className="m-profile-errors">
+        {props.noti.map(function (error, i) {
             return (
                 <p>{error}</p>
             )
         })}
     </div>
+    )
 
 export default isAuth;
