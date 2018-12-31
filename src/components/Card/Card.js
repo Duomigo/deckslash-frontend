@@ -5,6 +5,7 @@ import '../../styles/User.css';
 import axios from 'axios';
 
 import CardScreen from './CardScreen.js';
+import ErrorPage from '../Home/ErrorPage.js'
 
 
 class User extends Component {
@@ -48,21 +49,16 @@ class User extends Component {
         (this.state.post) ? (
           <CardScreen post={this.state.post}/>
         ) : (
-          <ErrorScreen />
+          <ErrorPage />
         )
       )
     );
   }
 }
 
-const ErrorScreen = () =>
-  <div className="App">
-    <p1>Error, card does not exist</p1>
-  </div>
-
 const LoadingScreen = () =>
-  <div className="App">
-    <p1>Loading...</p1>
+  <div className="m-home-error-page">
+    <p1 className="m-home-error-text">Loading...</p1>
   </div>
 
 export default User;

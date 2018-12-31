@@ -94,11 +94,14 @@ class CardUpload extends Component {
       .then(res => {
         console.log("Successful changed profile picture.")
         console.log(res)
-        window.location.reload()
+        window.location.href = '/'
       })
       .catch(err => {
         console.log("Failed changing profile picture.")
         this.setState({ notification: err.response.data.msg})
+        if (this.state.notification == null) {
+          this.setState({ notification: err.response.data[0].msg })
+        }
         console.log(err.response)
       });
 

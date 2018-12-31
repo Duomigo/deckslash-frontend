@@ -333,4 +333,11 @@ input[type="file"] {
 .m-home-error-page {
   text-align: center;
   vertical-align: middle;
+  margin-top: 50px;
+}
+
+.m-home-error-text {
+  font-family: medium;
+  font-size: 30px;
+  margin-bottom: -10px;
 }

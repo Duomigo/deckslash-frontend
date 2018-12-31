@@ -6,6 +6,7 @@ import axios from 'axios';
 
 import UserScreen from './UserScreen.js';
 import ProfileScreen from './ProfileScreen.js'
+import ErrorPage from '../Home/ErrorPage.js'
 
 class User extends Component {
   constructor(props) {
@@ -66,21 +67,16 @@ class User extends Component {
             <UserScreen userData={this.state.user} />
           )
         ) : (
-          <ErrorScreen />
+          <ErrorPage />
         )
       )
     );
   }
 }
 
-const ErrorScreen = () =>
-  <div className="App">
-    <p1>Error, user does not exist</p1>
-  </div>
-
 const LoadingScreen = () =>
-  <div className="App">
-    <p1>Loading...</p1>
+  <div className="m-home-error-page">
+    <p1 className="m-home-error-text">Loading...</p1>
   </div>
 
 export default User;
