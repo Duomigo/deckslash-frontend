@@ -6,6 +6,7 @@ import axios from 'axios';
 
 import CardScreen from './CardScreen.js';
 import ErrorPage from '../Home/ErrorPage.js'
+import LoadingScreen from '../Home/LoadingScreen.js'
 
 
 class User extends Component {
@@ -55,10 +56,5 @@ class User extends Component {
     );
   }
 }
-
-const LoadingScreen = () =>
-  <div className="m-home-error-page">
-    <p1 className="m-home-error-text">Loading...</p1>
-  </div>
 
 export default User;

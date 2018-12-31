@@ -341,3 +341,17 @@ input[type="file"] {
   font-size: 30px;
   margin-bottom: -10px;
 }
+
+.m-profile-loading-logo {
+  animation: App-logo-spin infinite 10s linear;
+  height: 40vmin;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

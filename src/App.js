@@ -23,6 +23,7 @@ import { refreshUser } from './components/Authentication/AuthenStatus.js'
 import axios from 'axios';
 import Switch from 'react-router-dom/Switch';
 import ResetPassword from './components/Authentication/ResetPassword';
+import LoadingScreen from './components/Home/LoadingScreen';
 
 class App extends Component {
   constructor(props) {
@@ -71,6 +72,8 @@ class App extends Component {
             <Route path="/search" component={Search} />
             <Route path="/pw-forget" component={PasswordForget} />
             <Route path={"/reset_password/:token"} component={ResetPassword} />
+
+            <Route path="/loading" component={LoadingScreen} />
 
             <Route component={ErrorPage} />
           </Switch>
