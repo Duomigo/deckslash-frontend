@@ -105,6 +105,10 @@ class SignInForm extends Component {
         <div className="m-lm-content rounded">
           <h3 className="m-lm-header-text">Welcome back!</h3>
           <h4 className="m-lm-sub-text">Log In.</h4>
+
+          { notification && <NotificationLists noti={notification} /> }
+
+          
           <form onSubmit={this.onSubmit}>
             <input
               className="mr-sm-2 m-lm-input rounded"
@@ -131,8 +135,6 @@ class SignInForm extends Component {
             <div className="m-lm-text">
               <SignUpLink />
             </div>
-
-            { notification && <NotificationLists noti={notification} /> }
 
           </form>
         </div>

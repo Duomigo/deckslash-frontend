@@ -323,11 +323,21 @@ input[type="file"] {
   margin-top: 7px;
 }
 
-.m-profile-errors {
-  text-align: center;
+.m-profile-error {
+  float: left;
   font-family: medium;
-  font-size: 16px;
-  color: #fe5257
+  font-size: 18px;
+  margin-bottom: -5px;
+  color: #3f3f4a;
+  padding-left: 15px;
+}
+
+.m-profile-error-box {
+  margin-left: 0px;
+  background-color: #f8f7fa;
+  width: 320px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .m-home-error-page {
@@ -339,7 +349,7 @@ input[type="file"] {
 .m-home-error-text {
   font-family: medium;
   font-size: 30px;
-  margin-bottom: -10px;
+  margin-bottom: -5px;
 }
 
 .m-profile-loading-logo {

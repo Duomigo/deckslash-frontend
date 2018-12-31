@@ -19,6 +19,7 @@ import { profileStyle } from '../../styles/style.js'
 import { goToCard } from '../Authentication/AuthenStatus.js'
 
 import bookB from '../../images/m-book.svg'
+import cameraB from '../../images/m-camera.svg'
 
 import axios from 'axios';
 
@@ -105,7 +106,7 @@ class ProfileScreen extends Component {
             <div className="col-12">
               <div className="row m-profile-info col-lg-6 col-md-10 col-sm-* col-xs-*">
                 <a onClick={this.openImageModal} className="m-profile-left">
-                  <img className="rounded-circle m-profile-avatar" src={baseUrl + "/static/ProfileImage/" + user.profile_image} alt="" />     
+                  <img className="rounded-circle m-profile-avatar" src={baseUrl + "/static/ProfileImage/" + user.profile_image} alt="" />                       
                 </a>
                   <Modal
                     isOpen={this.state.imageModalIsOpen}

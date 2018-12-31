@@ -69,6 +69,9 @@ class ResetPassword extends Component {
             <div className="m-lm-content rounded">
               <h3 className="m-lm-header-text">Reset your password.</h3>
               <h4 className="m-lm-sub-text">Enter your new password.</h4>
+
+              { notification && <NotificationLists noti={notification} /> }
+              
               <form onSubmit={this.onSubmit}>
                 <input
                   className="mr-sm-2 m-lm-input rounded"
@@ -89,8 +92,6 @@ class ResetPassword extends Component {
                 <button className="mr-sm-2 m-lm-button rounded" disabled={isInvalid} type="submit">
                   Reset Password
                 </button>
-    
-                { notification && <NotificationLists noti={notification} /> }
     
               </form>
             </div>

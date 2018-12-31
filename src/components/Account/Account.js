@@ -16,6 +16,8 @@ import '../../styles/AuthenLogin.css'
 import '../../styles/Home.css'
 import '../../styles/User.css'
 
+import { NotificationLists } from '../Authentication/AuthenStatus.js'
+
 const updateByPropertyName = (propertyName, value) => () => ({
   [propertyName]: value,
 });
@@ -29,7 +31,7 @@ class Account extends Component {
       name: props.profileData.name,
       email: props.profileData.email,
       bio: props.profileData.bio,
-      error: null,
+      notification: null,
     };
   }
 
@@ -62,12 +64,10 @@ class Account extends Component {
 
     axios.post('http://127.0.0.1:5000/profile', updateData, { headers: header })
     .then(res => {
-      console.log("Successful.");
-      window.location.reload()
+      window.location.href = '/u/' + username;
     })
-    .catch(function (error) {
-      console.log(error);
-      console.log("Failed.");
+    .catch(err => {
+      this.setState({ notification: err.response.data.msg })
     });
 
     event.preventDefault();
@@ -81,7 +81,7 @@ class Account extends Component {
       email,
       bio,
       profile_image,
-      error,
+      notification,
     } = this.state;
 
     const isInvalid =
@@ -94,6 +94,9 @@ class Account extends Component {
         <div className="m-lm-content rounded">
           <h3 className="m-lm-header-text">Update your profile</h3>
           <h4 className="m-lm-sub-text">Refresh yourself!</h4>
+
+          { notification && <NotificationLists noti={notification} /> }
+
           <form onSubmit={this.onSubmit}>
             <input
               className="mr-sm-2 m-lm-input rounded"
@@ -127,7 +130,6 @@ class Account extends Component {
               Update Profile
             </button>
 
-            { error && <p>{error.message}</p> }
           </form>
         </div>
       </div>

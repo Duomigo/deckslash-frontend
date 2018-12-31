@@ -123,6 +123,7 @@ class SignUpForm extends Component {
         <div className="m-lm-content rounded">
           <h3 className="m-lm-header-text">Welcome to Deckpath!</h3>
           <h4 className="m-lm-sub-text">Create an account.</h4>
+          { notification && <NotificationLists noti={notification} /> }
           <form onSubmit={this.onSubmit}>
             <input
               className="mr-sm-2 m-lm-input rounded"
@@ -159,7 +160,7 @@ class SignUpForm extends Component {
               type="password"
               placeholder="Confirm Password"
             />
-            <button className="mr-sm-2 m-lm-button rounded" type="submit">
+            <button className="mr-sm-2 m-lm-button rounded" disabled={isInvalid} type="submit">
               Sign Up
             </button>
 
@@ -167,7 +168,6 @@ class SignUpForm extends Component {
               <SignInLink />
             </div>
 
-            { notification && <NotificationLists noti={notification} /> }
           </form>
 
         </div>

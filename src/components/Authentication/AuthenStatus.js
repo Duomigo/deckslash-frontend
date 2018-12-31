@@ -5,6 +5,8 @@ import '../../styles/AuthenLogin.css'
 import '../../styles/Home.css'
 import '../../styles/User.css'
 
+import warningB from '../../images/m-warning.svg'
+
 const isAuth = () => {
     const token = localStorage.getItem('accessToken');
     if (token == null) {
@@ -58,13 +60,20 @@ export const NotificationLists = (props) =>
             <p>{props.noti}</p>
         </div>
     ) : (
-        <div className="m-profile-errors">
-        {props.noti.map(function (error, i) {
-            return (
-                <p>{error}</p>
-            )
-        })}
-    </div>
+        <div className="m-profile-error-box rounded row">
+            <div>
+                <img src={warningB} height='35' width='35' />
+            </div>
+            <div>
+                {props.noti.map(function (error, i) {
+                    return (
+                        <div>
+                            <p className="m-profile-error">{error}</p>
+                        </div>
+                    )
+                })}
+            </div>
+        </div>
     )
 
 export default isAuth;
