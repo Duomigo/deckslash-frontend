@@ -9,6 +9,7 @@ import '../../styles/User.css'
 import thumbnailupload from '../../images/thumbnailupload.svg'
 import publish from '../../images/publish.svg'
 import * as routes from '../../constants/routes';
+import { NotificationLists } from '../Authentication/AuthenStatus';
 
 const updateByPropertyName = (propertyName, value) => () => ({
   [propertyName]: value,
@@ -26,7 +27,8 @@ class CardUpload extends Component {
     },
     title: '',
     description: '',
-    theBlob: null
+    theBlob: null,
+    notification: null
   };
 
   onSelectFile = e => {
@@ -94,9 +96,10 @@ class CardUpload extends Component {
         console.log(res)
         window.location.reload()
       })
-      .catch(function (error) {
+      .catch(err => {
         console.log("Failed changing profile picture.")
-        console.log(error.response);
+        this.setState({ notification: err.response.data.msg})
+        console.log(err.response)
       });
 
       event.preventDefault();
@@ -145,7 +148,7 @@ class CardUpload extends Component {
   }
 
   render() {
-    const { crop, croppedImageUrl, src } = this.state;
+    const { crop, croppedImageUrl, src, notification } = this.state;
 
     const {
       title,
@@ -230,6 +233,9 @@ class CardUpload extends Component {
             </div>
 
           </div>
+
+          {notification && <NotificationLists noti={notification} />}
+
         </div>
     );
   }

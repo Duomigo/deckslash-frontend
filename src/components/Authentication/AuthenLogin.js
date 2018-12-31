@@ -72,6 +72,7 @@ class SignInForm extends Component {
       // this.setState({ error: err.response.data.msg }) watch out this kiddo
       console.log(err.response)
       console.log("Login Failed.");
+      this.setState({ notification: err.response.data.msg })
     });
 
     isAuth();

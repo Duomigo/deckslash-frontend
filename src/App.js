@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/Home.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home/Home.js"
+import ErrorPage from './components/Home/ErrorPage.js'
+
 import AuthenLogin from './components/Authentication/AuthenLogin.js';
 import AuthenRegister from './components/Authentication/AuthenRegister.js';
 import PasswordForget from './components/Authentication/PasswordForget.js';
@@ -58,17 +60,20 @@ class App extends Component {
         <div>
           <Navigation />
 
-          <Route exact path="/" component={Home} />
-          <Route path="/signin" component={AuthenLogin} />
-          <Route path="/signup" component={AuthenRegister} />
-          <Route path={"/u/:username"} component={User} />
-          <Route path={"/p/:postId"} component={Card} />
-          <Route path="/upload" component={ImageUpload} />
-          <Route path="/new" component={CardUpload} />
-          <Route path="/search" component={Search} />
-          <Route path="/pw-forget" component={PasswordForget} />
-          <Route path={"/reset_password/:token"} component={ResetPassword} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/signin" component={AuthenLogin} />
+            <Route path="/signup" component={AuthenRegister} />
+            <Route path={"/u/:username"} component={User} />
+            <Route path={"/p/:postId"} component={Card} />
+            <Route path="/upload" component={ImageUpload} />
+            <Route path="/new" component={CardUpload} />
+            <Route path="/search" component={Search} />
+            <Route path="/pw-forget" component={PasswordForget} />
+            <Route path={"/reset_password/:token"} component={ResetPassword} />
 
+            <Route component={ErrorPage} />
+          </Switch>
         </div>
       </Router>
     );
