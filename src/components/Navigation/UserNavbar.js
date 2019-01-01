@@ -42,7 +42,7 @@ class UserNavbar extends Component {
   }
 
   render() {
-    
+
     const profilePath = "/u/" + this.state.currentUser;
 
     return (
@@ -62,9 +62,9 @@ class UserNavbar extends Component {
             {/* <Link className="navbar-button" to={routes.NEW}>
               <img src={newB} width="25" height="25" alt="New"/>
             </Link> */}
-            <a className="navbar-button" href={profilePath}>
+            <Link className="navbar-button" to={routes.PROFILE}>
               <img src={profileB} width="25" height="25" alt="Profile"/>
-            </a>
+            </Link>
             <SignOutButton />          
           </div>
         </div>
