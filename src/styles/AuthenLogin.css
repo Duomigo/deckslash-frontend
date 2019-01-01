@@ -241,11 +241,11 @@
   padding: 5px 15px;
   margin-bottom: 10px;
   margin-top: 15px;
-  border-bottom: 1mm solid #ff9a9e
+  border-bottom: 1mm solid #f8f7fa
 }
 
 .m-lm-ghost-search:focus {
-  border-bottom: 1mm solid #fe5257;
+  border-bottom: 1mm solid #eceff1;
 }
 
 .m-lm-title-create-card {

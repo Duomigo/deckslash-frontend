@@ -95,7 +95,7 @@ class CardUpload extends Component {
       .then(res => {
         console.log("Successful changed profile picture.")
         console.log(res)
-        window.location.href = '/'
+        window.location.href = '/profile'
       })
       .catch(err => {
         console.log("Failed changing profile picture.")

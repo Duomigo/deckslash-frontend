@@ -287,10 +287,17 @@ input[type="file"] {
 }
 
 .m-profile-post-clap {
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   float: right; 
   display: inline;
+}
+
+.m-profile-post-clap:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
 .m-profile-post-name {
