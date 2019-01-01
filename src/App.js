@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/Home.css';
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, StaticRouter } from "react-router-dom";
 import Home from "./components/Home/Home.js"
 import ErrorPage from './components/Home/ErrorPage.js'
 
@@ -74,14 +74,25 @@ class App extends Component {
           <Switch>
 
             <Route exact path="/" component={Home} />
-            <Route path="/signin" component={AuthenLogin} />
-            <Route path="/signup" component={AuthenRegister} />
             <Route path={"/u/:username"} component={User} />
             <Route path={"/p/:postId"} component={Card} />
-            <Route path="/new" component={CardUpload} />
             <Route path="/search" component={Search} />
-            <Route path="/pw-forget" component={PasswordForget} />
-            <Route path={"/reset_password/:token"} component={ResetPassword} />
+
+            <HomeRoute path="/signin" component={AuthenLogin} />
+            <HomeRoute path="/signup" component={AuthenRegister} />
+            <HomeRoute path="/pw-forget" component={PasswordForget} />
+            <HomeRoute path={"/reset_password/:token"} component={ResetPassword} />
+
+            <ProtectedRoute path="/new" component={CardUpload} />
+
+            {/* <Route
+                path="/new"
+                render={() => (
+                isAuth() ?
+                    <CardUpload /> :
+                    <Redirect to="/signin" />
+                )} 
+            /> */}
 
             {(currentUser || userLoading) &&
               <Route
@@ -96,6 +107,40 @@ class App extends Component {
         </div>
       </Router>
     );
+  }
+}
+
+class ProtectedRoute extends Component {
+  render() {
+    const { component: Component, ...props } = this.props
+
+    return (
+      <Route 
+        {...props} 
+        render={props => (
+          isAuth() ?
+            <Component {...props} /> :
+            <Redirect to='/signin' />
+        )} 
+      />
+    )
+  }
+}
+
+class HomeRoute extends Component {
+  render() {
+    const { component: Component, ...props } = this.props
+
+    return (
+      <Route 
+        {...props} 
+        render={props => (
+          isAuth() ?
+            <Redirect to='/' /> :
+            <Component {...props} />
+        )} 
+      />
+    )
   }
 }
 

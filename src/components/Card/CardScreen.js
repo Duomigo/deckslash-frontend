@@ -6,6 +6,8 @@ import '../../styles/User.css'
 
 import axios from 'axios';
 
+import SignInButton from '../Authentication/SignIn.js'
+
 import likeB from '../../images/m-like.svg'
 import clapB from '../../images/m-clap.png'
 
@@ -47,7 +49,8 @@ class CardScreen extends Component {
             this.setState({ claps: this.state.claps + 1 })
         })
         .catch(err => {
-            console.log(err.response)
+            console.log("hoho")
+            return <SignInButton />
         })
 
         event.preventDefault();

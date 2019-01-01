@@ -15,13 +15,13 @@ import Modal from 'react-modal';
 import { signoutStyle } from '../../styles/style.js'
 import outB from '../../images/m-out.svg'
 
-export function doSignOut() {
+export function doSignIn() {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("refreshToken");
-  window.location.href = '/signin'
+  window.location.href = "/signin"
 }
 
-class SignOutButton extends Component {
+class SignInButton extends Component {
   constructor() {
     super()
 
@@ -58,15 +58,15 @@ class SignOutButton extends Component {
           contentLabel="Avatar"
           style={signoutStyle}
         >
-          <p className="m-profile-modal-title">Sign out?</p>
-          <p className="m-profile-modal-desc">If so, we wish you a wonderful day with your friends and family.</p>
+          <p className="m-profile-modal-title">Clap post?</p>
+          <p className="m-profile-modal-desc">You must log in to clap your favorite post.</p>
 
           <button
             className="mr-sm-2 m-lm-modal-proceed-button rounded float-right"
             type="button"
-            onClick={doSignOut}
+            onClick={doSignIn}
           >
-            <a className="m-lm-signout-link">Sign Out</a>
+            <a className="m-lm-signout-link">Sign In</a>
           </button>
 
           <button 
@@ -74,7 +74,7 @@ class SignOutButton extends Component {
             type="button"
             onClick={this.handleCloseModal}
           >
-            Return
+            Cancel
           </button>
 
         </Modal>
@@ -84,4 +84,4 @@ class SignOutButton extends Component {
   
 }
 
-export default SignOutButton;
+export default SignInButton;
