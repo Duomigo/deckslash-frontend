@@ -9,6 +9,7 @@ import AuthenLogin from './components/Authentication/AuthenLogin.js';
 import AuthenRegister from './components/Authentication/AuthenRegister.js';
 import PasswordForget from './components/Authentication/PasswordForget.js';
 
+import isAuth from './components/Authentication/AuthenStatus.js'
 
 import Navigation from './components/Navigation/Navigation';
 import User from './components/User/User.js';
@@ -25,12 +26,15 @@ import Switch from 'react-router-dom/Switch';
 import ResetPassword from './components/Authentication/ResetPassword';
 import LoadingScreen from './components/Home/LoadingScreen';
 
+import Profile from './components/User/Profile'
+
 class App extends Component {
   constructor(props) {
     super(props);
       this.state = {
         users: null,
-        currentUser:  null,
+        currentUser: undefined,
+        userLoading: false
       }
   }
 
@@ -46,9 +50,12 @@ class App extends Component {
     const usersData = await axios.get('http://127.0.0.1:5000/testuser');
     await this.setState({ users: usersData.data })
 
-    const profileData = await axios.get('http://127.0.0.1:5000/profile', { headers: header});
-    await this.setState({ currentUser: profileData.data });
-
+    try {
+      const profileData = await axios.get('http://127.0.0.1:5000/profile', { headers: header});
+      await this.setState({ currentUser: profileData.data.user.username });
+    } catch (error) {
+      this.setState({ userLoading: true })
+    }
 
     this.interval = setInterval(() => {
       refreshUser();
@@ -56,24 +63,35 @@ class App extends Component {
   }
 
   render() {
+
+    const { currentUser, userLoading } = this.state
+
     return (
       <Router>
         <div>
           <Navigation />
 
           <Switch>
+
             <Route exact path="/" component={Home} />
             <Route path="/signin" component={AuthenLogin} />
             <Route path="/signup" component={AuthenRegister} />
             <Route path={"/u/:username"} component={User} />
             <Route path={"/p/:postId"} component={Card} />
-            <Route path="/upload" component={ImageUpload} />
             <Route path="/new" component={CardUpload} />
             <Route path="/search" component={Search} />
             <Route path="/pw-forget" component={PasswordForget} />
             <Route path={"/reset_password/:token"} component={ResetPassword} />
 
+            {(currentUser || userLoading) &&
+              <Route
+                path='/profile'
+                render={(props) => <Profile {...props} currentUser={currentUser} userLoading={userLoading}/>}
+              />
+            }
+
             <Route component={ErrorPage} />
+
           </Switch>
         </div>
       </Router>

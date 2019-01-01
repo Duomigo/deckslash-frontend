@@ -42,8 +42,9 @@ class UserNavbar extends Component {
   }
 
   render() {
+    
     const profilePath = "/u/" + this.state.currentUser;
-    console.log(profilePath)
+
     return (
       <nav className="navbar navbar-expand-lg navbar-style">
         <a className="navbar-brand" href="/">
