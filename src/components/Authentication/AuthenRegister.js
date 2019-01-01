@@ -113,7 +113,7 @@ class SignUpForm extends Component {
 
     const isInvalid =
       email === '' ||
-      passwordOne !== passwordTwo ||
+      passwordTwo === '' ||
       passwordOne === '' ||
       username === '' ||
       name === '';

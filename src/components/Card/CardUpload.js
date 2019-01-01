@@ -205,9 +205,10 @@ class CardUpload extends Component {
                 Submit Post
               </button>
             </a>
-            <div className="App">
-              {notification && <NotificationLists noti={notification} />}
-            </div>
+          </div>
+
+          <div className="" style={{marginTop: '-20px', marginBottom: '20px', marginLeft: '20px'}}>
+            {notification && <NotificationLists noti={notification} />}
           </div>
 
           <div className="row m-row-center">

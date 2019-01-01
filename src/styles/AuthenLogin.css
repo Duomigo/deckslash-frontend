@@ -95,6 +95,11 @@
   cursor: pointer;
 }
 
+.m-lm-button:disabled {
+  background-color: #ff656a;
+  cursor: default;
+}
+
 .m-lm-create-card-button {
   background-color: #fe5257;
   color: #eceff1;
