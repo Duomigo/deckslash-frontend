@@ -76,6 +76,7 @@ class App extends Component {
             <Route path="/loading" component={LoadingScreen} />
 
             <Route component={ErrorPage} />
+            <Redirect from="/loading" to="/" />
           </Switch>
         </div>
       </Router>
