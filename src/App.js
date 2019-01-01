@@ -73,10 +73,7 @@ class App extends Component {
             <Route path="/pw-forget" component={PasswordForget} />
             <Route path={"/reset_password/:token"} component={ResetPassword} />
 
-            <Route path="/loading" component={LoadingScreen} />
-
             <Route component={ErrorPage} />
-            <Redirect from="/loading" to="/" />
           </Switch>
         </div>
       </Router>
