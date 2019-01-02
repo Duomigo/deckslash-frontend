@@ -31,7 +31,6 @@ class Home extends Component {
 
   getCurrentUser(id) {
     const ans = this.state.users[id-1].name
-    console.log(ans)
     return ans;
   }
   
@@ -45,7 +44,7 @@ class Home extends Component {
         <div className="row text-align-center justify-content-center">
           <div className="row col-12 justify-content-center">
             <div className="col-lg-6 col-md-8 col-sm-10 col-xs-*">
-              <h1 className="m-home-latest">Latest reviews</h1>
+              <h1 className="m-home-latest">Fresh mojitos</h1>
             </div>
           </div>
 

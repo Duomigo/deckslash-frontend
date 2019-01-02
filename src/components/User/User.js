@@ -36,7 +36,7 @@ class User extends Component {
       this.setState({ user: response.data });
       this.setState({ loading: false })
     } catch (error) {
-      console.log(error.response);
+
       this.setState({ loading: false })
     }
 
@@ -49,7 +49,7 @@ class User extends Component {
       }
 
     } catch (error) {
-      console.log(error.response);
+
     }
   }
 

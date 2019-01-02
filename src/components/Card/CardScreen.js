@@ -43,7 +43,6 @@ class CardScreen extends Component {
 
         axios.post(route, data, { headers: header })
         .then(res => {
-            console.log(res.data)
             this.setState({ claps: this.state.claps + 1 })
         })
         .catch(err => {

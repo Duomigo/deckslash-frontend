@@ -51,14 +51,6 @@ class SignUpForm extends Component {
       history,
     } = this.props;
 
-    console.log({
-      email: this.state.email,
-      name: this.state.name,
-      username: this.state.username,
-      password: this.state.passwordOne,
-      confirm_password: this.state.passwordTwo
-    })
-
     axios.post('http://127.0.0.1:5000/register', {
         email: this.state.email,
         name: this.state.name,
@@ -68,15 +60,10 @@ class SignUpForm extends Component {
       })
       .then(res => {
         history.push(routes.SIGN_IN);
-
-        console.log(res);
-        console.log("Successful registered new user.")
       })
       .catch(err => {
         //this.setState(updateByPropertyName('error', error));
-        console.log(err.response);
         this.setState({ notification: err.response.data.msg})
-        console.log("Failed to register.");
     });
         
     event.preventDefault();

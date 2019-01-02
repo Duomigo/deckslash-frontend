@@ -64,19 +64,13 @@ class SignInForm extends Component {
       if (refreshToken) {
         localStorage.setItem('refreshToken', refreshToken);
       }
-      history.push(routes.LANDING);
-
-      console.log("Login Successful.");
+      window.location.href = '/'
     })
     .catch(err => {
-      // this.setState({ error: err.response.data.msg }) watch out this kiddo
-      console.log(err.response)
-      console.log("Login Failed.");
       this.setState({ notification: err.response.data.msg })
     });
 
     isAuth();
-    console.log("Finished.")
 
     // auth.doSignInWithEmailAndPassword(email, password)
     //   .then(() => {

@@ -36,11 +36,9 @@ class PasswordForget extends Component {
     
         axios.post('http://127.0.0.1:5000/reset_password', emailAdd)
         .then(res => {
-          console.log(res.data)
           this.setState({ notification: res.data.msg})
         })
         .catch(err => {
-          console.log(err.response)
           this.setState({ notification: err.response.data.msg })
         });
     

@@ -10,10 +10,8 @@ import warningB from '../../images/m-warning.svg'
 const isAuth = () => {
     const token = localStorage.getItem('accessToken');
     if (token == null) {
-        console.log("There is no token in localStorage")
         return false;
     } else {
-        console.log("Token in localStorage is " + token);
         return true;
     }
 }
@@ -38,18 +36,14 @@ export function refreshUser() {
             localStorage.setItem('accessToken', newAccessToken);
         }
       
-        console.log("Update Access Token Successful.");
-        console.log(newAccessToken)
         })
         .catch(function (error) {
-            console.log(error);
-            console.log("Update Access Token Unsuccessful.");
+            
         });     
     }
 }
 
 export const goToCard = (id) => {
-    console.log(id);
     window.location.href = '/p/' + id;
 }
 

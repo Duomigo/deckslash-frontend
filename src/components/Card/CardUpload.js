@@ -93,17 +93,13 @@ class CardUpload extends Component {
   
       axios.post('http://127.0.0.1:5000/post', cardFile, { headers: header })
       .then(res => {
-        console.log("Successful changed profile picture.")
-        console.log(res)
         window.location.href = '/profile'
       })
       .catch(err => {
-        console.log("Failed changing profile picture.")
         this.setState({ notification: err.response.data.msg})
         if (this.state.notification == null) {
           this.setState({ notification: err.response.data[0].msg })
         }
-        console.log(err.response)
       });
 
       event.preventDefault();
@@ -122,8 +118,15 @@ class CardUpload extends Component {
 
   getCroppedImg(image, pixelCrop, fileName) {
     const canvas = document.createElement('canvas');
-    canvas.width = pixelCrop.width;
-    canvas.height = pixelCrop.height;
+    
+    if (pixelCrop.width < 480) {
+      canvas.width = pixelCrop.width;
+      canvas.height = pixelCrop.height;
+    } else {
+      canvas.width = 480;
+      canvas.height = 672;
+    }
+
     const ctx = canvas.getContext('2d');
 
     ctx.drawImage(
@@ -134,8 +137,8 @@ class CardUpload extends Component {
       pixelCrop.height,
       0,
       0,
-      pixelCrop.width,
-      pixelCrop.height,
+      240,
+      336,
     );
 
     return new Promise((resolve, reject) => {

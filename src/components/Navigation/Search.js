@@ -28,7 +28,7 @@ class Search extends Component {
             this.setState({ query: res.data })
         })
         .catch(err => {
-            console.log(err)
+
         })
 
     }

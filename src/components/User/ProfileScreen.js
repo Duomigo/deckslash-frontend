@@ -63,7 +63,7 @@ class ProfileScreen extends Component {
     }
 
     removeCard(id) {
-      console.log("Removing card with ID: " + id)
+
       var deleteRoute = 'http://127.0.0.1:5000/post/' + id
 
       const bearer = 'Bearer ' + localStorage.getItem("accessToken")
@@ -75,12 +75,10 @@ class ProfileScreen extends Component {
 
       axios.delete(deleteRoute, { headers: header })
       .then(res => {
-        console.log(res)
-        console.log('done')
         window.location.reload()
       })
       .catch(err => {
-        console.log(err)
+
       })
     }
 

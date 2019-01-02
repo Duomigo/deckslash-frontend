@@ -41,12 +41,9 @@ class ResetPassword extends Component {
     
         axios.post('http://127.0.0.1:5000/reset_password/' + this.token, emailAdd)
         .then(res => {
-          console.log(res.data)
           history.push(routes.SIGN_IN)
         })
         .catch(err => {
-          console.log(err.response)
-          console.log(err.response.data.msg)
           this.setState({ notification: err.response.data.msg })
         });
     

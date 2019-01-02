@@ -54,6 +54,7 @@ class App extends Component {
       const profileData = await axios.get('http://127.0.0.1:5000/profile', { headers: header});
       await this.setState({ currentUser: profileData.data.user.username });
     } catch (error) {
+      console.log(error.response)
       this.setState({ userLoading: true })
     }
 

@@ -69,12 +69,9 @@ class RemoveCard extends Component {
 
     axios.put('http://127.0.0.1:5000/post/' + id, updateData, { headers: header })
     .then(res => {
-      console.log("Successful.");
       window.location.reload()
     })
     .catch(function (error) {
-      console.log(error);
-      console.log("Failed.");
     });
 
     event.preventDefault();
