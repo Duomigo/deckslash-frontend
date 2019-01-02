@@ -102,8 +102,15 @@ class ImageUpload extends Component {
 
   getCroppedImg(image, pixelCrop, fileName) {
     const canvas = document.createElement('canvas');
-    canvas.width = pixelCrop.width;
-    canvas.height = pixelCrop.height;
+
+    if (pixelCrop.width < 600) {
+      canvas.width = pixelCrop.width;
+      canvas.height = pixelCrop.height;
+    } else {
+      canvas.width = 600;
+      canvas.height = 600;
+    }
+
     const ctx = canvas.getContext('2d');
 
     ctx.drawImage(
@@ -114,8 +121,8 @@ class ImageUpload extends Component {
       pixelCrop.height,
       0,
       0,
-      pixelCrop.width,
-      pixelCrop.height,
+      600,
+      600,
     );
 
     return new Promise((resolve, reject) => {
