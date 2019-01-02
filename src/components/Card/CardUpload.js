@@ -137,8 +137,8 @@ class CardUpload extends Component {
       pixelCrop.height,
       0,
       0,
-      240,
-      336,
+      480,
+      672,
     );
 
     return new Promise((resolve, reject) => {
