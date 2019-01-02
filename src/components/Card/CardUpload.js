@@ -119,13 +119,8 @@ class CardUpload extends Component {
   getCroppedImg(image, pixelCrop, fileName) {
     const canvas = document.createElement('canvas');
     
-    if (pixelCrop.width < 480) {
-      canvas.width = pixelCrop.width;
-      canvas.height = pixelCrop.height;
-    } else {
-      canvas.width = 480;
-      canvas.height = 672;
-    }
+    canvas.width = 480;
+    canvas.height = 672;
 
     const ctx = canvas.getContext('2d');
 
