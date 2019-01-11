@@ -34,7 +34,7 @@ class PasswordForget extends Component {
           email: this.state.email,
         }
     
-        axios.post('https://40.83.75.170:5000/reset_password', emailAdd)
+        axios.post('http://40.83.75.170:5000/reset_password', emailAdd)
         .then(res => {
           this.setState({ notification: res.data.msg})
         })
