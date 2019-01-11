@@ -32,7 +32,7 @@ class User extends Component {
     }
 
     try {
-      const response = await axios.get('http://40.83.75.170:5000/post/' + this.postId, { headers: header });
+      const response = await axios.get('https://40.83.75.170:5000/post/' + this.postId, { headers: header });
       this.setState({post: response.data});
       this.setState({ loading: false })
     } catch (error) {
