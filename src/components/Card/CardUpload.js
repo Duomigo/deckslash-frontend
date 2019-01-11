@@ -98,7 +98,7 @@ class CardUpload extends Component {
       .catch(err => {
         this.setState({ notification: err.response.data.msg})
         if (this.state.notification == null) {
-          this.setState({ notification: err.response.data[0].msg })
+          this.setState({ notification: ['Internal server error'] })
         }
       });
 
