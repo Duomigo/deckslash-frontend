@@ -39,7 +39,7 @@ class ResetPassword extends Component {
           confirm_password: this.state.confirm_password
         }
     
-        axios.post('https://40.83.75.170:5000/reset_password/' + this.token, emailAdd)
+        axios.post('http://40.83.75.170:5000/reset_password/' + this.token, emailAdd)
         .then(res => {
           history.push(routes.SIGN_IN)
         })

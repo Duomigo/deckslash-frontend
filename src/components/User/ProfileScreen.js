@@ -64,7 +64,7 @@ class ProfileScreen extends Component {
 
     removeCard(id) {
 
-      var deleteRoute = 'https://40.83.75.170:5000/post/' + id
+      var deleteRoute = 'http://40.83.75.170:5000/post/' + id
 
       const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 
@@ -94,7 +94,7 @@ class ProfileScreen extends Component {
     
     render() {
       const { user, cards } = this.state;
-      const baseUrl = 'https://40.83.75.170:5000'
+      const baseUrl = 'http://40.83.75.170:5000'
   
       return (
   

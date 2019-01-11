@@ -67,7 +67,7 @@ class RemoveCard extends Component {
         "Authorization": bearer
     }
 
-    axios.put('https://40.83.75.170:5000/post/' + id, updateData, { headers: header })
+    axios.put('http://40.83.75.170:5000/post/' + id, updateData, { headers: header })
     .then(res => {
       window.location.reload()
     })

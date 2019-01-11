@@ -51,7 +51,7 @@ class SignUpForm extends Component {
       history,
     } = this.props;
 
-    axios.post('https://40.83.75.170:5000/register', {
+    axios.post('http://40.83.75.170:5000/register', {
         email: this.state.email,
         name: this.state.name,
         username: this.state.username,
