@@ -75,7 +75,7 @@ class ImageUpload extends Component {
           "Authorization": bearer
       }
   
-      axios.post('http://40.83.75.170:5000/profilepic', imgFile, { headers: header })
+      axios.post('https://40.83.75.170:5000/profilepic', imgFile, { headers: header })
       .then(res => {
         console.log("Successful changed profile picture.")
         console.log(res)

@@ -32,7 +32,7 @@ class User extends Component {
     }
 
     try {
-      const response = await axios.get('http://40.83.75.170:5000/users/' + this.username, { headers: header });
+      const response = await axios.get('https://40.83.75.170:5000/users/' + this.username, { headers: header });
       this.setState({ user: response.data });
       this.setState({ loading: false })
     } catch (error) {
@@ -41,7 +41,7 @@ class User extends Component {
     }
 
     try {
-      const accountResponse = await axios.get('http://40.83.75.170:5000/profile', { headers: header });
+      const accountResponse = await axios.get('https://40.83.75.170:5000/profile', { headers: header });
       const accountUsername = accountResponse.data.user.username;
 
       if (accountUsername === this.username) {

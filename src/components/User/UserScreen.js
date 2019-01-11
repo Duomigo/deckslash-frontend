@@ -27,7 +27,7 @@ class UserScreen extends Component {
     
     render() {
       const { user, cards } = this.state;
-      const baseUrl = 'http://40.83.75.170:5000'
+      const baseUrl = 'https://40.83.75.170:5000'
   
       return (
   
