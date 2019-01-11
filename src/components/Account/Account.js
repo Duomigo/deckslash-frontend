@@ -62,7 +62,7 @@ class Account extends Component {
         "Authorization": bearer
     }
 
-    axios.post('http://127.0.0.1:5000/profile', updateData, { headers: header })
+    axios.post('http://40.83.75.170:5000/profile', updateData, { headers: header })
     .then(res => {
       window.location.href = '/u/' + username;
     })
