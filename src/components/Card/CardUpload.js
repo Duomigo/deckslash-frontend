@@ -91,7 +91,7 @@ class CardUpload extends Component {
           "Authorization": bearer
       }
   
-      axios.post('http://40.83.75.170:5000/post', cardFile, { headers: header })
+      axios.post('https://40.83.75.170:5000/post', cardFile, { headers: header })
       .then(res => {
         window.location.href = '/profile'
       })

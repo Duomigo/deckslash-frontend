@@ -37,7 +37,7 @@ class UserNavbar extends Component {
         "Authorization": bearer
     }
 
-    const res = await axios.get('http://40.83.75.170:5000/profile', { headers: header });
+    const res = await axios.get('https://40.83.75.170:5000/profile', { headers: header });
     await this.setState({ currentUser: res.data.user.username })
   }
 
