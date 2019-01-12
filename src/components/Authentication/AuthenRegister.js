@@ -51,13 +51,17 @@ class SignUpForm extends Component {
       history,
     } = this.props;
 
+    var header = {
+      "Access-Control-Allow-Origin": 'content-type',
+    }
+
     axios.post('https://mojitobooks.pythonanywhere.com/register', {
         email: this.state.email,
         name: this.state.name,
         username: this.state.username,
         password: this.state.passwordOne,
         confirm_password: this.state.passwordTwo
-      })
+      }, { headers: header })
       .then(res => {
         history.push(routes.SIGN_IN);
       })
