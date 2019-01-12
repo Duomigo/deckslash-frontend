@@ -54,7 +54,7 @@ class SignInForm extends Component {
       password: password
     }
 
-    axios.post('https://40.83.75.170:5000/login', loginData)
+    axios.post('https://mojitobooks.pythonanywhere.com/login', loginData)
     .then(res => {
       const accessToken = res.data.access_token;
       const refreshToken = res.data.refresh_token

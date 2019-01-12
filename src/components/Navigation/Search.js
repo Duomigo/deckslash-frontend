@@ -23,7 +23,7 @@ class Search extends Component {
             'term': term
         }
 
-        axios.post('https://40.83.75.170:5000/search', data)
+        axios.post('https://mojitobooks.pythonanywhere.com/search', data)
         .then(res => {
             this.setState({ query: res.data })
         })
@@ -36,7 +36,7 @@ class Search extends Component {
     render() {
 
         const { term, query } = this.state
-        const cardUrl = 'https://40.83.75.170:5000/static/CardPicture/';
+        const cardUrl = 'https://mojitobooks.pythonanywhere.com/static/CardPicture/';
 
         const updateByPropertyName = (propertyName, value) => () => ({
             [propertyName]: value
