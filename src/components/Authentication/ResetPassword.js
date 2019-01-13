@@ -34,12 +34,12 @@ class ResetPassword extends Component {
           history,
         } = this.props;
     
-        const emailAdd = {
+        const newPassword = {
           password: this.state.password,
           confirm_password: this.state.confirm_password
         }
     
-        axios.post('https://mojitobooks.pythonanywhere.com/reset_password/' + this.token, emailAdd)
+        axios.post('https://mojitobooks.pythonanywhere.com/reset_password/' + this.token, newPassword)
         .then(res => {
           history.push(routes.SIGN_IN)
         })
