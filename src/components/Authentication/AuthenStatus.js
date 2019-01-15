@@ -29,17 +29,17 @@ export function refreshUser() {
     if (localStorage.getItem("refreshToken")) {
         axios.get('https://mojitobooks.pythonanywhere.com/refresh', { headers: refreshHeader})
         .then(res => {
-        const newAccessToken = res.data.access_token;
-      
-        if (newAccessToken) {
-            localStorage.removeItem('accessToken')
-            localStorage.setItem('accessToken', newAccessToken);
-        }
-      
+            const newAccessToken = res.data.access_token;
+        
+            if (newAccessToken) {
+                localStorage.removeItem('accessToken')
+                localStorage.setItem('accessToken', newAccessToken);
+            }
+
         })
         .catch(function (error) {
             
-        });     
+        });
     }
 }
 
