@@ -60,7 +60,7 @@ class App extends Component {
 
     this.interval = setInterval(() => {
       refreshUser();
-    }, 360000);
+    }, 10000);
   }
 
   render() {

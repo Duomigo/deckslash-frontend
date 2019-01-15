@@ -19,7 +19,7 @@ class UserScreen extends Component {
       if (cards == 1) {
         return '@' + username + ' has 1 review.'
       } else if (cards == 0) {
-        return '@' + username + ' has no reviews yet.'
+        return '@' + username + ' has no reviews.'
       } else {
         return '@' + username + ' has ' + cards + ' reviews.'
       }

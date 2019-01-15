@@ -56,7 +56,7 @@ class Search extends Component {
                                 this.querySearch(event.target.value)
                             }}
                             type="text"
-                            placeholder="Add A Title"
+                            placeholder="Search for mojitos"
                         />
                     </div>
                 </div>

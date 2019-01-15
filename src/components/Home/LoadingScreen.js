@@ -7,9 +7,7 @@ class LoadingScreen extends Component {
     render() {
         return(
             <div className="m-home-error-page">
-                <h1 className="m-home-error-text">Please be patient :)</h1>
-                <img src={loadingB} className="m-profile-loading-logo" width='100' height='100' />
-                <h1 className="m-home-error-text">Loading ...</h1>
+                <img src={loadingB} className="m-profile-loading-logo" width='75' height='75' />
             </div>
         )
     }
