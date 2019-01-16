@@ -64,7 +64,7 @@ class ProfileScreen extends Component {
 
     removeCard(id) {
 
-      var deleteRoute = 'https://mojitobooks.pythonanywhere.com/post/' + id
+      var deleteRoute = 'http://127.0.0.1:5000/post/' + id
 
       const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 
@@ -94,7 +94,7 @@ class ProfileScreen extends Component {
     
     render() {
       const { user, cards } = this.state;
-      const baseUrl = 'https://mojitobooks.pythonanywhere.com'
+      const baseUrl = 'http://127.0.0.1:5000'
   
       return (
   

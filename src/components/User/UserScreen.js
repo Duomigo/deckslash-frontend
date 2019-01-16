@@ -27,7 +27,7 @@ class UserScreen extends Component {
     
     render() {
       const { user, cards } = this.state;
-      const baseUrl = 'https://mojitobooks.pythonanywhere.com'
+      const baseUrl = 'http://127.0.0.1:5000'
   
       return (
   

@@ -22,10 +22,10 @@ class Home extends Component {
   }
 
   async componentDidMount() {
-    const cards = await axios.get('https://mojitobooks.pythonanywhere.com/testcard');
+    const cards = await axios.get('http://127.0.0.1:5000/testcard');
     await this.setState({ posts: cards.data })
 
-    const users = await axios.get('https://mojitobooks.pythonanywhere.com/testuser')
+    const users = await axios.get('http://127.0.0.1:5000/testuser')
     await this.setState({ users: users.data })
   }
 
@@ -36,7 +36,7 @@ class Home extends Component {
   
   render() {
     const { posts, users } = this.state;
-    const cardUrl = 'https://mojitobooks.pythonanywhere.com/static/CardPicture/';
+    const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
 
     return (
 

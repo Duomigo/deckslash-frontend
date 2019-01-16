@@ -47,11 +47,11 @@ class App extends Component {
         "Authorization": bearer
     }
 
-    const usersData = await axios.get('https://mojitobooks.pythonanywhere.com/testuser');
+    const usersData = await axios.get('http://127.0.0.1:5000/testuser');
     await this.setState({ users: usersData.data })
 
     try {
-      const profileData = await axios.get('https://mojitobooks.pythonanywhere.com/profile', { headers: header});
+      const profileData = await axios.get('http://127.0.0.1:5000/profile', { headers: header});
       await this.setState({ currentUser: profileData.data.user.username });
     } catch (error) {
       console.log(error.response)

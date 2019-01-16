@@ -62,7 +62,7 @@ class Account extends Component {
         "Authorization": bearer
     }
 
-    axios.post('https://mojitobooks.pythonanywhere.com/profile', updateData, { headers: header })
+    axios.post('http://127.0.0.1:5000/profile', updateData, { headers: header })
     .then(res => {
       window.location.href = '/u/' + username;
     })

@@ -91,7 +91,7 @@ class CardUpload extends Component {
           "Authorization": bearer
       }
   
-      axios.post('https://mojitobooks.pythonanywhere.com/post', cardFile, { headers: header })
+      axios.post('http://127.0.0.1:5000/post', cardFile, { headers: header })
       .then(res => {
         window.location.href = '/profile'
       })
@@ -197,7 +197,7 @@ class CardUpload extends Component {
       <div className="container">
 
           <div className="m-lm-card-upload-container">
-            <a className="m-lm-title-create-card">New Review</a>
+            <a className="m-lm-title-create-card">New Post</a>
             <a onClick={this.onClickSubmit}>
               <button className="mr-sm-2 m-lm-create-card-button rounded float-right">
                 Submit Post
