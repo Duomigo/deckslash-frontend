@@ -82,13 +82,13 @@ class ProfileScreen extends Component {
       })
     }
 
-    formatReview(username, cards) {
+    formatReview(cards) {
       if (cards == 1) {
-        return '@' + username + ' has 1 review.'
+        return '1 review'
       } else if (cards == 0) {
-        return '@' + username + ' has no reviews yet.'
+        return 'No reviews yet'
       } else {
-        return '@' + username + ' has ' + cards + ' reviews.'
+        return cards + ' reviews'
       }
     }
     
@@ -140,12 +140,23 @@ class ProfileScreen extends Component {
                   </a>
 
                   <t className="m-profile-username">
-                    {this.formatReview(user.username, cards.length)}
+                    @{user.username}
                   </t>
-                  <t className="m-profile-desc">{user.bio}</t>                           
+                  <t className="m-profile-description">
+                    {this.formatReview(cards.length)}.{' '}
+                  </t>
+                  <t className="m-profile-description">
+                    Joined Dec 2018. 
+                  </t>
+
                 </div>
               </div>
-              <div className="m-profile-filter" style={{marginBottom: '20px'}}>
+
+              <div className="row m-profile-info col-lg-6 col-md-10 col-sm-* col-xs-*">
+                <t className="m-profile-bio">{user.bio}</t>   
+              </div>
+
+              <div className="m-profile-filter" style={{marginBottom: '10px'}}>
                 {/* <button className="btn m-profile-button" type="submit">{cards.length} Books</button>
                 <button className="btn m-profile-button" type="submit">10 Following</button>
                 <button className="btn m-profile-button" type="submit">88 Followers</button> */}
