@@ -17,8 +17,8 @@
 }
 
 .m-profile-avatar {
-  height: 120px;
-  width: 120px;
+  height: 140px;
+  width: 140px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -27,18 +27,24 @@
 }
 
 .m-profile-button {
-  color: black;
+  color: inherit;
   background-color: transparent;
   font-family: medium;
-  font-size: 20px;
-  margin-right: 5px;
-  margin-left: 5px;
+  font-size: 18px;
+  margin-right: 10px;
   margin-top: 5px;
+  border: 1.5px solid #dbdbdb;
+  background-color: #fafafa;
+  border-radius: 5px;
+  padding-top: 5px;
 }
 
 .m-profile-button:hover {
-  color: #fe5257;
-  text-decoration: none;
+  cursor: pointer;
+}
+
+.m-profile-button:active {
+  background-color: #dbdbdb
 }
 
 .m-profile-edit-button {
@@ -99,7 +105,7 @@
   font-size: 20px;
   color: #040d14;
   display: block;
-  margin-top: -5px;
+  margin-top: 5px;
   line-height: 125%;
 }
 
@@ -118,8 +124,8 @@
   .m-profile-card-container {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
-  .m-profile-description {
-    display: block;
+  .m-home-latest {
+    margin-left: -10px;
   }
 }
 
@@ -230,15 +236,16 @@
 }
 
 .m-profile-left {
-  height: 120px;
-  width: 120px;
+  height: 140px;
+  width: 140px;
   overflow: hidden;
+  margin-right: 30px;
 }
 
 .m-profile-right {
   margin-left: 20px;
   height: 100%;
-  width: calc(100% - 140px);
+  width: calc(100% - 160px);
   float: left;
 }
 

@@ -39,8 +39,10 @@ class UserScreen extends Component {
                 <div className="m-profile-left">
                   <img className="rounded-circle m-profile-avatar" src={baseUrl + "/static/ProfileImage/" + user.profile_image} alt="" />     
                 </div>
-                <div className="m-profile-right">
+                
+                <div className="col-lg-7 col-md-8 col-sm-8 col-xs-*" style={{marginLeft: '-17px'}}>
                   <t className="m-profile-name">{user.name}</t>
+
                   <t className="m-profile-username">
                     @{user.username}
                   </t>
@@ -50,12 +52,9 @@ class UserScreen extends Component {
                   <t className="m-profile-description">
                     Joined Dec 2018. 
                   </t>
-
+                  <t className="m-profile-bio">{user.bio}</t>
                 </div>
-              </div>
 
-              <div className="row m-profile-info col-lg-7 col-md-8 col-sm-8 col-xs-*">
-                <t className="m-profile-bio">{user.bio}</t>   
               </div>
 
               <div className="m-profile-filter" style={{marginBottom: '20px'}}>

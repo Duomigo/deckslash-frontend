@@ -91,6 +91,10 @@ class ProfileScreen extends Component {
         return cards + ' reviews'
       }
     }
+
+    goToNew() {
+      window.location = "/new"
+    }
     
     render() {
       const { user, cards } = this.state;
@@ -116,28 +120,8 @@ class ProfileScreen extends Component {
                     <ImageUpload />
 
                   </Modal>
-                <div className="m-profile-right">
+                <div className="col-lg-7 col-md-8 col-sm-8 col-xs-*" style={{marginLeft: '-17px'}}>
                   <t className="m-profile-name">{user.name}</t>
-
-                  <a>
-                    <a onClick={this.openProfileModal}>
-                      <img src={editlogo} width="20" height="20" style={{marginLeft: "10px", marginBottom:"10px"}} alt=""/>               
-                    </a>
-                    <Modal
-                      isOpen={this.state.profileModalIsOpen}
-                      onRequestClose={this.closeProfileModal}
-                      contentLabel="Profile"
-                      style={profileStyle}
-                    >
-                      <Account profileData={this.state.user} />
-                    </Modal>
-                  </a>
-
-                  <a>
-                    <a href="/new">
-                      <img src={newlogo} width="25" height="25" style={{float: "right", marginTop: "5px", marginBottom:"10px"}} alt=""/>               
-                    </a>
-                  </a>
 
                   <t className="m-profile-username">
                     @{user.username}
@@ -149,12 +133,29 @@ class ProfileScreen extends Component {
                     Joined Dec 2018. 
                   </t>
 
-                </div>
+                  <div>
+                    <button className="m-profile-button" onClick={this.openProfileModal}>
+                      Edit Profile              
+                    </button>
+                    <Modal
+                      isOpen={this.state.profileModalIsOpen}
+                      onRequestClose={this.closeProfileModal}
+                      contentLabel="Profile"
+                      style={profileStyle}
+                    >
+                      <Account profileData={this.state.user} />
+                    </Modal>
+
+                    <button onClick={this.goToNew} className="m-profile-button">
+                      New Post         
+                    </button>
+                  </div> 
+                </div>         
               </div>
 
               <div className="row m-profile-info col-lg-7 col-md-8 col-sm-8 col-xs-*">
-                <t className="m-profile-bio">{user.bio}</t>   
-              </div>
+                <t className="m-profile-bio">{user.bio}</t>
+              </div> 
 
               <div className="m-profile-filter" style={{marginBottom: '10px'}}>
                 {/* <button className="btn m-profile-button" type="submit">{cards.length} Books</button>
