@@ -43,12 +43,12 @@ class Home extends Component {
       <div className="container-fluid">              
         <div className="row text-align-center justify-content-center">
           <div className="row col-12 justify-content-center">
-            <div className="col-lg-6 col-md-8 col-sm-10 col-xs-*">
+            <div className="col-lg-7 col-md-8 col-sm-8 col-xs-*">
               <h1 className="m-home-latest">Fresh mojitos</h1>
             </div>
           </div>
 
-          <div className="m-profile-card-container col-lg-6 col-md-8 col-sm-10 col-xs-*">           
+          <div className="m-profile-card-container col-lg-7 col-md-8 col-sm-8 col-xs-*">           
             {posts.slice(0).reverse().map(function (post, i) { // reverse array map function with server data
               return (
                 <div className="m-profile-whole-card-cover rounded" key={i}>

@@ -102,7 +102,7 @@ class ProfileScreen extends Component {
   
           <div className="row text-align-center justify-content-center">
             <div className="col-12">
-              <div className="row m-profile-info col-lg-6 col-md-10 col-sm-* col-xs-*">
+              <div className="row m-profile-info col-lg-7 col-md-8 col-sm-8 col-xs-*">
                 <a onClick={this.openImageModal} className="m-profile-left">
                   <img className="rounded-circle m-profile-avatar" src={baseUrl + "/static/ProfileImage/" + user.profile_image} alt="" />                       
                 </a>
@@ -152,7 +152,7 @@ class ProfileScreen extends Component {
                 </div>
               </div>
 
-              <div className="row m-profile-info col-lg-6 col-md-10 col-sm-* col-xs-*">
+              <div className="row m-profile-info col-lg-7 col-md-8 col-sm-8 col-xs-*">
                 <t className="m-profile-bio">{user.bio}</t>   
               </div>
 
@@ -163,7 +163,7 @@ class ProfileScreen extends Component {
               </div> 
             </div>
   
-            <div className="m-profile-card-container col-lg-6 col-md-10 col-sm-* col-xs-*">           
+            <div className="m-profile-card-container col-lg-7 col-md-8 col-sm-8 col-xs-*">           
               {cards.slice(0).reverse().map(function (card, i) { // map function with server data
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
