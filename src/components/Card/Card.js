@@ -32,7 +32,7 @@ class User extends Component {
     }
 
     try {
-      const response = await axios.get('https://mojitobooks.pythonanywhere.com/post/' + this.postId, { headers: header });
+      const response = await axios.get('http://127.0.0.1:5000/post/' + this.postId, { headers: header });
       this.setState({post: response.data});
       this.setState({ loading: false })
     } catch (error) {

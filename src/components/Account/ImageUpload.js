@@ -75,7 +75,7 @@ class ImageUpload extends Component {
           "Authorization": bearer
       }
   
-      axios.post('https://mojitobooks.pythonanywhere.com/profilepic', imgFile, { headers: header })
+      axios.post('http://127.0.0.1:5000/profilepic', imgFile, { headers: header })
       .then(res => {
         console.log("Successful changed profile picture.")
         console.log(res)

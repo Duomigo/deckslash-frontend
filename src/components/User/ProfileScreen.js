@@ -11,15 +11,10 @@ import RemoveCard from '../Card/RemoveCard.js'
 import EditCard from '../Card/EditCard.js'
 
 import Modal from 'react-modal';
+import EmojiTags from '../Card/EmojiTags';
 
-import editlogo from '../../images/m-edit.svg';
-import newlogo from '../../images/m-new.svg';
 import { profileStyle } from '../../styles/style.js'
-
 import { goToCard } from '../Authentication/AuthenStatus.js'
-
-import bookB from '../../images/m-book.svg'
-import cameraB from '../../images/m-camera.svg'
 
 import axios from 'axios';
 
@@ -32,7 +27,36 @@ class ProfileScreen extends Component {
         cards: props.userData.cards,
         profileModalIsOpen: false, 
         imageModalIsOpen: false,   
-        cardModalIsOpen: false
+        cardModalIsOpen: false,
+        emojis: [
+          {
+            "id": "flag-bz",
+            "name": "Belize Flag",
+            "colons": ":flag-bz:",
+            "emoticons": [],
+            "unified": "1f1e7-1f1ff",
+            "skin": null,
+            "native": "🇧🇿"
+          },
+          {
+            "id": "flag-bt",
+            "name": "Bhutan Flag",
+            "colons": ":flag-bt:",
+            "emoticons": [],
+            "unified": "1f1e7-1f1f9",
+            "skin": null,
+            "native": "🇧🇹"
+          },
+          {
+            "id": "flag-vn",
+            "name": "Vietnam Flag",
+            "colons": ":flag-vn:",
+            "emoticons": [],
+            "unified": "1f1fb-1f1f3",
+            "skin": null,
+            "native": "🇻🇳"
+          }
+        ]
       }
 
       this.openProfileModal = this.openProfileModal.bind(this)
@@ -64,7 +88,7 @@ class ProfileScreen extends Component {
 
     removeCard(id) {
 
-      var deleteRoute = 'https://mojitobooks.pythonanywhere.com/post/' + id
+      var deleteRoute = 'http://127.0.0.1:5000/post/' + id
 
       const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 
@@ -97,8 +121,8 @@ class ProfileScreen extends Component {
     }
     
     render() {
-      const { user, cards } = this.state;
-      const baseUrl = 'https://mojitobooks.pythonanywhere.com'
+      const { user, cards, emojis } = this.state;
+      const baseUrl = 'http://127.0.0.1:5000'
   
       return (
   
@@ -172,6 +196,7 @@ class ProfileScreen extends Component {
                     <RemoveCard cardId={card.id}/>
                     <EditCard card={card}/>
                     <p onClick={() => goToCard(card.id)} className="m-user-card-text">{card.title}</p>
+                    <EmojiTags emojis={emojis} />
                   </div>
                 )
               }.bind(this))}

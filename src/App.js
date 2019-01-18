@@ -27,7 +27,6 @@ import ResetPassword from './components/Authentication/ResetPassword';
 import LoadingScreen from './components/Home/LoadingScreen';
 
 import Profile from './components/User/Profile'
-import Moji from './components/Card/Emoji'
 
 class App extends Component {
   constructor(props) {
@@ -48,11 +47,11 @@ class App extends Component {
         "Authorization": bearer
     }
 
-    const usersData = await axios.get('https://mojitobooks.pythonanywhere.com/testuser');
+    const usersData = await axios.get('http://127.0.0.1:5000/testuser');
     await this.setState({ users: usersData.data })
 
     try {
-      const profileData = await axios.get('https://mojitobooks.pythonanywhere.com/profile', { headers: header});
+      const profileData = await axios.get('http://127.0.0.1:5000/profile', { headers: header});
       await this.setState({ currentUser: profileData.data.user.username });
     } catch (error) {
       console.log(error.response)
@@ -79,8 +78,6 @@ class App extends Component {
             <Route path={"/u/:username"} component={User} />
             <Route path={"/p/:postId"} component={Card} />
             <Route path="/search" component={Search} />
-
-            <Route path="/emoji" component={Moji} />
 
             <HomeRoute path="/signin" component={AuthenLogin} />
             <HomeRoute path="/signup" component={AuthenRegister} />

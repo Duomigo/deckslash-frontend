@@ -27,7 +27,7 @@ export function refreshUser() {
     }
 
     if (localStorage.getItem("refreshToken")) {
-        axios.get('https://mojitobooks.pythonanywhere.com/refresh', { headers: refreshHeader})
+        axios.get('http://127.0.0.1:5000/refresh', { headers: refreshHeader})
         .then(res => {
             const newAccessToken = res.data.access_token;
         

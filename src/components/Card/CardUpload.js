@@ -87,6 +87,11 @@ class CardUpload extends Component {
         cardFile.append('picture', this.state.theBlob, this.state.theBlob.name)
       }
 
+      if (this.state.emojis.length < 3) {
+        this.setState({ notification: ['You must select 3 emojis.']})
+        return;
+      }
+
       const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 
       var header = {
@@ -95,7 +100,7 @@ class CardUpload extends Component {
           "Authorization": bearer
       }
   
-      axios.post('https://mojitobooks.pythonanywhere.com/post', cardFile, { headers: header })
+      axios.post('http://127.0.0.1:5000/post', cardFile, { headers: header })
       .then(res => {
         window.location.href = '/profile'
       })
@@ -229,8 +234,11 @@ class CardUpload extends Component {
                 {imagePicker}
                 <div>
                   {emojis.map(function (emoji, i) {
-                      console.log(emojis)
+
+                    console.log(emojis)
+
                       let emojiConfig;
+
                       if (emoji.skin) {
                           emojiConfig = ':' + emoji.id + '::skin-tone-' + emoji.skin + ':';
                       } else {

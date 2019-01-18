@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../styles/Home.css';
 import '../../styles/User.css';
 
+import EmojiTags from '../Card/EmojiTags';
+
 import { goToCard } from '../Authentication/AuthenStatus.js'
 
 class UserScreen extends Component {
@@ -11,7 +13,36 @@ class UserScreen extends Component {
   
       this.state = {
         user: props.userData.user,
-        cards: props.userData.cards
+        cards: props.userData.cards,
+        emojis: [
+          {
+            "id": "flag-bz",
+            "name": "Belize Flag",
+            "colons": ":flag-bz:",
+            "emoticons": [],
+            "unified": "1f1e7-1f1ff",
+            "skin": null,
+            "native": "🇧🇿"
+          },
+          {
+            "id": "flag-bt",
+            "name": "Bhutan Flag",
+            "colons": ":flag-bt:",
+            "emoticons": [],
+            "unified": "1f1e7-1f1f9",
+            "skin": null,
+            "native": "🇧🇹"
+          },
+          {
+            "id": "flag-vn",
+            "name": "Vietnam Flag",
+            "colons": ":flag-vn:",
+            "emoticons": [],
+            "unified": "1f1fb-1f1f3",
+            "skin": null,
+            "native": "🇻🇳"
+          }
+        ]
       }
     }
 
@@ -26,8 +57,8 @@ class UserScreen extends Component {
     }
     
     render() {
-      const { user, cards } = this.state;
-      const baseUrl = 'https://mojitobooks.pythonanywhere.com'
+      const { user, cards, emojis } = this.state;
+      const baseUrl = 'http://127.0.0.1:5000'
   
       return (
   
@@ -72,6 +103,7 @@ class UserScreen extends Component {
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img onClick={() => goToCard(card.id)} className="card-img-top m-profile-card-cover rounded" src={baseUrl + "/static/CardPicture/" + card.picture} alt="" />
                     <p onClick={() => goToCard(card.id)} className="m-user-card-text">{card.title}</p>
+                    <EmojiTags emojis={emojis} />
                   </div>
                 )
               })}

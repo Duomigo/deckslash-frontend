@@ -5,6 +5,7 @@ import '../../styles/Home.css';
 import '../../styles/User.css'
 
 import MenuScrollBar from './MenuScrollBar';
+import EmojiTags from '../Card/EmojiTags';
 
 import { getUser } from '../Authentication/AuthenStatus.js'
 import { goToCard } from '../Authentication/AuthenStatus.js'
@@ -17,15 +18,44 @@ class Home extends Component {
 
     this.state = {
       posts: [],
-      users: []
+      users: [],
+      emojis: [
+        {
+          "id": "flag-bz",
+          "name": "Belize Flag",
+          "colons": ":flag-bz:",
+          "emoticons": [],
+          "unified": "1f1e7-1f1ff",
+          "skin": null,
+          "native": "🇧🇿"
+        },
+        {
+          "id": "flag-bt",
+          "name": "Bhutan Flag",
+          "colons": ":flag-bt:",
+          "emoticons": [],
+          "unified": "1f1e7-1f1f9",
+          "skin": null,
+          "native": "🇧🇹"
+        },
+        {
+          "id": "flag-vn",
+          "name": "Vietnam Flag",
+          "colons": ":flag-vn:",
+          "emoticons": [],
+          "unified": "1f1fb-1f1f3",
+          "skin": null,
+          "native": "🇻🇳"
+        }
+      ]
     }
   }
 
   async componentDidMount() {
-    const cards = await axios.get('https://mojitobooks.pythonanywhere.com/testcard');
+    const cards = await axios.get('http://127.0.0.1:5000/testcard');
     await this.setState({ posts: cards.data })
 
-    const users = await axios.get('https://mojitobooks.pythonanywhere.com/testuser')
+    const users = await axios.get('http://127.0.0.1:5000/testuser')
     await this.setState({ users: users.data })
   }
 
@@ -35,28 +65,32 @@ class Home extends Component {
   }
   
   render() {
-    const { posts, users } = this.state;
-    const cardUrl = 'https://mojitobooks.pythonanywhere.com/static/CardPicture/';
+    const { posts, emojis } = this.state;
+    const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
 
     return (
 
-      <div className="container-fluid">              
-        <div className="row text-align-center justify-content-center">
-          <div className="row col-12 justify-content-center">
-            <div className="col-lg-7 col-md-8 col-sm-8 col-xs-*">
-              <h1 className="m-home-latest">Fresh mojitos</h1>
+      <div>
+        <MenuScrollBar />        
+        <div className="container-fluid">      
+          <div className="row text-align-center justify-content-center">
+            <div className="row col-12 justify-content-center">
+              <div className="col-lg-7 col-md-8 col-sm-8 col-xs-*">
+                <h1 className="m-home-latest">Fresh mojitos</h1>
+              </div>
             </div>
-          </div>
 
-          <div className="m-profile-card-container col-lg-7 col-md-8 col-sm-8 col-xs-*">           
-            {posts.slice(0).reverse().map(function (post, i) { // reverse array map function with server data
-              return (
-                <div className="m-profile-whole-card-cover rounded" key={i}>
-                  <img onClick={() => goToCard(post.id)} className="card-img-top m-profile-card-cover rounded" src={cardUrl + post.picture} alt="" />
-                  <p onClick={() => goToCard(post.id)} className="m-user-card-text">{post.title}</p>
-                </div>
-              )
-            })}
+            <div className="m-profile-card-container col-lg-7 col-md-8 col-sm-8 col-xs-*">           
+              {posts.slice(0).reverse().map(function (post, i) { // reverse array map function with server data
+                return (
+                  <div className="m-profile-whole-card-cover rounded" key={i}>
+                    <img onClick={() => goToCard(post.id)} className="card-img-top m-profile-card-cover rounded" src={cardUrl + post.picture} alt="" />
+                    <p onClick={() => goToCard(post.id)} className="m-user-card-text">{post.title}</p>       
+                    <EmojiTags emojis={emojis} />             
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>
