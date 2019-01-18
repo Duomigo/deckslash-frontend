@@ -27,6 +27,7 @@ import ResetPassword from './components/Authentication/ResetPassword';
 import LoadingScreen from './components/Home/LoadingScreen';
 
 import Profile from './components/User/Profile'
+import Emoji from './components/Home/Emoji'
 
 class App extends Component {
   constructor(props) {
@@ -78,6 +79,7 @@ class App extends Component {
             <Route path={"/u/:username"} component={User} />
             <Route path={"/p/:postId"} component={Card} />
             <Route path="/search" component={Search} />
+            <Route path="/emoji" component={Emoji} />
 
             <HomeRoute path="/signin" component={AuthenLogin} />
             <HomeRoute path="/signup" component={AuthenRegister} />
