@@ -12,6 +12,8 @@ import publish from '../../images/publish.svg'
 import * as routes from '../../constants/routes';
 import { NotificationLists } from '../Authentication/AuthenStatus';
 
+import Emoji from '../Home/Emoji';
+
 const updateByPropertyName = (propertyName, value) => () => ({
   [propertyName]: value,
 });

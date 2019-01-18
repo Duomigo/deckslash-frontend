@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import 'emoji-mart/css/emoji-mart.css'
 import { Picker, Emoji } from 'emoji-mart'
 
-const updateByPropertyName = (propertyName, value) => () => ({
-    [propertyName]: value,
-  });
-
 class Moji extends Component {
 
     state = {
@@ -27,20 +23,27 @@ class Moji extends Component {
         return (
             <div>
                 <Picker 
+                    set="twitter"
                     title='Pick your emoji…' 
                     emoji='point_up'
                     onClick={(emoji, event) => {
                         this.handleEmoji(emoji)
-                        console.log(emoji)
                     }}
                 />
 
                 {emojis.map(function (emoji, i) {
-                    console.log("Icon is")
                     console.log(emojis)
-                    console.log(icons)
+                    let emojiConfig;
+                    if (emoji.skin) {
+                        emojiConfig = ':' + emoji.id + '::skin-tone-' + emoji.skin + ':';
+                    } else {
+                        emojiConfig = emoji.id
+                    }
+                    
                     return (
-                        <Emoji set="twitter" emoji={{ id: emoji.id , skin: emoji.skin }} size={30} />
+                        <span>
+                        <Emoji set="twitter" emoji={emojiConfig} size={40} />
+                        </span>
                     )
                 })}
             </div>
