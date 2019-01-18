@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'emoji-mart/css/emoji-mart.css';
-import { Picker, Emoji } from 'emoji-mart';
+import { Emoji } from 'emoji-mart';
 
 class EmojiTags extends Component {
 
