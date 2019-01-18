@@ -3,16 +3,16 @@ import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import axios from 'axios';
 
+import 'emoji-mart/css/emoji-mart.css'
+import { Picker, Emoji } from 'emoji-mart'
+
 import '../../styles/AuthenLogin.css'
 import '../../styles/Home.css'
 import '../../styles/User.css'
 
 import thumbnailupload from '../../images/thumbnailupload.svg'
-import publish from '../../images/publish.svg'
-import * as routes from '../../constants/routes';
+import closeB from '../../images/m-close.svg'
 import { NotificationLists } from '../Authentication/AuthenStatus';
-
-import Emoji from '../Home/Emoji';
 
 const updateByPropertyName = (propertyName, value) => () => ({
   [propertyName]: value,
@@ -31,7 +31,9 @@ class CardUpload extends Component {
     title: '',
     description: '',
     theBlob: null,
-    notification: null
+    notification: null,
+    emojis: [],
+    icons: []
   };
 
   onSelectFile = e => {
@@ -151,8 +153,15 @@ class CardUpload extends Component {
     });
   }
 
+  handleEmoji(newEmoji) {
+    this.setState(prevState => ({
+        icons: [newEmoji.id, ...prevState.icons.slice(0, 2)],
+        emojis: [newEmoji, ...prevState.emojis.slice(0, 2)]
+    }))
+  }
+
   render() {
-    const { crop, croppedImageUrl, src, notification } = this.state;
+    const { crop, emojis, src, notification } = this.state;
 
     const {
       title,
@@ -167,7 +176,7 @@ class CardUpload extends Component {
 
       this.state.imageSelected ? (
         imagePicker = 
-          <div>
+          <div className="m-lm-upload-wrap">
             
             {src && (
               <ReactCrop
@@ -176,11 +185,14 @@ class CardUpload extends Component {
                 onImageLoaded={this.onImageLoaded}
                 onComplete={this.onCropComplete}
                 onChange={this.onCropChange}
+                style={{width: '270px'}}
               />
             )}
 
             <form onSubmit={this.onDeselectFile}>
-              <button className="m-lm-button rounded" type="submit">Clear Image</button>
+              <button className="m-lm-detach-button" type="submit">
+                <img className="m-lm-close-icon" src={closeB} />
+              </button>
             </form>
 
           </div>
@@ -188,7 +200,7 @@ class CardUpload extends Component {
         imagePicker =
           <div class="m-lm-image-upload">
             <label for="file-input">
-              <img src={thumbnailupload} alt="Deckslash-logo" />
+              <img src={thumbnailupload}/>
             </label>
   
             <input id="file-input" type="file" onChange={this.onSelectFile}/>
@@ -215,10 +227,27 @@ class CardUpload extends Component {
             <div className="col-lg-4 col-md-12 m-row-center">
               <div>
                 {imagePicker}
+                <div>
+                  {emojis.map(function (emoji, i) {
+                      console.log(emojis)
+                      let emojiConfig;
+                      if (emoji.skin) {
+                          emojiConfig = ':' + emoji.id + '::skin-tone-' + emoji.skin + ':';
+                      } else {
+                          emojiConfig = emoji.id
+                      }
+                      
+                      return (
+                          <span style={{marginLeft: '5px'}}>
+                            <Emoji set="twitter" emoji={emojiConfig} size={40} />
+                          </span>
+                      )
+                  })}
+                </div>
               </div>
             </div>
 
-            <div className="col-lg-8 col-md-*">
+            <div className="col-lg-4 col-md-*">
               <form onSubmit={this.onClickSubmit}>
                 <input
                   className="m-lm-ghost-input-title"
@@ -227,6 +256,7 @@ class CardUpload extends Component {
                   type="text"
                   placeholder="Add A Title"
                 />
+
                 <textarea
                   className="m-lm-ghost-input"
                   value={description}
@@ -238,6 +268,21 @@ class CardUpload extends Component {
                   Submit Post
                 </button> */}
               </form>
+            </div>
+
+            <div className="col-lg-4 col-md-*">
+              <div>
+
+                  <Picker
+                      set="twitter"
+                      title='Pick your emoji…' 
+                      emoji='point_up'
+                      onClick={(emoji, event) => {
+                          this.handleEmoji(emoji)
+                      }}
+                  />
+
+              </div>
             </div>
 
           </div>
