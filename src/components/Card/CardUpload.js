@@ -185,7 +185,7 @@ class CardUpload extends Component {
                 onImageLoaded={this.onImageLoaded}
                 onComplete={this.onCropComplete}
                 onChange={this.onCropChange}
-                style={{width: '270px'}}
+                style={{width: '276px'}}
               />
             )}
 
@@ -223,7 +223,7 @@ class CardUpload extends Component {
             {notification && <NotificationLists noti={notification} />}
           </div>
 
-          <div className="row m-row-center">
+          <div className="row">
             <div className="col-lg-4 col-md-12 m-row-center">
               <div>
                 {imagePicker}
@@ -271,17 +271,15 @@ class CardUpload extends Component {
             </div>
 
             <div className="col-lg-4 col-md-*">
-              <div>
-
+              <div className="">
                   <Picker
                       set="twitter"
-                      title='Pick your emoji…' 
+                      title="Pick three emojis..."
                       emoji='point_up'
                       onClick={(emoji, event) => {
                           this.handleEmoji(emoji)
                       }}
                   />
-
               </div>
             </div>
 
