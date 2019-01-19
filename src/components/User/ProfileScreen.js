@@ -6,7 +6,6 @@ import '../../styles/User.css';
 
 import Account from '../Account/Account.js'
 import ImageUpload from '../Account/ImageUpload.js'
-import CardUpload from '../Card/CardUpload.js'
 import RemoveCard from '../Card/RemoveCard.js'
 import EditCard from '../Card/EditCard.js'
 
@@ -193,9 +192,9 @@ class ProfileScreen extends Component {
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img onClick={() => goToCard(card.id)} className="card-img-top m-profile-card-cover rounded" src={baseUrl + "/static/CardPicture/" + card.picture} alt="" />
-                    <RemoveCard cardId={card.id}/>
                     <EditCard card={card}/>
                     <p onClick={() => goToCard(card.id)} className="m-user-card-text">{card.title}</p>
+                    <RemoveCard cardId={card.id}/>
                     <EmojiTags emojis={emojis} />
                   </div>
                 )

@@ -6,8 +6,8 @@ import '../../styles/User.css'
 
 import MenuScrollBar from './MenuScrollBar';
 import EmojiTags from '../Card/EmojiTags';
+import EditCard from '../Card/EditCard.js'
 
-import { getUser } from '../Authentication/AuthenStatus.js'
 import { goToCard } from '../Authentication/AuthenStatus.js'
 
 import axios from 'axios';
@@ -52,7 +52,7 @@ class Home extends Component {
   }
 
   async componentDidMount() {
-    const cards = await axios.get('http://127.0.0.1:5000/testcard');
+    const cards = await axios.get('http://127.0.0.1:5000/search');
     await this.setState({ posts: cards.data })
 
     const users = await axios.get('http://127.0.0.1:5000/testuser')
@@ -65,8 +65,9 @@ class Home extends Component {
   }
   
   render() {
-    const { posts, emojis } = this.state;
+    const { posts, emojis, users } = this.state;
     const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
+    const avatarUrl = 'http://127.0.0.1:5000/static/ProfileImage/';
 
     return (
 
@@ -85,8 +86,10 @@ class Home extends Component {
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img onClick={() => goToCard(post.id)} className="card-img-top m-profile-card-cover rounded" src={cardUrl + post.picture} alt="" />
-                    <p onClick={() => goToCard(post.id)} className="m-user-card-text">{post.title}</p>       
-                    <EmojiTags emojis={emojis} />             
+                    <p onClick={() => goToCard(post.id)} className="m-user-card-text">{post.title}</p>     
+                    {/* <EditCard card={post}/> */}
+                    {/* <img src={avatarUrl + users[post.id-1].profile_image} />       */}
+                    <EmojiTags emojis={emojis} />         
                   </div>
                 )
               })}

@@ -284,9 +284,11 @@ class CardUpload extends Component {
                       set="twitter"
                       title="Pick three emojis..."
                       emoji='point_up'
+                      showSkinTones={false}
                       onClick={(emoji, event) => {
                           this.handleEmoji(emoji)
                       }}
+                      perLine='8'
                   />
               </div>
             </div>

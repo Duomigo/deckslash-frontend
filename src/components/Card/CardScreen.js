@@ -46,8 +46,9 @@ class CardScreen extends Component {
                   "skin": null,
                   "native": "🇻🇳"
                 }
-              ]
+            ]
         }
+        console.log(this.state.post)
 
         this.onClapPost = this.onClapPost.bind(this)
     }
