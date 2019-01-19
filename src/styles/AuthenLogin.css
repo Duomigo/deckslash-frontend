@@ -339,3 +339,19 @@
   height: 15px;
   width: 15px;
 }
+
+.m-lm-emoji-tag-menu {
+  margin-left: 20px;
+}
+
+.m-lm-emoji-tag-menu:hover {
+  cursor: pointer;
+}
+
+.m-lm-emoji-tag {
+  margin-left: 5px;
+}
+
+.m-lm-emoji-tag:hover {
+  cursor: pointer;
+}

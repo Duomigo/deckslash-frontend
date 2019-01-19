@@ -21,13 +21,13 @@ class Home extends Component {
       users: [],
       emojis: [
         {
-          "id": "flag-bz",
-          "name": "Belize Flag",
-          "colons": ":flag-bz:",
+          "id": "joy_cat",
+          "name": "Cat Face with Tears of Joy",
+          "colons": ":joy_cat:",
           "emoticons": [],
-          "unified": "1f1e7-1f1ff",
+          "unified": "1f639",
           "skin": null,
-          "native": "🇧🇿"
+          "native": "😹"
         },
         {
           "id": "flag-bt",

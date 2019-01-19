@@ -23,8 +23,15 @@ class EmojiTags extends Component {
                     }
 
                     return (
-                        <span style={{marginLeft: '5px'}}>
-                        <Emoji set="twitter" emoji={emojiConfig} size={30} />
+                        <span className="m-lm-emoji-tag">
+                        <Emoji 
+                            set="twitter" 
+                            emoji={emojiConfig} 
+                            size={30}
+                            onClick={(emoji, event) => {
+                                window.location.href = '/t/' + emoji.id
+                            }}
+                        />
                         </span>
                     )
                 })}

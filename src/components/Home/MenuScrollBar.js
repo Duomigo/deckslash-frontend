@@ -94,10 +94,6 @@ class MenuScrollBar extends Component {
           ]
     }
 
-    handleEmoji = (emoji) => {
-        window.location = '/t/' + emoji.id;
-    }
-
     render() {
         const { emojis } = this.state;
 
@@ -124,13 +120,13 @@ class MenuScrollBar extends Component {
                     }
 
                     return (
-                        <span style={{marginLeft: '20px'}}>
+                        <span className="m-lm-emoji-tag-menu">
                             <Emoji 
                                 set="twitter" 
                                 emoji={emojiConfig} 
-                                size={35} 
+                                size={35}
                                 onClick={(emoji, event) => {
-                                    this.handleEmoji(emoji);
+                                    window.location.href = '/t/' + emoji.id
                                 }}
                             />
                         </span>

@@ -6,8 +6,9 @@ import '../../styles/User.css'
 
 import axios from 'axios';
 
-import likeB from '../../images/m-like.svg'
 import clapB from '../../images/m-clap.png'
+
+import EmojiTags from './EmojiTags'
 
 class CardScreen extends Component {
     constructor(props) {
@@ -16,7 +17,36 @@ class CardScreen extends Component {
         this.state = {
             post: props.post,
             cardId: props.post.id,
-            user: {}
+            user: {},
+            emojis: [
+                {
+                  "id": "joy_cat",
+                  "name": "Cat Face with Tears of Joy",
+                  "colons": ":joy_cat:",
+                  "emoticons": [],
+                  "unified": "1f639",
+                  "skin": null,
+                  "native": "😹"
+                },
+                {
+                  "id": "flag-bt",
+                  "name": "Bhutan Flag",
+                  "colons": ":flag-bt:",
+                  "emoticons": [],
+                  "unified": "1f1e7-1f1f9",
+                  "skin": null,
+                  "native": "🇧🇹"
+                },
+                {
+                  "id": "flag-vn",
+                  "name": "Vietnam Flag",
+                  "colons": ":flag-vn:",
+                  "emoticons": [],
+                  "unified": "1f1fb-1f1f3",
+                  "skin": null,
+                  "native": "🇻🇳"
+                }
+              ]
         }
 
         this.onClapPost = this.onClapPost.bind(this)
@@ -53,7 +83,7 @@ class CardScreen extends Component {
     }
 
     render() {
-        const { post, user, claps } = this.state
+        const { post, user, claps, emojis } = this.state
         const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
         const profileUrl = 'http://127.0.0.1:5000/static/ProfileImage/'
 
@@ -122,6 +152,7 @@ class CardScreen extends Component {
                                 <div style={{marginBottom: '20px'}}>
                                     <img className="m-profile-post-card rounded" src={cardUrl + post.picture}/>
                                 </div>
+                                <EmojiTags emojis={emojis} />
                             </div>
 
                             <div className="col-sm-8 col-xs-*">
