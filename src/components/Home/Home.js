@@ -89,7 +89,7 @@ class Home extends Component {
                     <p onClick={() => goToUser(post.author)} className="m-user-desc-text">@{post.author}</p> 
                     {/* <EditCard card={post}/> */}
                     <img className="m-edit-logo" src={avatarUrl + default_avatar} height='20' width='20'/>
-                    <EmojiTags emojis={emojis} />         
+                    <EmojiTags emojis={post.emoji} />         
                   </div>
                 )
               })}

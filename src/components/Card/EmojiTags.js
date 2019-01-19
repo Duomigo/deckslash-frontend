@@ -14,19 +14,11 @@ class EmojiTags extends Component {
             <div>
                 {emojis.map(function (emoji, i) {
 
-                    let emojiConfig;
-
-                    if (emoji.skin) {
-                        emojiConfig = ':' + emoji.id + '::skin-tone-' + emoji.skin + ':';
-                    } else {
-                        emojiConfig = emoji.id
-                    }
-
                     return (
                         <span className="m-lm-emoji-tag">
                         <Emoji 
                             set="twitter" 
-                            emoji={emojiConfig} 
+                            emoji={emoji} 
                             size={30}
                             onClick={(emoji, event) => {
                                 window.location.href = '/t/' + emoji.id

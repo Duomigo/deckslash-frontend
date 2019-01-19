@@ -26,36 +26,7 @@ class ProfileScreen extends Component {
         cards: props.userData.cards,
         profileModalIsOpen: false, 
         imageModalIsOpen: false,   
-        cardModalIsOpen: false,
-        emojis: [
-          {
-            "id": "flag-bz",
-            "name": "Belize Flag",
-            "colons": ":flag-bz:",
-            "emoticons": [],
-            "unified": "1f1e7-1f1ff",
-            "skin": null,
-            "native": "🇧🇿"
-          },
-          {
-            "id": "flag-bt",
-            "name": "Bhutan Flag",
-            "colons": ":flag-bt:",
-            "emoticons": [],
-            "unified": "1f1e7-1f1f9",
-            "skin": null,
-            "native": "🇧🇹"
-          },
-          {
-            "id": "flag-vn",
-            "name": "Vietnam Flag",
-            "colons": ":flag-vn:",
-            "emoticons": [],
-            "unified": "1f1fb-1f1f3",
-            "skin": null,
-            "native": "🇻🇳"
-          }
-        ]
+        cardModalIsOpen: false
       }
 
       this.openProfileModal = this.openProfileModal.bind(this)
@@ -195,7 +166,7 @@ class ProfileScreen extends Component {
                     <EditCard card={card}/>
                     <p onClick={() => goToCard(card.id)} className="m-user-card-text">{card.title}</p>
                     <RemoveCard cardId={card.id}/>
-                    <EmojiTags emojis={emojis} />
+                    <EmojiTags emojis={card.emoji} />
                   </div>
                 )
               }.bind(this))}

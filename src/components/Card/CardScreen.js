@@ -17,7 +17,7 @@ class CardScreen extends Component {
         this.state = {
             post: props.post,
             cardId: props.post.id,
-            user: {},
+            userOwner: {},
             emojis: [
                 {
                   "id": "joy_cat",
@@ -48,17 +48,19 @@ class CardScreen extends Component {
                 }
             ]
         }
-        console.log(this.state.post)
 
         this.onClapPost = this.onClapPost.bind(this)
     }
 
     async componentDidMount() {
-        var id = this.state.post.author
-        const userData = await axios.get('http://127.0.0.1:5000/testuser');
-        await this.setState({ user: userData.data[id-1] })
+        var username = this.state.post.author
+        const userData = await axios.get('http://127.0.0.1:5000/users/' + username);
+        await this.setState({ userOwner: userData.data.user })
 
         this.setState({ claps: this.state.post.likes })
+
+        console.log("your user")
+        console.log(this.state.userOwner)
     }
 
     onClapPost = (event) => {
@@ -84,12 +86,12 @@ class CardScreen extends Component {
     }
 
     render() {
-        const { post, user, claps, emojis } = this.state
+        const { post, user, userOwner, claps, emojis } = this.state
         const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
         const profileUrl = 'http://127.0.0.1:5000/static/ProfileImage/'
 
         const goToProfile = () => {
-            var username = this.state.user.username
+            var username = this.state.userOwner.username
             window.location.href = '/u/' + username;
         }
 
@@ -153,7 +155,7 @@ class CardScreen extends Component {
                                 <div style={{marginBottom: '20px'}}>
                                     <img className="m-profile-post-card rounded" src={cardUrl + post.picture}/>
                                 </div>
-                                <EmojiTags emojis={emojis} />
+                                <EmojiTags emojis={post.emoji} />
                             </div>
 
                             <div className="col-sm-8 col-xs-*">
@@ -162,14 +164,14 @@ class CardScreen extends Component {
                                 </div>
 
                                 <div className="m-profile-banner">
-                                    <img onClick={goToProfile} className="m-profile-post-avatar" src={profileUrl + user.profile_image} />
+                                    <img onClick={goToProfile} className="m-profile-post-avatar" src={profileUrl + userOwner.profile_image} />
 
                                     <div className="">
                                         <t className="m-profile-post-count">{claps}</t>
                                         <img onClick={this.onClapPost} className="m-profile-post-clap" src={clapB} />
                                     </div>
 
-                                    <div onClick={goToProfile} className="m-profile-post-name">{user.name}</div>
+                                    <div onClick={goToProfile} className="m-profile-post-name">{userOwner.name}</div>
                                     <br />
                                     <div className="m-profile-post-date">{convertDate(post.date_posted)}</div>
                                 </div>

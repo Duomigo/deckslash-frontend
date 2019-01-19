@@ -79,17 +79,23 @@ class CardUpload extends Component {
 
   onClickSubmit = (event) => {
 
+      if (this.state.icons.length < 3) {
+        this.setState({ notification: ['You must select 3 emojis.']})
+        return;
+      }
+
+      var emojiStr = '', i;
+      for (i = 0; i < this.state.icons.length; i++) {
+        emojiStr += "$" + this.state.icons[i] + "$";
+      } 
+
       const cardFile = new FormData()
       cardFile.set('title', this.state.title);
       cardFile.set('description', this.state.description);
+      cardFile.set('emoji', emojiStr)
 
       if (this.state.theBlob != null) {
         cardFile.append('picture', this.state.theBlob, this.state.theBlob.name)
-      }
-
-      if (this.state.emojis.length < 3) {
-        this.setState({ notification: ['You must select 3 emojis.']})
-        return;
       }
 
       const bearer = 'Bearer ' + localStorage.getItem("accessToken")
