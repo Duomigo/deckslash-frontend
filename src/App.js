@@ -14,7 +14,6 @@ import isAuth from './components/Authentication/AuthenStatus.js'
 import Navigation from './components/Navigation/Navigation';
 import User from './components/User/User.js';
 
-import ImageUpload from './components/Account/ImageUpload.js'
 import CardUpload from './components/Card/CardUpload.js'
 import Card from './components/Card/Card.js'
 import Search from './components/Navigation/Search.js'
@@ -80,6 +79,8 @@ class App extends Component {
             <Route path={"/p/:postId"} component={Card} />
             <Route path={"/t/:emoji"} component={Emoji} />
             <Route path="/search" component={Search} />
+
+            <Route path="/load" component={LoadingScreen} />
 
             <HomeRoute path="/signin" component={AuthenLogin} />
             <HomeRoute path="/signup" component={AuthenRegister} />

@@ -3,9 +3,6 @@ import '../../styles/Home.css'
 
 import { Emoji } from 'emoji-mart';
 
-import errorB from '../../images/m-error.svg'
-import rainB from '../../images/m-rain.svg'
-
 class ErrorPage extends Component {
     render() {
         return(

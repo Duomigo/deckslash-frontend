@@ -22,7 +22,7 @@ class EmojiScreen extends Component {
         const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
 
         return(
-            <div className="container-fluid">      
+            <div className="container-fluid" style={{marginTop: '10px'}}>      
                 <div className="row text-align-center justify-content-center">
                     <div className="row col-12 justify-content-center">
                         <div className="col-lg-7 col-md-8 col-sm-8 col-xs-*">
