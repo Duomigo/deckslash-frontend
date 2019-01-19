@@ -16,14 +16,14 @@ class EmojiTags extends Component {
 
                     return (
                         <span className="m-lm-emoji-tag">
-                        <Emoji 
-                            set="twitter" 
-                            emoji={emoji} 
-                            size={30}
-                            onClick={(emoji, event) => {
-                                window.location.href = '/t/' + emoji.id
-                            }}
-                        />
+                            <Emoji 
+                                set="twitter" 
+                                emoji={emoji} 
+                                size={30}
+                                onClick={(emoji, event) => {
+                                    window.location.href = '/t/' + emoji.id
+                                }}
+                            />
                         </span>
                     )
                 })}
