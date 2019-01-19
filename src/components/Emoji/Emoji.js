@@ -46,7 +46,7 @@ class User extends Component {
       (this.state.loading) ? (
         <LoadingScreen />
       ) : (
-        (this.state.tagPosts) ? (
+        (this.state.tagPosts.length > 0) ? (
           <EmojiScreen tagPosts={this.state.tagPosts} emoji={this.emoji}/>
         ) : (
           <ErrorPage />
