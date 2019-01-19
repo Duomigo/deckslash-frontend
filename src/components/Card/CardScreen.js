@@ -8,7 +8,7 @@ import axios from 'axios';
 
 import clapB from '../../images/m-clap.png'
 
-import EmojiTags from './EmojiTags'
+import EmojiTags from '../Emoji/EmojiTags'
 
 class CardScreen extends Component {
     constructor(props) {

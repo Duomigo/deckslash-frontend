@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../styles/Home.css';
 import '../../styles/User.css';
 
-import EmojiTags from '../Card/EmojiTags';
+import EmojiTags from '../Emoji/EmojiTags';
 
 import { goToCard } from '../Authentication/AuthenStatus.js'
 
@@ -37,12 +37,12 @@ class UserScreen extends Component {
   
           <div className="row text-align-center justify-content-center">
             <div className="col-12">
-              <div className="row m-profile-info col-lg-7 col-md-8 col-sm-8 col-xs-*">
+              <div className="row m-profile-info col-lg-6 col-md-8 col-sm-8 col-xs-*">
                 <div className="m-profile-left">
                   <img className="rounded-circle m-profile-avatar" src={baseUrl + "/static/ProfileImage/" + user.profile_image} alt="" />     
                 </div>
                 
-                <div className="col-lg-7 col-md-8 col-sm-8 col-xs-*" style={{marginLeft: '-17px'}}>
+                <div className="col-lg-6 col-md-8 col-sm-8 col-xs-*" style={{marginLeft: '-17px'}}>
                   <t className="m-profile-name">{user.name}</t>
 
                   <t className="m-profile-username">
@@ -68,7 +68,7 @@ class UserScreen extends Component {
               </div> 
             </div>
   
-            <div className="m-profile-card-container col-lg-7 col-md-8 col-sm-8 col-xs-*">              
+            <div className="m-profile-card-container col-lg-6 col-md-8 col-sm-8 col-xs-*">              
               {cards.slice(0).reverse().map(function (card, i) { // map function with server data
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>

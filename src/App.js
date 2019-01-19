@@ -18,6 +18,7 @@ import ImageUpload from './components/Account/ImageUpload.js'
 import CardUpload from './components/Card/CardUpload.js'
 import Card from './components/Card/Card.js'
 import Search from './components/Navigation/Search.js'
+import Emoji from './components/Emoji/Emoji.js'
 
 import { refreshUser } from './components/Authentication/AuthenStatus.js'
 
@@ -77,6 +78,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path={"/u/:username"} component={User} />
             <Route path={"/p/:postId"} component={Card} />
+            <Route path={"/t/:emoji"} component={Emoji} />
             <Route path="/search" component={Search} />
 
             <HomeRoute path="/signin" component={AuthenLogin} />

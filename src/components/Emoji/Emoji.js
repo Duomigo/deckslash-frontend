@@ -4,7 +4,7 @@ import '../../styles/Home.css';
 import '../../styles/User.css';
 import axios from 'axios';
 
-import CardScreen from './CardScreen.js';
+import EmojiScreen from './EmojiScreen.js';
 import ErrorPage from '../Home/ErrorPage.js'
 import LoadingScreen from '../Home/LoadingScreen.js'
 
@@ -18,7 +18,7 @@ class User extends Component {
       post: null
     }
 
-    this.postId = props.match.params.postId;
+    this.emoji = props.match.params.emoji;
   }
 
   async componentWillMount() {
@@ -31,7 +31,7 @@ class User extends Component {
     }
 
     try {
-      const response = await axios.get('http://127.0.0.1:5000/post/' + this.postId, { headers: header });
+      const response = await axios.get('http://127.0.0.1:5000/tags/' + this.emoji, { headers: header });
       this.setState({post: response.data});
       this.setState({ loading: false })
     } catch (error) {
@@ -47,7 +47,7 @@ class User extends Component {
         <LoadingScreen />
       ) : (
         (this.state.post) ? (
-          <CardScreen post={this.state.post}/>
+          <EmojiScreen post={this.state.post}/>
         ) : (
           <ErrorPage />
         )

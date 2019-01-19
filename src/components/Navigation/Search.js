@@ -47,7 +47,7 @@ class Search extends Component {
             <div className="container-fluid">
 
                 <div className="row text-align-center justify-content-center">
-                    <div className="m-profile-container col-lg-6 col-md-10 col-sm-* col-xs-*">
+                    <div className="m-profile-container col-lg-8 col-md-10 col-sm-* col-xs-*">
                         <input
                             className="m-lm-ghost-search"
                             value={term}
@@ -63,7 +63,7 @@ class Search extends Component {
 
 
                 <div className="row text-align-center justify-content-center">
-                    <div className="m-profile-card-container col-lg-6 col-md-10 col-sm-* col-xs-*">
+                    <div className="m-profile-card-container col-lg-8 col-md-10 col-sm-* col-xs-*">
                         {query.slice(0).reverse().map(function (post, i) { // reverse array map function with server data
                             return (
                             <div className="m-profile-whole-card-cover rounded" key={i}>

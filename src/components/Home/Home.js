@@ -5,7 +5,7 @@ import '../../styles/Home.css';
 import '../../styles/User.css'
 
 import MenuScrollBar from './MenuScrollBar';
-import EmojiTags from '../Card/EmojiTags';
+import EmojiTags from '../Emoji/EmojiTags';
 import EditCard from '../Card/EditCard.js'
 
 import { goToCard, goToUser } from '../Authentication/AuthenStatus.js'
