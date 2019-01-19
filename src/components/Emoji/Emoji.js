@@ -15,7 +15,7 @@ class User extends Component {
 
     this.state = {
       loading: true,
-      post: null
+      tagPosts: null
     }
 
     this.emoji = props.match.params.emoji;
@@ -32,7 +32,7 @@ class User extends Component {
 
     try {
       const response = await axios.get('http://127.0.0.1:5000/tags/' + this.emoji, { headers: header });
-      this.setState({post: response.data});
+      this.setState({tagPosts: response.data});
       this.setState({ loading: false })
     } catch (error) {
       this.setState({ loading: false })
@@ -46,8 +46,8 @@ class User extends Component {
       (this.state.loading) ? (
         <LoadingScreen />
       ) : (
-        (this.state.post) ? (
-          <EmojiScreen post={this.state.post}/>
+        (this.state.tagPosts) ? (
+          <EmojiScreen tagPosts={this.state.tagPosts} emoji={this.emoji}/>
         ) : (
           <ErrorPage />
         )

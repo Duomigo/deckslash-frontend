@@ -17,36 +17,7 @@ class CardScreen extends Component {
         this.state = {
             post: props.post,
             cardId: props.post.id,
-            userOwner: {},
-            emojis: [
-                {
-                  "id": "joy_cat",
-                  "name": "Cat Face with Tears of Joy",
-                  "colons": ":joy_cat:",
-                  "emoticons": [],
-                  "unified": "1f639",
-                  "skin": null,
-                  "native": "😹"
-                },
-                {
-                  "id": "flag-bt",
-                  "name": "Bhutan Flag",
-                  "colons": ":flag-bt:",
-                  "emoticons": [],
-                  "unified": "1f1e7-1f1f9",
-                  "skin": null,
-                  "native": "🇧🇹"
-                },
-                {
-                  "id": "flag-vn",
-                  "name": "Vietnam Flag",
-                  "colons": ":flag-vn:",
-                  "emoticons": [],
-                  "unified": "1f1fb-1f1f3",
-                  "skin": null,
-                  "native": "🇻🇳"
-                }
-            ]
+            userOwner: {}
         }
 
         this.onClapPost = this.onClapPost.bind(this)
@@ -86,7 +57,7 @@ class CardScreen extends Component {
     }
 
     render() {
-        const { post, user, userOwner, claps, emojis } = this.state
+        const { post, userOwner, claps } = this.state
         const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
         const profileUrl = 'http://127.0.0.1:5000/static/ProfileImage/'
 
