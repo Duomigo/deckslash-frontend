@@ -8,7 +8,7 @@ import MenuScrollBar from './MenuScrollBar';
 import EmojiTags from '../Card/EmojiTags';
 import EditCard from '../Card/EditCard.js'
 
-import { goToCard } from '../Authentication/AuthenStatus.js'
+import { goToCard, goToUser } from '../Authentication/AuthenStatus.js'
 
 import axios from 'axios';
 
@@ -19,6 +19,8 @@ class Home extends Component {
     this.state = {
       posts: [],
       users: [],
+      default_avatar: 'default-avatar.png',
+      user_avatar: 'default-avatar.png',
       emojis: [
         {
           "id": "joy_cat",
@@ -56,16 +58,13 @@ class Home extends Component {
     await this.setState({ posts: cards.data })
 
     const users = await axios.get('http://127.0.0.1:5000/testuser')
-    await this.setState({ users: users.data })
-  }
-
-  getCurrentUser(id) {
-    const ans = this.state.users[id-1].name
-    return ans;
+    await this.setState({ 
+      users: users.data
+    })
   }
   
   render() {
-    const { posts, emojis, users } = this.state;
+    const { posts, emojis, users, default_avatar, user_avatar } = this.state;
     const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
     const avatarUrl = 'http://127.0.0.1:5000/static/ProfileImage/';
 
@@ -86,9 +85,10 @@ class Home extends Component {
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img onClick={() => goToCard(post.id)} className="card-img-top m-profile-card-cover rounded" src={cardUrl + post.picture} alt="" />
-                    <p onClick={() => goToCard(post.id)} className="m-user-card-text">{post.title}</p>     
+                    <p onClick={() => goToCard(post.id)} className="m-user-card-text">{post.title}</p>
+                    <p onClick={() => goToUser(post.author)} className="m-user-desc-text">@{post.author}</p> 
                     {/* <EditCard card={post}/> */}
-                    {/* <img src={avatarUrl + users[post.id-1].profile_image} />       */}
+                    <img className="m-edit-logo" src={avatarUrl + default_avatar} height='20' width='20'/>
                     <EmojiTags emojis={emojis} />         
                   </div>
                 )

@@ -181,8 +181,13 @@
   font-size: 16px;
   color: #040d14;
   margin-left: 5px;
-  margin-top: -20px;
-  margin-bottom: -5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.m-user-desc-text:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .m-profile-whole-card-cover {

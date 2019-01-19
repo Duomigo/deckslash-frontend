@@ -47,6 +47,10 @@ export const goToCard = (id) => {
     window.location.href = '/p/' + id;
 }
 
+export const goToUser = (username) => {
+    window.location.href = '/u/' + username;
+}
+
 export const NotificationLists = (props) =>
 
     (typeof(props.noti) == 'string') ? (

@@ -5,7 +5,7 @@ import '../../styles/AuthenLogin.css'
 import '../../styles/Home.css'
 import '../../styles/User.css'
 
-import { goToCard } from '../Authentication/AuthenStatus.js'
+import { goToCard, goToUser } from '../Authentication/AuthenStatus.js'
 
 class Search extends Component {
     constructor(props) {
@@ -69,7 +69,7 @@ class Search extends Component {
                             <div className="m-profile-whole-card-cover rounded" key={i}>
                                 <img onClick={() => goToCard(post.id)} className="card-img-top m-profile-card-cover rounded" src={cardUrl + post.picture} alt="" />
                                 <p onClick={() => goToCard(post.id)} className="m-user-card-text">{post.title}</p>
-                                {/* <p className="m-user-desc-text">{post.description}</p> */}
+                                <p onClick={() => goToUser(post.author)} className="m-user-desc-text">@{post.author}</p>
                             </div>
                             )
                         })}
