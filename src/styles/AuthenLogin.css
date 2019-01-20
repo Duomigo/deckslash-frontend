@@ -133,8 +133,29 @@
   overflow: auto;
 }
 
+
 .m-lm-update-card-button:hover {
   background-color: #ff656a;
+  cursor: pointer;
+}
+
+.m-lm-remove-card-button {
+  background-color: #eceff1;
+  color: #040d14;
+  border: none;
+  font-family: regular;
+  font-size: 20px;
+  margin-bottom: 5px;
+  width: 100%;
+  padding-top: 8px;
+  outline: none;
+  display:inline-block;
+  overflow: auto;
+}
+
+
+.m-lm-remove-card-button:hover {
+  background-color: #e3e5e9;
   cursor: pointer;
 }
 

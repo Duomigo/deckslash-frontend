@@ -79,6 +79,16 @@ class CardUpload extends Component {
 
   onClickSubmit = (event) => {
 
+      if (this.state.title === '') {
+        this.setState({ notification: ['Title can\'t be blank']})
+        return;
+      }
+
+      if (this.state.description === '') {
+        this.setState({ notification: ['Description can\'t be blank']})
+        return;
+      }
+
       if (this.state.icons.length < 3) {
         this.setState({ notification: ['You must select 3 emojis.']})
         return;

@@ -14,6 +14,8 @@ import '../../styles/AuthenLogin.css'
 import axios from 'axios';
 import Modal from 'react-modal';
 
+import RemoveCard from './RemoveCard'
+
 import { editCardStyle } from '../../styles/style.js'
 import editlogo from '../../images/m-edit.svg';
 
@@ -21,7 +23,7 @@ const updateByPropertyName = (propertyName, value) => () => ({
     [propertyName]: value,
   });
 
-class RemoveCard extends Component {
+class EditCard extends Component {
   constructor(props) {
     super(props)
 
@@ -81,6 +83,7 @@ class RemoveCard extends Component {
     const {
         title,
         description,
+        id,
         error,
     } = this.state;
 
@@ -112,6 +115,7 @@ class RemoveCard extends Component {
                 />
                 <textarea
                   className="m-lm-ghost-input"
+                  style={{ height: '300px' }}
                   value={description}
                   onChange={event => this.setState(updateByPropertyName('description', event.target.value))}
                   type="text"
@@ -120,6 +124,7 @@ class RemoveCard extends Component {
                 <button className="mr-sm-2 m-lm-update-card-button rounded" type="submit">
                   Update Post
                 </button>
+                <RemoveCard cardId={id}/>
               </form>
             </div>
 
@@ -129,4 +134,4 @@ class RemoveCard extends Component {
   } 
 }
 
-export default RemoveCard;
+export default EditCard;

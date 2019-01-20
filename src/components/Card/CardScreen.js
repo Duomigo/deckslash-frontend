@@ -8,6 +8,7 @@ import axios from 'axios';
 
 import clapB from '../../images/m-clap.png'
 
+import { convertDate } from '../Authentication/AuthenStatus'
 import EmojiTags from '../Emoji/EmojiTags'
 
 class CardScreen extends Component {
@@ -64,56 +65,6 @@ class CardScreen extends Component {
         const goToProfile = () => {
             var username = this.state.userOwner.username
             window.location.href = '/u/' + username;
-        }
-
-        const convertDate = (dateStr) => {
-            const year = dateStr.substring(0,4)
-            const date = dateStr.substring(8,10)
-            const month = dateStr.substring(5,7)
-
-            let monthStr;
-
-            switch (month) {
-                case '01':
-                  monthStr = "Jan";
-                  break;
-                case '02':
-                  monthStr = "Feb";
-                  break;
-                case '03':
-                  monthStr = "Mar";
-                  break;
-                case '04':
-                  monthStr = "Apr";
-                  break;
-                case '05':
-                  monthStr = "May";
-                  break;
-                case '06':
-                  monthStr = "Jun";
-                  break;
-                case '07':
-                  monthStr = "Jul";
-                  break;
-                case '08':
-                  monthStr = "Aug";
-                  break;
-                case '09':
-                  monthStr = "Sep";
-                  break;
-                case '10':
-                  monthStr = "Oct";
-                  break;
-                case '11':
-                  monthStr = "Nov";
-                  break;
-                case '12':
-                  monthStr = "Dec";
-                  break;
-              }
-
-              const dateFormat = monthStr + ' ' + date + ', ' + year
-              return dateFormat
         }
 
         return (

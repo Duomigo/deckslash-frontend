@@ -62,7 +62,9 @@ class RemoveCard extends Component {
         <a
           onClick={this.handleOpenModal}
         >
-          <img className="m-remove-logo" src={newlogo} alt=""/>
+          <button className="mr-sm-2 m-lm-remove-card-button rounded" type="submit">
+            Remove Post
+          </button>
         </a>
 
         <Modal

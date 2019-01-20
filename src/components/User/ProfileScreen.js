@@ -6,14 +6,13 @@ import '../../styles/User.css';
 
 import Account from '../Account/Account.js'
 import ImageUpload from '../Account/ImageUpload.js'
-import RemoveCard from '../Card/RemoveCard.js'
 import EditCard from '../Card/EditCard.js'
 
 import Modal from 'react-modal';
 import EmojiTags from '../Emoji/EmojiTags';
 
 import { profileStyle } from '../../styles/style.js'
-import { goToCard } from '../Authentication/AuthenStatus.js'
+import { goToCard, convertJoinDate } from '../Authentication/AuthenStatus.js'
 
 import axios from 'axios';
 
@@ -124,7 +123,7 @@ class ProfileScreen extends Component {
                     {this.formatReview(cards.length)}.{' '}
                   </t>
                   <t className="m-profile-description">
-                    Joined Dec 2018. 
+                    Joined {convertJoinDate(user.date_joined)}. 
                   </t>
 
                   <div>
@@ -163,9 +162,8 @@ class ProfileScreen extends Component {
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img onClick={() => goToCard(card.id)} className="card-img-top m-profile-card-cover rounded" src={baseUrl + "/static/CardPicture/" + card.picture} alt="" />
-                    <EditCard card={card}/>
                     <p onClick={() => goToCard(card.id)} className="m-user-card-text">{card.title}</p>
-                    <RemoveCard cardId={card.id}/>
+                    <EditCard card={card}/>
                     <EmojiTags emojis={card.emoji} />
                   </div>
                 )
