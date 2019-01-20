@@ -98,8 +98,10 @@ class CardScreen extends Component {
                                     <div className="m-profile-post-date">{convertDate(post.date_posted)}</div>
                                 </div>
 
-                                <div className="m-profile-post-desc">
-                                    {post.description}
+                                <div>
+                                    <p className="m-profile-post-desc">
+                                        {post.description}
+                                    </p>
                                 </div>
                             </div>
                         </div>

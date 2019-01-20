@@ -263,6 +263,8 @@ input[type="file"] {
   margin-bottom: 25px;
   margin-top: 5px;
   white-space: pre-line;
+  width: 100%;
+  word-wrap: break-word;
 }
 
 .m-profile-post-card {

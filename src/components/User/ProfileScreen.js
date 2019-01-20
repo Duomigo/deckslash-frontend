@@ -173,7 +173,7 @@ class ProfileScreen extends Component {
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img onClick={() => goToCard(card.id)} className="card-img-top m-profile-card-cover rounded" src={baseUrl + "/static/CardPicture/" + card.picture} alt="" />
-                    <p onClick={() => goToCard(card.id)} className="m-user-card-text">{card.title}</p>
+                    <p onClick={() => goToCard(card.id)} className="m-user-card-text"  style={{marginBottom: '4px'}}>{card.title}</p>
                     <EditCard card={card}/>
                     <EmojiTags emojis={card.emoji} />
                   </div>

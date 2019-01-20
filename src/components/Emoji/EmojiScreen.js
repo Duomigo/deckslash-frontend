@@ -26,11 +26,7 @@ class EmojiScreen extends Component {
                 <div className="row text-align-center justify-content-center">
                     <div className="row col-12 justify-content-center">
                         <div className="col-lg-7 col-md-8 col-sm-8 col-xs-*">
-                            <a style={{
-                                    top: '8px',
-                                    position: 'relative'
-                                }}
-                            >
+                            <a className="m-home-emoji-latest">
                                 <Emoji 
                                     set="twitter" 
                                     emoji={emoji} 
