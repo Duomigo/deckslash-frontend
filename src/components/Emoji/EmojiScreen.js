@@ -19,7 +19,7 @@ class EmojiScreen extends Component {
 
     render() {
         const { tagPosts, emoji } = this.state;
-        const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
+        const cardUrl = 'https://mojitobooks.pythonanywhere.com/static/CardPicture/';
 
         return(
             <div className="container-fluid" style={{marginTop: '10px'}}>      
