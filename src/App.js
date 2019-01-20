@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/Home.css';
-import { BrowserRouter as Router, Route, Redirect, StaticRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Home from "./components/Home/Home.js"
 import ErrorPage from './components/Home/ErrorPage.js'
 
@@ -24,7 +24,6 @@ import { refreshUser } from './components/Authentication/AuthenStatus.js'
 import axios from 'axios';
 import Switch from 'react-router-dom/Switch';
 import ResetPassword from './components/Authentication/ResetPassword';
-import LoadingScreen from './components/Home/LoadingScreen';
 
 import Profile from './components/User/Profile'
 
@@ -79,8 +78,6 @@ class App extends Component {
             <Route path={"/p/:postId"} component={Card} />
             <Route path={"/t/:emoji"} component={Emoji} />
             <Route path="/search" component={Search} />
-
-            <Route path="/load" component={LoadingScreen} />
 
             <HomeRoute path="/signin" component={AuthenLogin} />
             <HomeRoute path="/signup" component={AuthenRegister} />

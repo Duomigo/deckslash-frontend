@@ -6,7 +6,6 @@ import {
     Link
   } from 'react-router-dom';
 
-import ImageUpload from '../Account/ImageUpload.js';
 import '../../styles/Home.css';
 import '../../styles/User.css';
 import '../../styles/AuthenLogin.css'
@@ -31,7 +30,8 @@ class EditCard extends Component {
       showModal: false,
       id: props.card.id,
       title: props.card.title,
-      description: props.card.description
+      description: props.card.description,
+      emojis: props.card.emoji
     }
 
     this.handleOpenModal = this.handleOpenModal.bind(this)
@@ -50,16 +50,18 @@ class EditCard extends Component {
     const {
       title,
       description,
-      id
+      id, emojis
     } = this.state;
 
-    const {
-      history,
-    } = this.props;
+    var emojiStr = '', i;
+    for (i = 0; i < emojis.length; i++) {
+      emojiStr += "$" + emojis[i] + "$";
+    } 
 
     const updateData = {
         title: title,
-        description: description
+        description: description,
+        emoji: emojiStr
     }
 
     const bearer = 'Bearer ' + localStorage.getItem("accessToken")

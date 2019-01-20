@@ -6,7 +6,7 @@ import '../../styles/User.css'
 
 import MenuScrollBar from './MenuScrollBar';
 import EmojiTags from '../Emoji/EmojiTags';
-import EditCard from '../Card/EditCard.js'
+import Footer from '../Navigation/Footer.js'
 
 import { goToCard, goToUser } from '../Authentication/AuthenStatus.js'
 
@@ -59,7 +59,7 @@ class Home extends Component {
                     <p onClick={() => goToCard(post.id)} className="m-user-card-text">{post.title}</p>
                     <p onClick={() => goToUser(post.author)} className="m-user-desc-text">@{post.author}</p> 
                     {/* <EditCard card={post}/> */}
-                    <img className="m-edit-logo" src={avatarUrl + default_avatar} height='20' width='20'/>
+                    {/* <img className="m-edit-logo" src={avatarUrl + default_avatar} height='20' width='20'/> */}
                     <EmojiTags emojis={post.emoji} />         
                   </div>
                 )
@@ -67,6 +67,7 @@ class Home extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
         
     );

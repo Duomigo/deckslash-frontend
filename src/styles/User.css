@@ -161,6 +161,10 @@
   float: right;
 }
 
+.m-edit-logo:hover {
+  cursor: pointer;
+}
+
 .m-user-card-text {
   font-family: medium;
   font-size: 18px;
@@ -234,6 +238,35 @@
 }
 
 .m-menu-scroll-bar a:hover {
+  color: #777;
+}
+
+.m-menu-footer {
+  border-bottom: none;
+  margin-top: 30px;
+  background-color: #f5f5f5;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  bottom: 0;
+  width: 100%;
+}
+
+.m-menu-footer-text {
+  font-family: medium;
+  font-size: 17px;
+  color: #454545;
+  line-height: 110%;
+}
+
+.m-menu-footer-contact {
+  font-family: medium;
+  font-size: 17px;
+  color: #454545;
+  line-height: 110%;
+}
+
+.m-menu-footer-contact:hover {
+  text-decoration: none;
   color: #777;
 }
 
