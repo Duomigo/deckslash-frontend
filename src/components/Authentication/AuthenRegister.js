@@ -55,7 +55,7 @@ class SignUpForm extends Component {
       "Access-Control-Allow-Origin": 'content-type',
     }
 
-    axios.post('https://mojitobooks.pythonanywhere.com/register', {
+    axios.post('http://127.0.0.1:5000/register', {
         email: this.state.email,
         name: this.state.name,
         username: this.state.username,

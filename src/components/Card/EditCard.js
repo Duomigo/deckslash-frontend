@@ -69,7 +69,7 @@ class EditCard extends Component {
         "Authorization": bearer
     }
 
-    axios.put('https://mojitobooks.pythonanywhere.com/post/' + id, updateData, { headers: header })
+    axios.put('http://127.0.0.1:5000/post/' + id, updateData, { headers: header })
     .then(res => {
       window.location.reload()
     })

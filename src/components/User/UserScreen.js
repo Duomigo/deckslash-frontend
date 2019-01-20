@@ -13,7 +13,8 @@ class UserScreen extends Component {
   
       this.state = {
         user: props.userData.user,
-        cards: props.userData.cards
+        cards: props.userData.cards,
+        sumclap: props.userData.sumclap
       }
     }
 
@@ -28,8 +29,14 @@ class UserScreen extends Component {
     }
     
     render() {
-      const { user, cards, emojis } = this.state;
-      const baseUrl = 'https://mojitobooks.pythonanywhere.com'
+      const { user, cards, sumclap } = this.state;
+      const baseUrl = 'http://127.0.0.1:5000'
+
+      const sumClap = (sum) => {
+        if (sum > 1) {
+          return "Clapped " + sum + " times."
+        }
+      }
   
       return (
   
@@ -53,6 +60,10 @@ class UserScreen extends Component {
                   </t>
                   <t className="m-profile-description">
                     Joined Dec 2018. 
+                  </t>
+                  <br />
+                  <t className="m-profile-description">
+                    {sumClap(sumclap)}
                   </t>
                   <t className="m-profile-bio">{user.bio}</t>
                 </div>

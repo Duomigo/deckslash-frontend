@@ -26,7 +26,7 @@ class CardScreen extends Component {
 
     async componentDidMount() {
         var username = this.state.post.author
-        const userData = await axios.get('https://mojitobooks.pythonanywhere.com/users/' + username);
+        const userData = await axios.get('http://127.0.0.1:5000/users/' + username);
         await this.setState({ userOwner: userData.data.user })
 
         this.setState({ claps: this.state.post.likes })
@@ -37,7 +37,7 @@ class CardScreen extends Component {
 
     onClapPost = (event) => {
 
-        const route = 'https://mojitobooks.pythonanywhere.com/clap/' + this.state.cardId
+        const route = 'http://127.0.0.1:5000/clap/' + this.state.cardId
 
         const data = {}
         
@@ -59,8 +59,8 @@ class CardScreen extends Component {
 
     render() {
         const { post, userOwner, claps } = this.state
-        const cardUrl = 'https://mojitobooks.pythonanywhere.com/static/CardPicture/';
-        const profileUrl = 'https://mojitobooks.pythonanywhere.com/static/ProfileImage/'
+        const cardUrl = 'http://127.0.0.1:5000/static/CardPicture/';
+        const profileUrl = 'http://127.0.0.1:5000/static/ProfileImage/'
 
         const goToProfile = () => {
             var username = this.state.userOwner.username

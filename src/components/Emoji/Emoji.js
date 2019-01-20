@@ -31,7 +31,7 @@ class User extends Component {
     }
 
     try {
-      const response = await axios.get('https://mojitobooks.pythonanywhere.com/tags/' + this.emoji, { headers: header });
+      const response = await axios.get('http://127.0.0.1:5000/tags/' + this.emoji, { headers: header });
       this.setState({tagPosts: response.data});
       this.setState({ loading: false })
     } catch (error) {

@@ -23,6 +23,7 @@ class ProfileScreen extends Component {
       this.state = {
         user: props.userData.user,
         cards: props.userData.cards,
+        sumclap: props.userData.sumclap,
         profileModalIsOpen: false, 
         imageModalIsOpen: false,   
         cardModalIsOpen: false
@@ -57,7 +58,7 @@ class ProfileScreen extends Component {
 
     removeCard(id) {
 
-      var deleteRoute = 'https://mojitobooks.pythonanywhere.com/post/' + id
+      var deleteRoute = 'http://127.0.0.1:5000/post/' + id
 
       const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 
@@ -90,8 +91,14 @@ class ProfileScreen extends Component {
     }
     
     render() {
-      const { user, cards, emojis } = this.state;
-      const baseUrl = 'https://mojitobooks.pythonanywhere.com'
+      const { user, cards, sumclap } = this.state;
+      const baseUrl = 'http://127.0.0.1:5000'
+
+      const sumClap = (sum) => {
+        if (sum > 1) {
+          return "Clapped " + sum + " times."
+        }
+      }
   
       return (
   
@@ -124,6 +131,10 @@ class ProfileScreen extends Component {
                   </t>
                   <t className="m-profile-description">
                     Joined {convertJoinDate(user.date_joined)}. 
+                  </t>
+                  <br />
+                  <t className="m-profile-description">
+                    {sumClap(sumclap)}
                   </t>
 
                   <div>
