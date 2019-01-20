@@ -199,6 +199,7 @@
   max-width: 100%; */
   transition: all .2s ease-in-out;
   margin: 5px;
+  margin-bottom: -1px;
 }
 
 .m-profile-whole-card-cover:hover {
