@@ -55,7 +55,7 @@ class Home extends Component {
             </div>
 
             <div className="m-profile-card-container col-lg-7 col-md-8 col-sm-8 col-xs-*">           
-              {posts.slice(0).reverse().map(function (post, i) { // reverse array map function with server data
+              {posts.map(function (post, i) {
                 return (
                   <div className="m-profile-whole-card-cover rounded" key={i}>
                     <img onClick={() => goToCard(post.id)} className="card-img-top m-profile-card-cover rounded" src={cardUrl + post.picture} alt="" />
