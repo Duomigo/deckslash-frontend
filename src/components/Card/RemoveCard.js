@@ -38,7 +38,7 @@ class RemoveCard extends Component {
   }
 
   removeCard(id) {
-    var deleteRoute = 'https://mojitobooks.pythonanywhere.com/post/' + id
+    var deleteRoute = 'http://127.0.0.1:5000/post/' + id
 
     const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 
