@@ -170,7 +170,7 @@
   font-size: 18px;
   color: #040d14;
   margin-left: 5px;
-  margin-top: 5px;
+  margin-top: 10px;
   line-height: 115%;
   margin-bottom: 0;
 }
@@ -199,7 +199,6 @@
   max-width: 100%; */
   transition: all .2s ease-in-out;
   margin: 5px;
-  margin-bottom: -5px;
 }
 
 .m-profile-whole-card-cover:hover {
