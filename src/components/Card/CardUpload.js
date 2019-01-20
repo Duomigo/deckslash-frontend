@@ -116,7 +116,7 @@ class CardUpload extends Component {
           "Authorization": bearer
       }
   
-      axios.post('http://127.0.0.1:5000/post', cardFile, { headers: header })
+      axios.post('https://mojitobooks.pythonanywhere.com/post', cardFile, { headers: header })
       .then(res => {
         window.location.href = '/profile'
       })
