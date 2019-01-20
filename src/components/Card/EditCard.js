@@ -126,8 +126,8 @@ class EditCard extends Component {
                 <button className="mr-sm-2 m-lm-update-card-button rounded" type="submit">
                   Update Post
                 </button>
-                <RemoveCard cardId={id}/>
               </form>
+              <RemoveCard cardId={id}/>
             </div>
 
         </Modal>
