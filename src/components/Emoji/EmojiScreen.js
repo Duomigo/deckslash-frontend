@@ -46,7 +46,7 @@ class EmojiScreen extends Component {
                             <div className="m-profile-whole-card-cover rounded" key={i}>
                                 <img onClick={() => goToCard(post.id)} className="card-img-top m-profile-card-cover rounded" src={cardUrl + post.picture} alt="" />
                                 <p onClick={() => goToCard(post.id)} className="m-user-card-text">{post.title}</p>
-                                <p onClick={() => goToUser(post.author)} className="m-user-desc-text">@{post.author}</p> 
+                                <p onClick={() => goToUser(post.author)} className="m-user-desc-text" style={{marginTop: '3px'}}>@{post.author}</p> 
                                 <EmojiTags emojis={post.emoji} />         
                             </div>
                         )
