@@ -57,16 +57,9 @@
 
 .navbar-button {
   color: black;
-  margin-right: 15px;
-  margin-left: 10px;
+  margin-right: 10px;
+  margin-left: 5px;
   margin-top: 5px;
-}
-
-@media only screen and (max-width: 380px) {
-  .navbar-button {
-    margin-left: 6px;
-    margin-right: 9px;
-  }
 }
 
 .navbar-signout-button {
@@ -74,7 +67,7 @@
   background-color: transparent;
   font-family: medium;
   font-size: 20px;
-  margin-right: 8px;
+  margin-right: 5px;
   margin-left: 0px;
   margin-top: 5px;
   border: none;
@@ -83,32 +76,6 @@
 
 .navbar-signout-button:hover {
   cursor: pointer;
-}
-
-.selected-navbar-button {
-  color: #040d14;
-  background-color: #eceff1;
-  font-family: lars;
-  font-size: 18px;
-  border-radius: 999px;
-  margin: 2px;
-}
-
-.selected-navbar-button:hover {
-  background-color: #eceff1;
-}
-
-.follow-button {
-  color: #eceff1;
-  background-color: #21ce99;
-  font-family: lars;
-  font-size: 18px;
-  border-radius: 999px;
-  margin: 2px;
-}
-
-.follow-button:hover {
-  background-color: #21ce99;
 }
 
 .navbar-search {
