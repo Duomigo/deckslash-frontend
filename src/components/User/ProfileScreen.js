@@ -58,7 +58,7 @@ class ProfileScreen extends Component {
 
     removeCard(id) {
 
-      var deleteRoute = 'https://mojitobooks.pythonanywhere.com/post/' + id
+      var removePost = 'https://mojitobooks.pythonanywhere.com/post/' + id
 
       const bearer = 'Bearer ' + localStorage.getItem("accessToken")
 
@@ -67,7 +67,7 @@ class ProfileScreen extends Component {
           "Authorization": bearer
       }
 
-      axios.delete(deleteRoute, { headers: header })
+      axios.delete(removePost, { headers: header })
       .then(res => {
         window.location.reload()
       })
