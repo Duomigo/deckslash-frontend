@@ -77,13 +77,13 @@ class ImageUpload extends Component {
   
       axios.post('https://mojitobooks.pythonanywhere.com/profilepic', imgFile, { headers: header })
       .then(res => {
-        console.log("Successful changed profile picture.")
-        console.log(res)
+        // console.log("Successful changed profile picture.")
+        // console.log(res)
         window.location.reload()
       })
       .catch(function (error) {
-        console.log("Failed changing profile picture.")
-        console.log(error.response);
+        // console.log("Failed changing profile picture.")
+        // console.log(error.response);
       });
 
       event.preventDefault();

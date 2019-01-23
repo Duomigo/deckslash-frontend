@@ -53,7 +53,7 @@ class App extends Component {
       const profileData = await axios.get('https://mojitobooks.pythonanywhere.com/profile', { headers: header});
       await this.setState({ currentUser: profileData.data.user.username });
     } catch (error) {
-      console.log(error.response)
+      // console.log(error.response)
       this.setState({ userLoading: true })
     }
 
