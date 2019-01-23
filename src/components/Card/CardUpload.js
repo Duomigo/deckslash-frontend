@@ -251,8 +251,6 @@ class CardUpload extends Component {
                 <div>
                   {emojis.map(function (emoji, i) {
 
-                    console.log(emojis)
-
                       let emojiConfig;
 
                       if (emoji.skin) {

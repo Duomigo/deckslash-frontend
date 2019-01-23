@@ -31,8 +31,6 @@ class CardScreen extends Component {
 
         this.setState({ claps: this.state.post.likes })
 
-        console.log("your user")
-        console.log(this.state.userOwner)
     }
 
     onClapPost = (event) => {
