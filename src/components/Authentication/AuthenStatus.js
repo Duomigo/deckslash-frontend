@@ -6,6 +6,8 @@ import '../../styles/Home.css'
 import '../../styles/User.css'
 
 import warningB from '../../images/m-warning.svg'
+import 'emoji-mart/css/emoji-mart.css';
+import { Emoji } from 'emoji-mart';
 
 const isAuth = () => {
     const token = localStorage.getItem('accessToken');
@@ -154,8 +156,13 @@ export const goToUser = (username) => {
 export const NotificationLists = (props) =>
 
     (typeof(props.noti) == 'string') ? (
-        <div className="App">
-            <p>{props.noti}</p>
+        <div className="App m-profile-error-box rounded justify-content-center" style={{marginTop: '-15px'}}>
+            <p style={{marginBottom: '0px'}}>{props.noti}</p>
+            <Emoji 
+              set="twitter" 
+              emoji="incoming_envelope"
+              size={30}
+            />
         </div>
     ) : (
         <div className="m-profile-error-box rounded row">

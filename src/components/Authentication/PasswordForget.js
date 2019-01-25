@@ -34,7 +34,7 @@ class PasswordForget extends Component {
     
         axios.post('https://mojitobooks.pythonanywhere.com/reset_password', emailAdd)
         .then(res => {
-          this.setState({ notification: res.data.msg})
+          this.setState({ notification: res.data.msg[0]})
         })
         .catch(err => {
           this.setState({ notification: err.response.data.msg })
