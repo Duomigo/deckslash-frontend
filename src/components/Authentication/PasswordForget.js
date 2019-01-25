@@ -26,9 +26,7 @@ class PasswordForget extends Component {
 
     onSubmit = (event) => {
     
-        const {
-          history,
-        } = this.props;
+        this.setState.notification = '';
     
         const emailAdd = {
           email: this.state.email,
