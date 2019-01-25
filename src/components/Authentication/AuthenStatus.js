@@ -162,6 +162,9 @@ export const NotificationLists = (props) =>
               set="twitter" 
               emoji="incoming_envelope"
               size={30}
+              onClick={(emoji, event) => {
+                window.location.href = '/t/' + emoji.id
+            }}
             />
         </div>
     ) : (

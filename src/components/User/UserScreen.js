@@ -5,7 +5,7 @@ import '../../styles/User.css';
 
 import EmojiTags from '../Emoji/EmojiTags';
 
-import { goToCard } from '../Authentication/AuthenStatus.js'
+import { goToCard, convertJoinDate } from '../Authentication/AuthenStatus.js'
 
 class UserScreen extends Component {
     constructor(props) {
@@ -59,7 +59,7 @@ class UserScreen extends Component {
                     {this.formatReview(cards.length)}.{' '}
                   </t>
                   <t className="m-profile-description">
-                    Joined Dec 2018. 
+                    Joined {convertJoinDate(user.date_joined)}. 
                   </t>
                   <br />
                   <t className="m-profile-description">

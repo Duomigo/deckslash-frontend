@@ -105,6 +105,7 @@ class App extends Component {
             <Route component={ErrorPage} />
 
           </Switch>
+          <br />
         </div>
       </Router>
     );

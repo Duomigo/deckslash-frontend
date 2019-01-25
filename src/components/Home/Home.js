@@ -44,13 +44,13 @@ class Home extends Component {
 
     return (
 
-      <div>
+      <div style={{marginBottom: '-24px'}}>
         <MenuScrollBar />        
         <div className="container-fluid">      
           <div className="row text-align-center justify-content-center">
             <div className="row col-12 justify-content-center">
               <div className="col-lg-7 col-md-8 col-sm-8 col-xs-*">
-                <h1 className="m-home-latest">Fresh mojitos</h1>
+                <h1 className="m-home-latest" style={{marginTop: '0px'}}>Fresh mojitos</h1>
               </div>
             </div>
 
