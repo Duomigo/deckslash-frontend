@@ -43,7 +43,7 @@ class SignOutButton extends Component {
 
   render() {
     return (
-      <div style={{marginLeft: '-5px'}}>
+      <div style={{marginLeft: '-7px'}}>
         <button
           className="navbar-button"
           type="button"

@@ -10,87 +10,21 @@ class MenuScrollBar extends Component {
     state = {
 
         emojis: [
-            {
-              "id": "flag-bz",
-              "name": "Belize Flag",
-              "colons": ":flag-bz:",
-              "emoticons": [],
-              "unified": "1f1e7-1f1ff",
-              "skin": null,
-              "native": "🇧🇿"
-            },
-            {
-              "id": "flag-bt",
-              "name": "Bhutan Flag",
-              "colons": ":flag-bt:",
-              "emoticons": [],
-              "unified": "1f1e7-1f1f9",
-              "skin": null,
-              "native": "🇧🇹"
-            },
-            {
-              "id": "flag-vn",
-              "name": "Vietnam Flag",
-              "colons": ":flag-vn:",
-              "emoticons": [],
-              "unified": "1f1fb-1f1f3",
-              "skin": null,
-              "native": "🇻🇳"
-            },
-            {
-              "id": "rolling_on_the_floor_laughing",
-              "name": "Rolling on the Floor Laughing",
-              "colons": ":rolling_on_the_floor_laughing:",
-              "emoticons": [],
-              "unified": "1f923",
-              "skin": null,
-              "native": "🤣"
-            },
-            {
-              "id": "avocado",
-              "name": "Avocado",
-              "colons": ":avocado:",
-              "emoticons": [],
-              "unified": "1f951",
-              "skin": null,
-              "native": "🥑"
-            },
-            {
-              "id": "joy",
-              "name": "Face with Tears of Joy",
-              "colons": ":joy:",
-              "emoticons": [],
-              "unified": "1f602",
-              "skin": null,
-              "native": "😂"
-            },
-            {
-              "id": "skull_and_crossbones",
-              "name": "Skull and Crossbones",
-              "colons": ":skull_and_crossbones:",
-              "emoticons": [],
-              "unified": "2620-fe0f",
-              "skin": null,
-              "native": "☠️"
-            },
-            {
-              "id": "joy_cat",
-              "name": "Cat Face with Tears of Joy",
-              "colons": ":joy_cat:",
-              "emoticons": [],
-              "unified": "1f639",
-              "skin": null,
-              "native": "😹"
-            },
-            {
-              "id": "japanese_ogre",
-              "name": "Japanese Ogre",
-              "colons": ":japanese_ogre:",
-              "emoticons": [],
-              "unified": "1f479",
-              "skin": null,
-              "native": "👹"
-            }
+            "rocket",
+            "rainbow",
+            "fire",
+            "milky_way",
+            "earth_americas",
+            "bridge_at_night",
+            "telescope",
+            "building_construction",
+            "keycap_ten",
+            "brain",
+            "statue_of_liberty",
+            "flying_saucer",
+            "tent",
+            "football",
+            "snail",
           ]
     }
 
@@ -99,31 +33,21 @@ class MenuScrollBar extends Component {
 
         return (
             <div className="m-menu-scroll-bar" style={{marginTop: '5px', marginBottom: '15px'}}>
-                {/* <a href="#home">Featured</a>
-                <a href="#news">Books</a>
-                <a href="#contact">Business</a>
-                <a href="#about">Design</a>
-                <a href="#support">Education</a>
-                <a href="#blog">Entertainment</a>
-                <a href="#tools">Finance</a>  
-                <a href="#custom">Health</a>
-                <a href="#logo">Humor</a>
-                <a href="#friends">Entrepreneurs</a> */}
-                {emojis.map(function (emoji, i) {
+                {emojis.map(function (emo, i) {
 
                     let emojiConfig;
 
-                    if (emoji.skin) {
-                        emojiConfig = ':' + emoji.id + '::skin-tone-' + emoji.skin + ':';
-                    } else {
-                        emojiConfig = emoji.id
-                    }
+                    // if (emoji.skin) {
+                    //     emojiConfig = ':' + emoji.id + '::skin-tone-' + emoji.skin + ':';
+                    // } else {
+                    //     emojiConfig = emoji.id
+                    // }
 
                     return (
                         <span className="m-lm-emoji-tag-menu">
                             <Emoji 
                                 set="twitter" 
-                                emoji={emojiConfig} 
+                                emoji={emo} 
                                 size={35}
                                 onClick={(emoji, event) => {
                                     window.location.href = '/t/' + emoji.id
