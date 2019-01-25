@@ -57,9 +57,11 @@
 
 .navbar-button {
   color: black;
+  background-color: transparent;
+  border: none;
+  background: none;
   margin-right: 10px;
   margin-left: 5px;
-  margin-top: 5px;
 }
 
 .navbar-signout-button {

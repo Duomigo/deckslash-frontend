@@ -43,13 +43,13 @@ class SignOutButton extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{marginLeft: '-5px'}}>
         <button
-          className="navbar-signout-button"
+          className="navbar-button"
           type="button"
           onClick={this.handleOpenModal}
         >
-          <img src={outB} width="25" height="25" alt="Out"/>
+          <img src={outB} width="25" height="25"alt="Out"/>
         </button>
 
         <Modal
