@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../styles/Home.css';
 import '../../styles/User.css';
-import axios from 'axios';
+import { refreshUser } from '../Authentication/AuthenStatus'
 
 import { Route, Redirect } from 'react-router-dom'
 import * as routes from '../../constants/routes'
@@ -11,6 +11,8 @@ class Profile extends Component {
 
     constructor(props) {
         super(props);
+
+        refreshUser();
 
         this.state = {
             currentUser: props.currentUser,
