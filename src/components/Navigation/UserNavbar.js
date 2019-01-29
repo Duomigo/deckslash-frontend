@@ -7,15 +7,11 @@ import axios from 'axios';
 import SignOutButton from '../Authentication/SignOut';
 
 import * as routes from '../../constants/routes';
-import newB from '../../images/m-new.svg'
 import profileB from '../../images/m-user.svg'
 import searchB from '../../images/m-search.svg'
 
 import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Switch
+    Link
   } from 'react-router-dom';
 
 class UserNavbar extends Component {
@@ -42,8 +38,6 @@ class UserNavbar extends Component {
   }
 
   render() {
-
-    const profilePath = "/u/" + this.state.currentUser;
 
     return (
       <nav className="navbar navbar-expand-lg navbar-style">

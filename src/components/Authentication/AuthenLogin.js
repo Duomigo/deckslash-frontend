@@ -45,10 +45,6 @@ class SignInForm extends Component {
       password,
     } = this.state;
 
-    const {
-      history,
-    } = this.props;
-
     const loginData = {
       username: username,
       password: password
@@ -64,7 +60,7 @@ class SignInForm extends Component {
       if (refreshToken) {
         localStorage.setItem('refreshToken', refreshToken);
       }
-      window.location.href = '/'
+      window.location.href = '/u/' + username;
     })
     .catch(err => {
       this.setState({ notification: err.response.data.msg })
