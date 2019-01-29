@@ -1,14 +1,4 @@
 import React, { Component } from 'react';
-import { 
-  Link,
-  withRouter 
-} from 'react-router-dom';
-
-import { SignUpLink } from '../Authentication/AuthenRegister';
-// import { PasswordForgetLink } from '../PasswordForget';
-
-import * as routes from '../../constants/routes';
-import isAuth from '../Authentication/AuthenStatus'
 
 import axios from 'axios';
 
@@ -40,13 +30,8 @@ class Account extends Component {
       username,
       name,
       email,
-      bio,
-      profile_image
+      bio
     } = this.state;
-
-    const {
-      history,
-    } = this.props;
 
     const updateData = {
       username: username,
@@ -80,7 +65,6 @@ class Account extends Component {
       name,
       email,
       bio,
-      profile_image,
       notification,
     } = this.state;
 
