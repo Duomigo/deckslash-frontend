@@ -1,10 +1,4 @@
 import React, { Component } from 'react';
-import * as routes from '../../constants/routes';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-  } from 'react-router-dom';
 
 import '../../styles/Home.css';
 import '../../styles/User.css';
@@ -86,7 +80,6 @@ class EditCard extends Component {
         title,
         description,
         id,
-        error,
     } = this.state;
 
     return (

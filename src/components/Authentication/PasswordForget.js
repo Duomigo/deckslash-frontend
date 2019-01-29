@@ -46,7 +46,6 @@ class PasswordForget extends Component {
     render() {
         const {
             email,
-            error,
             notification
           } = this.state;
       

@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '../../images/mojito.svg';
+
 import '../../styles/Home.css';
 import '../../styles/User.css';
 import '../../styles/AuthenLogin.css';
 
-import profileB from '../../images/m-user.svg'
-import searchB from '../../images/m-search.svg'
 import githubB from '../../images/m-github.svg'
-
-import * as routes from '../../constants/routes';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-  } from 'react-router-dom';
 
 class Footer extends Component {
 

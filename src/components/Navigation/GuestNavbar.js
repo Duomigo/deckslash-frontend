@@ -9,7 +9,6 @@ import searchB from '../../images/m-search.svg'
 import * as routes from '../../constants/routes';
 import {
     BrowserRouter as Router,
-    Route,
     Link
   } from 'react-router-dom';
 
