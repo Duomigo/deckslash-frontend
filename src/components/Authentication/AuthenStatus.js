@@ -40,7 +40,9 @@ export function refreshUser() {
 
         })
         .catch(function (error) {
-            
+            console.log(error.response)
+            localStorage.removeItem("accessToken");
+            localStorage.removeItem("refreshToken");
         });
     }
 }
