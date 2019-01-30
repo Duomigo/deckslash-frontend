@@ -72,7 +72,6 @@ class Home extends Component {
           </div>
         </div>
         { loading ? <LoadingScreen /> : <Footer />}
-        {/* { !loading && <Footer /> } */}
       </div>
         
     );
