@@ -35,6 +35,8 @@ class App extends Component {
         currentUser: undefined,
         userLoading: false
       }
+
+    refreshUser();
   }
 
   async componentDidMount() {
