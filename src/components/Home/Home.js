@@ -6,7 +6,8 @@ import '../../styles/User.css'
 
 import MenuScrollBar from './MenuScrollBar';
 import EmojiTags from '../Emoji/EmojiTags';
-import Footer from '../Navigation/Footer.js'
+import Footer from '../Navigation/Footer.js';
+import LoadingScreen from './LoadingScreen.js';
 
 import { goToCard, goToUser } from '../Authentication/AuthenStatus.js'
 
@@ -70,7 +71,8 @@ class Home extends Component {
             </div>
           </div>
         </div>
-        { !loading && <Footer /> }
+        { loading ? <LoadingScreen /> : <Footer />}
+        {/* { !loading && <Footer /> } */}
       </div>
         
     );
