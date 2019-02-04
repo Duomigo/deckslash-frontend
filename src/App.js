@@ -4,27 +4,20 @@ import './styles/Home.css';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Home from "./components/Home/Home.js"
 import ErrorPage from './components/Home/ErrorPage.js'
-
 import AuthenLogin from './components/Authentication/AuthenLogin.js';
 import AuthenRegister from './components/Authentication/AuthenRegister.js';
 import PasswordForget from './components/Authentication/PasswordForget.js';
-
 import isAuth from './components/Authentication/AuthenStatus.js'
-
 import Navigation from './components/Navigation/Navigation';
 import User from './components/User/User.js';
-
 import CardUpload from './components/Card/CardUpload.js'
 import Card from './components/Card/Card.js'
 import Search from './components/Navigation/Search.js'
 import Emoji from './components/Emoji/Emoji.js'
-
 import { refreshUser } from './components/Authentication/AuthenStatus.js'
-
 import axios from 'axios';
 import Switch from 'react-router-dom/Switch';
 import ResetPassword from './components/Authentication/ResetPassword';
-
 import Profile from './components/User/Profile'
 
 class App extends Component {
