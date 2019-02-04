@@ -1,4 +1,6 @@
-## Instructions for Frontend with ReactJS
+## Mojitobooks
+
+This is the front-end of [Mojitobooks](https://mojitobooks.com), written in React.js
 
 ### `npm install`
 
@@ -16,5 +18,6 @@ You will also see any lint errors in the console.
 
 The app use JWT Tokens as authentication settings. We use refresh and access tokens on a regular basis.<br>
 Watch out for CORS. Chrome Plugins might be needed.<br>
-Integrate with the backend. Website run on [Netlify](https://mojitobooks.netlify.com). Have fun with your mojitos.<br>
+Integrate with the backend. Front-end on [Netlify](https://netlify.com) for free.<br>
+Back-end written in Flask can be found at ...
 
