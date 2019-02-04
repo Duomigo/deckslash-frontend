@@ -1,6 +1,6 @@
 ## Mojitobooks
 
-This is the front-end of [Mojitobooks](https://mojitobooks.com), written in React.js. (The coders)[https://github.com/orgs/Duomigo/people]
+This is the front-end of [Mojitobooks](https://mojitobooks.com), written in React.js. [The coders](https://github.com/orgs/Duomigo/people)
 
 ### `npm install`
 
