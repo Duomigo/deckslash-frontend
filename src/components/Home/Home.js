@@ -62,8 +62,6 @@ class Home extends Component {
                     <img onClick={() => goToCard(post.id)} className="card-img-top m-profile-card-cover rounded" src={cardUrl + post.picture} alt="" />
                     <t onClick={() => goToCard(post.id)} className="m-user-card-text">{post.title}</t>
                     <t onClick={() => goToUser(post.author)} className="m-user-desc-text">@{post.author}</t> 
-                    {/* <EditCard card={post}/> */}
-                    {/* <img className="m-edit-logo" src={avatarUrl + default_avatar} height='20' width='20'/> */}
                     <EmojiTags emojis={post.emoji} />         
                   </div>
                 )
