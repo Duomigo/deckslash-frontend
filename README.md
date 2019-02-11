@@ -13,4 +13,6 @@ Watch out for CORS. Chrome Plugins might be needed.<br>
 Integrate with the backend. Front-end on [Netlify](https://netlify.com) for free.<br>
 Back-end written in Flask can be found [here](https://github.com/duomigo/mojitobooks-backend).
 
-
+### Coders
+[Huy Pham](https://mojitobooks.com/u/huy)
+[Tung Ha](https://mojitobooks.com/u/duytungha)
