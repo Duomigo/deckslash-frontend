@@ -12,3 +12,5 @@ The app use JWT Tokens as authentication settings. We use refresh and access tok
 Watch out for CORS. Chrome Plugins might be needed.<br>
 Integrate with the backend. Front-end on [Netlify](https://netlify.com) for free.<br>
 Back-end written in Flask can be found [here](https://github.com/duomigo/mojitobooks-backend).
+
+
